@@ -3,6 +3,7 @@ It's a website that introducing and exhibiting China's Filigree Inlaid Metal Art
 （这是一个介绍和展示中国花丝镶嵌艺术的网站）
 
 GitHub目录结构（示例）：
+```plaintext
 📦 filigree-website  # 项目根目录
 ├── 📂 frontend      # 前端代码（React 应用）
 │   ├── 📂 public    # 公共静态资源（图片、字体、图标）
@@ -40,3 +41,4 @@ GitHub目录结构（示例）：
 │
 ├── .gitignore       # 忽略 Git 提交的文件（如 node_modules）
 ├── README.md        # 项目总介绍
+```
