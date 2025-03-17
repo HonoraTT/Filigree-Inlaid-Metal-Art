@@ -2,7 +2,7 @@
 It's a website that introducing and exhibiting China's Filigree Inlaid Metal Art.
 （这是一个介绍和展示中国花丝镶嵌艺术的网站）
 
-GitHub目录结构（示例）：
+网站目录结构示例：
 ```plaintext
 📦 filigree-website  # 项目根目录
 ├── 📂 frontend      # 前端代码（React 应用）
