@@ -4,7 +4,7 @@ It's a website that introducing and exhibiting China's Filigree Inlaid Metal Art
 
 网站目录结构示例：
 ```plaintext
-📦 filigree-website  # 项目根目录
+📦 Filigree-Inlaid-Metal-Art # 项目根目录
 ├── 📂 frontend      # 前端代码（React 应用）
 │   ├── 📂 public    # 公共静态资源（图片、字体、图标）
 │   │   ├── images/
