@@ -9,3 +9,8 @@ const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+app.get('/api/data', (req, res) => {
+    res.json({ message: '这里是你的 API 数据' });
+});
+  
