@@ -22,17 +22,22 @@ a:hover {
   color: #535bf2;
 }
 
+/* 设置页面基本字体、背景 */
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: 'KaiTi', serif;  /* 使用楷体或者其他合适的中文字体 */
+  background-color: #F8F4E6;  /* 温暖的米白色背景 */
+  color: #4B2F22;  /* 深咖色字体 */
+}
+/* 轮播图的点 */
+.slick-dots li button:before {
+  color: #F4A261;  /* 边框颜色与标题保持一致 */
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* 使标题文字更加古典 */
+h1, h2, h3 {
+  font-family: 'KaiTi', serif;
+  font-weight: bold;
 }
 
 button {
