@@ -24,7 +24,7 @@ function App() {
     <Router>
       <Header />
       <Container>
-        <HeaderStyled>Filigree Inlaid Metal Art</HeaderStyled>
+        <HeaderStyled></HeaderStyled>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/detail" element={<DetailPage />} />
