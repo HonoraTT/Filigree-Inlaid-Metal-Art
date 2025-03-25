@@ -1,4 +1,4 @@
-// src/pages/Home.js展示首页内容
+﻿// src/pages/Home.js展示首页内容
 // src/pages/Home.js
 import React from 'react';
 import styled from 'styled-components';
