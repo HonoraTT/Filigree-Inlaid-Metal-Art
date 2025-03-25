@@ -1,22 +1,27 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
-const PORT = 5000; // Äã¿ÉÒÔÐÞ¸ÄÎªÈÎºÎ¶Ë¿Ú
+const PORT = 5000; // ä½ å¯ä»¥ä¿®æ”¹ä¸ºä»»ä½•ç«¯å£
 
-// Ê¹ÓÃ CORS ÖÐ¼ä¼þ
+// ä½¿ç”¨ CORS ä¸­é—´ä»¶
 app.use(cors());
 
-// Ê¹ÓÃ body-parser ½âÎö JSON ¸ñÊ½µÄÇëÇóÌå
+// ä½¿ç”¨ body-parser è§£æž JSON æ ¼å¼çš„è¯·æ±‚ä½“
 app.use(bodyParser.json());
 
-// ÉèÖÃÒ»¸ö¼òµ¥µÄ GET Â·ÓÉ
+// è®¾ç½®ä¸€ä¸ªç®€å•çš„ GET è·¯ç”±
 app.get("/", (req, res) => {
     res.send("Hello, Express server is running!");
 });
 
-// Æô¶¯·þÎñÆ÷
+// å¯åŠ¨æœåŠ¡å™¨
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+const connectDB = require("./config/db");
+connectDB();
