@@ -2,26 +2,29 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const connectDB = require("./config/db");
 
 const app = express();
-const PORT = 5000; // 你可以修改为任何端口
+const PORT = process.env.PORT || 5000;
 
-// 使用 CORS 中间件
+// 中间件
 app.use(cors());
+app.use(express.json()); // 使用 express 内置的 JSON 解析器
 
-// 使用 body-parser 解析 JSON 格式的请求体
-app.use(bodyParser.json());
+// 数据库连接
+connectDB(); // 确保在路由前连接数据库
 
-// 设置一个简单的 GET 路由
+// 路由
+const userRoutes = require("./routes/user");
+app.use("/api/users", userRoutes);
+
+// 测试路由
 app.get("/", (req, res) => {
-    res.send("Hello, Express server is running!");
+  res.send("Hello, Express server is running!");
 });
 
 // 启动服务器
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-const connectDB = require("./config/db");
-connectDB();
