@@ -4,22 +4,22 @@ const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 
 // Middleware
-app.use(express.json()); // ½âÎöÇëÇóÌåÖĞµÄ JSON Êı¾İ
+app.use(express.json()); // è§£æè¯·æ±‚ä½“ä¸­çš„ JSON æ•°æ®
 
-// Â·ÓÉ
-app.use('/api/auth', authRoutes); // ÓÃ»§Ïà¹ØÂ·ÓÉ
-app.use('/api/user', userRoutes); // ÓÃ»§ĞÅÏ¢Ïà¹ØÂ·ÓÉ
+// è·¯ç”±
+app.use('/api/auth', authRoutes); // ç”¨æˆ·ç›¸å…³è·¯ç”±
+app.use('/api/user', userRoutes); // ç”¨æˆ·ä¿¡æ¯ç›¸å…³è·¯ç”±
 
 module.exports = app;
 
-//-------------- Á¬½Óµ½MongoDB -----------------//
+//-------------- è¿æ¥åˆ°MongoDB -----------------//
 const mongoose = require('mongoose');
 
-// Á¬½Ó MongoDB
+// è¿æ¥ MongoDB
 mongoose.connect('mongodb://localhost:27017/filigree', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('Êı¾İ¿âÁ¬½Ó³É¹¦'))
-.catch((err) => console.error('Êı¾İ¿âÁ¬½ÓÊ§°Ü', err));
+.then(() => console.log('æ•°æ®åº“è¿æ¥æˆåŠŸ'))
+.catch((err) => console.error('æ•°æ®åº“è¿æ¥å¤±è´¥', err));
 

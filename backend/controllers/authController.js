@@ -1,15 +1,15 @@
-//------------ ´¦Àí×¢²áºÍµÇÂ¼Âß¼­ ------------//
+//------------ å¤„ç†æ³¨å†Œå’Œç™»å½•é€»è¾‘ ------------//
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-// ÓÃ»§×¢²á
+// ç”¨æˆ·æ³¨å†Œ
 exports.register = async (req, res) => {
     try {
         const { username, password } = req.body;
 
-        // ÃÜÂë¼ÓÃÜ
+        // å¯†ç åŠ å¯†
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const user = new User({
@@ -18,35 +18,35 @@ exports.register = async (req, res) => {
         });
 
         await user.save();
-        res.status(201).json({ message: 'ÓÃ»§×¢²á³É¹¦' });
+        res.status(201).json({ message: 'ç”¨æˆ·æ³¨å†ŒæˆåŠŸ' });
     } catch (error) {
-        res.status(500).json({ message: '·şÎñÆ÷´íÎó' });
+        res.status(500).json({ message: 'æœåŠ¡å™¨é”™è¯¯' });
     }
 };
 
-// ÓÃ»§µÇÂ¼
+// ç”¨æˆ·ç™»å½•
 exports.login = async (req, res) => {
     try {
         const { username, password } = req.body;
 
         const user = await User.findOne({ username });
         if (!user) {
-            return res.status(404).json({ message: 'ÓÃ»§Î´ÕÒµ½' });
+            return res.status(404).json({ message: 'ç”¨æˆ·æœªæ‰¾åˆ°' });
         }
 
-        // ÑéÖ¤ÃÜÂë
+        // éªŒè¯å¯†ç 
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
-            return res.status(400).json({ message: 'ÃÜÂë´íÎó' });
+            return res.status(400).json({ message: 'å¯†ç é”™è¯¯' });
         }
 
-        // Éú³É JWT Token
+        // ç”Ÿæˆ JWT Token
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
             expiresIn: '1h',
         });
 
         res.json({ token });
     } catch (error) {
-        res.status(500).json({ message: '·şÎñÆ÷´íÎó' });
+        res.status(500).json({ message: 'æœåŠ¡å™¨é”™è¯¯' });
     }
 };

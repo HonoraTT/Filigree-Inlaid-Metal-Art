@@ -1,16 +1,16 @@
-//------------ ´¦Àí»ñÈ¡ÓÃ»§ĞÅÏ¢Âß¼­ ------------//
+//------------ å¤„ç†è·å–ç”¨æˆ·ä¿¡æ¯é€»è¾‘ ------------//
 
 const User = require('../models/User');
 
-// »ñÈ¡ÓÃ»§ĞÅÏ¢£¨½öÏŞµÇÂ¼ÓÃ»§£©
+// è·å–ç”¨æˆ·ä¿¡æ¯ï¼ˆä»…é™ç™»å½•ç”¨æˆ·ï¼‰
 exports.getProfile = async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password');
         if (!user) {
-            return res.status(404).json({ message: 'ÓÃ»§Î´ÕÒµ½' });
+            return res.status(404).json({ message: 'ç”¨æˆ·æœªæ‰¾åˆ°' });
         }
         res.json(user);
     } catch (error) {
-        res.status(500).json({ message: '·şÎñÆ÷´íÎó' });
+        res.status(500).json({ message: 'æœåŠ¡å™¨é”™è¯¯' });
     }
 };

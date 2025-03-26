@@ -1,11 +1,11 @@
-//------------ JWT Éí·ÝÑéÖ¤ÖÐ¼ä¼þ ------------//
+//------------ JWT èº«ä»½éªŒè¯ä¸­é—´ä»¶ ------------//
 
 const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
     const token = req.header('Authorization');
     if (!token) {
-        return res.status(401).json({ message: 'Î´ÊÚÈ¨' });
+        return res.status(401).json({ message: 'æœªæŽˆæƒ' });
     }
 
     try {
@@ -13,7 +13,7 @@ const authMiddleware = (req, res, next) => {
         req.user = decoded;
         next();
     } catch (error) {
-        res.status(401).json({ message: 'ÎÞÐ§µÄ Token' });
+        res.status(401).json({ message: 'æ— æ•ˆçš„ Token' });
     }
 };
 

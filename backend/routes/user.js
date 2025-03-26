@@ -1,42 +1,42 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
-const User = require('../models/User'); // Ìí¼ÓUserÄ£ĞÍµ¼Èë
-const bcrypt = require('bcryptjs'); // ÃÜÂë¼ÓÃÜ
+const User = require('../models/User'); // æ·»åŠ Useræ¨¡å‹å¯¼å…¥
+const bcrypt = require('bcryptjs'); // å¯†ç åŠ å¯†
 
-// »ñÈ¡ÓÃ»§ĞÅÏ¢
+// è·å–ç”¨æˆ·ä¿¡æ¯
 router.get('/profile', userController.getProfile);
 
-// ×¢²áÓÃ»§ API
+// æ³¨å†Œç”¨æˆ· API
 router.post('/register', async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
-        // ÑéÖ¤ÊäÈë
+        // éªŒè¯è¾“å…¥
         if (!username || !email || !password) {
-            return res.status(400).json({ message: "ÇëÌá¹©ËùÓĞ±ØÌî×Ö¶Î" });
+            return res.status(400).json({ message: "è¯·æä¾›æ‰€æœ‰å¿…å¡«å­—ï¿½?" });
         }
 
-        // ¼ì²éÓÃ»§ÊÇ·ñÒÑ´æÔÚ
+        // æ£€æŸ¥ç”¨æˆ·æ˜¯å¦å·²å­˜åœ¨
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({ message: "ÓÃ»§ÒÑ´æÔÚ" });
+            return res.status(400).json({ message: "ç”¨æˆ·å·²å­˜ï¿½?" });
         }
 
-        // ¼ÓÃÜÃÜÂë
+        // åŠ å¯†å¯†ç 
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        // ´´½¨ĞÂÓÃ»§
+        // åˆ›å»ºæ–°ç”¨ï¿½?
         const newUser = new User({ 
             username, 
             email, 
-            password: hashedPassword // ´æ´¢¼ÓÃÜºóµÄÃÜÂë
+            password: hashedPassword // å­˜å‚¨åŠ å¯†åçš„å¯†ç 
         });
 
         await newUser.save();
 
-        // ²»·µ»ØÃÜÂë
+        // ä¸è¿”å›å¯†ï¿½?
         const userResponse = {
             _id: newUser._id,
             username: newUser.username,
@@ -45,13 +45,13 @@ router.post('/register', async (req, res) => {
         };
 
         res.status(201).json({ 
-            message: "×¢²á³É¹¦", 
+            message: "æ³¨å†ŒæˆåŠŸ", 
             user: userResponse 
         });
     } catch (error) {
-        console.error("×¢²á´íÎó:", error);
+        console.error("æ³¨å†Œé”™è¯¯:", error);
         res.status(500).json({ 
-            message: "·şÎñÆ÷´íÎó",
+            message: "æœåŠ¡å™¨é”™ï¿½?",
             error: process.env.NODE_ENV === 'development' ? error.message : undefined
         });
     }

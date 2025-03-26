@@ -1,13 +1,13 @@
-//------------ ´¦Àí×¢²áºÍµÇÂ¼Â·ÓÉ ------------//
+//------------ å¤„ç†æ³¨å†Œå’Œç™»å½•è·¯ç”± ------------//
 
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
 
-// ÓÃ»§×¢²á
+// ç”¨æˆ·æ³¨å†Œ
 router.post('/register', authController.register);
 
-// ÓÃ»§µÇÂ¼
+// ç”¨æˆ·ç™»å½•
 router.post('/login', authController.login);
 
 module.exports = router;
