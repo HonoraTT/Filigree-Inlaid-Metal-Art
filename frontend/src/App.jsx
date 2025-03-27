@@ -6,6 +6,12 @@ import DetailPage from './pages/DetailPage';
 import Header from './components/Header';
 import Footer from './components/Footer'; // 页脚
 import About from './pages/About'; // 如果有关于页�?
+import Navbar from './components/Navbar';
+import Visit from './pages/Visit';
+import Events from './pages/Events';
+import Learning from './pages/Learning';
+import Research from './pages/Research';
+
 
 // 定义样式组件
 const Container = styled.div`
@@ -26,9 +32,12 @@ function App() {
       <Container>
         <HeaderStyled></HeaderStyled>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/detail" element={<DetailPage />} />
-          <Route path="/about" element={<About />} /> {/* 如果�? About 页面 */}
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/visit" element={<Visit />} />
+        <Route path="/events" element={<Events />} />
+        <Route path="/learning" element={<Learning />} />
+        <Route path="/research" element={<Research />} />
         </Routes>
       </Container>
     </Router>

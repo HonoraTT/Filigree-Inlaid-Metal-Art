@@ -10,6 +10,7 @@ const HomeWrapper = styled.div`
   font-family: 'KaiTi', serif; /* 使用楷体，符合古风 */
   color: #ffffff;
   background-color: #f8f9fa;
+  padding-top: 0px;
 `;
 
 const TitleSection = styled.div`
@@ -46,10 +47,7 @@ const ImageWrapper = styled.div`
 // 图片轮播样式
 const SlideWrapper = styled.div`
   width: 100%;
-  height: 500px; /* 设置轮播图高度 */
-  border: 4px solid #F4A261;  /* 边框颜色与标题保持一致 */
-  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);  /* 添加阴影效果 */
-  border-radius: 10px;
+  height: 100%;
   overflow: hidden; /* 防止图片溢出 */
 `;
 
