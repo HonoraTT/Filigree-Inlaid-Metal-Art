@@ -1,4 +1,4 @@
-//About.js：如果有关于页面，也可以在这里创建
+﻿//About.js：如果有关于页面，也可以在这里创建
 // src/pages/About.jsx
 import React from 'react';
 

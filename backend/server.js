@@ -1,22 +1,30 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
-const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+const connectDB = require("./config/db");
 
 const app = express();
-const PORT = 5000; // Äã¿ÉÒÔÐÞ¸ÄÎªÈÎºÎ¶Ë¿Ú
+const PORT = process.env.PORT || 5000;
 
-// Ê¹ÓÃ CORS ÖÐ¼ä¼þ
+// ä¸­é—´ä»¶
 app.use(cors());
+app.use(express.json()); // ä½¿ç”¨ express å†…ç½®çš„ JSON è§£æžå™¨
 
-// Ê¹ÓÃ body-parser ½âÎö JSON ¸ñÊ½µÄÇëÇóÌå
-app.use(bodyParser.json());
+// æ•°æ®åº“è¿žæŽ¥
+connectDB(); // ç¡®ä¿åœ¨è·¯ç”±å‰è¿žæŽ¥æ•°æ®åº“
 
-// ÉèÖÃÒ»¸ö¼òµ¥µÄ GET Â·ÓÉ
+// è·¯ç”±
+const userRoutes = require("./routes/user");
+app.use("/api/users", userRoutes);
+
+// æµ‹è¯•è·¯ç”±
 app.get("/", (req, res) => {
-    res.send("Hello, Express server is running!");
+  res.send("Hello, Express server is running!");
 });
 
-// Æô¶¯·þÎñÆ÷
+// å¯åŠ¨æœåŠ¡å™¨
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });

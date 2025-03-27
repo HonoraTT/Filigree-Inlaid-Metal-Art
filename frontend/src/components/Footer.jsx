@@ -1,4 +1,4 @@
-//Footer.js：页面底部的版权信息或其他内容
+﻿//Footer.js：页面底部的版权信息或其他内容
 //Footer 组件的样式
 // src/components/Footer.js
 import React from 'react';
