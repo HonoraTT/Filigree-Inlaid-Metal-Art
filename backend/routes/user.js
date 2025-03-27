@@ -27,7 +27,7 @@ router.post('/register', async (req, res) => {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
 
-        // 创建新用�?
+        // 创建新用户
         const newUser = new User({ 
             username, 
             email, 
@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
 
         await newUser.save();
 
-        // 不返回密�?
+        // 不返回密码
         const userResponse = {
             _id: newUser._id,
             username: newUser.username,
@@ -51,7 +51,7 @@ router.post('/register', async (req, res) => {
     } catch (error) {
         console.error("注册错误:", error);
         res.status(500).json({ 
-            message: "服务器错�?",
+            message: "服务器错误",
             error: process.env.NODE_ENV === 'development' ? error.message : undefined
         });
     }

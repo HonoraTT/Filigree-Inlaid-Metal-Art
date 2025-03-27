@@ -1,4 +1,4 @@
-//DetailPage.js：展示详细信息内�?
+//DetailPage.js：展示详细信息内容
 // src/pages/DetailPage.js
 import React from 'react';
 import styled from 'styled-components';
