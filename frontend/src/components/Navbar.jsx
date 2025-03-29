@@ -38,8 +38,8 @@ const Navbar = () => {
       <Menu.Item key="events">
         <Link to="/events">匠人档案</Link>
       </Menu.Item>
-      <Menu.Item key="learning">
-        <Link to="/learning">文创商店</Link>
+      <Menu.Item key="store">
+        <Link to="/store">文创商店</Link>
       </Menu.Item>
       <Menu.Item key="research">
         <Link to="/research">联系我们</Link>
