@@ -33,10 +33,10 @@ const Navbar = () => {
         <Link to="/learning">作品展示</Link>
       </Menu.Item>
       <Menu.Item key="visit">
-        <Link to="/visit">关于工艺</Link>
+        <Link to="/visit">工艺百科</Link>
       </Menu.Item>
       <Menu.Item key="events">
-        <Link to="/events">匠人故事</Link>
+        <Link to="/events">匠人档案</Link>
       </Menu.Item>
       <Menu.Item key="learning">
         <Link to="/learning">文创商店</Link>
