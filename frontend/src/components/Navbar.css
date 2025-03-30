@@ -15,7 +15,7 @@
 
 /* 滚动状态 */
 .navbar-container.scrolled {
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(183, 50, 50, 0.3);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -62,3 +62,64 @@
     padding: 0 10px;
   }
 }
+
+
+.custom-menu.ant-menu-horizontal > .ant-menu-item:hover {
+    color: #ffd700 !important;
+    background: transparent !important;
+  }
+  
+  /* 新增：设置选中/点击状态 */
+  .custom-menu .ant-menu-item-selected,
+  .custom-menu .ant-menu-item-selected:hover {
+    background-color: rgba(183, 50, 50, 0.3) !important; /* 使用你的主题红色 */
+    color: #ffd700 !important;
+  }
+  
+  .custom-menu .ant-menu-item:active {
+    background-color: rgba(183, 50, 50, 0.5) !important;
+  }
+
+  /* 点击后保留指示条 */
+.custom-menu .ant-menu-item-selected::after {
+    border-bottom: 2px solid #ffd700 !important;
+    bottom: -2px; /* 调整位置 */
+  }
+
+  /* 导航栏容器 - 水平均匀排列 */
+.custom-menu.ant-menu-horizontal {
+    display: flex !important;
+    justify-content: space-around !important; /* 或 space-between */
+    border-bottom: none !important;
+    background: transparent !important;
+  }
+  
+  /* 菜单项样式 */
+  .custom-menu.ant-menu-horizontal > .ant-menu-item {
+    flex: 1; /* 等宽分布 */
+    text-align: center;
+    padding: 0 10px !important;
+    margin: 0 !important;
+    border-bottom: none !important;
+  }
+  
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .custom-menu.ant-menu-horizontal {
+      flex-wrap: wrap;
+    }
+    .custom-menu.ant-menu-horizontal > .ant-menu-item {
+      flex: 0 0 50%; /* 小屏幕每行显示2个 */
+      padding: 0 5px !important;
+    }
+  }
+
+  /* 匹配导航栏高度 */
+body {
+    padding-top: 30px; /* 根据导航栏实际高度调整 */
+  }
+  
+  /* 如果使用Ant Design Layout */
+  .ant-layout-content {
+    padding-top: 64px !important;
+  }
