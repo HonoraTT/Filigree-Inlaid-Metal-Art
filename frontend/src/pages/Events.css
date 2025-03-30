@@ -1,0 +1,70 @@
+/* src/pages/Events.css */
+
+.artisan-profile-container {
+    display: flex;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .left-image {
+    flex: 1;
+    height: 100%;
+    position: relative;
+  }
+  
+  .left-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .right-content {
+    flex: 2;
+    padding: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+  }
+  
+  .right-content h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .right-content .bio {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .timeline, .more-info {
+    margin-top: 30px;
+  }
+  
+  .timeline h3, .more-info h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  ul li {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  ul li a {
+    text-decoration: none;
+    color: #007BFF;
+  }
+  
+  ul li a:hover {
+    text-decoration: underline;
+  }
+  
