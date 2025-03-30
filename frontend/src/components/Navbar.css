@@ -1,76 +1,64 @@
-/* 导入古风字体 */
+/* 预加载字体（推荐在index.html中加载） */
 @import url('https://fonts.googleapis.com/css2?family=Zhi_Mang_Xing&display=swap');
 
-/* 设置导航栏背景和透明度 */
-.navbar {
-    display: flex; /* 启用 Flex 布局 */
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem;
-    justify-content: space-between; /* 均匀分布*/
-   
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
-    padding: 20px 20px;
-    color: rgba(207, 136, 159, 0.914);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px);
-    transition: background 0.3s ease;
-    font-family: 'Zhi Mang Xing', cursive !important; /* 强制应用古风字体 */
+/* 外层容器 - 处理固定定位和背景效果 */
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(188, 146, 146, 0.6);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
-/* 当用户滚动时导航栏透明度变化 */
-.navbar.scrolled {
-    background: rgba(0, 0, 0, 0.1);
+/* 滚动状态 */
+.navbar-container.scrolled {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* 设置菜单项样式 */
-.ant-menu-horizontal {
-    border-bottom: none;
+/* 覆盖Ant Design菜单样式 */
+.custom-menu.ant-menu {
+  background: transparent !important;
+  border-bottom: none !important;
+  max-width: 1200px;
+  margin: 0 auto;
+  line-height: 64px; /* 调整菜单项垂直居中 */
+  font-family: 'Zhi Mang Xing', cursive;
 }
 
-/* 设置所有菜单项的字体和颜色 */
-.navbar .ant-menu-item, 
-.navbar .ant-dropdown-menu-item, 
-.navbar a {
-    font-family: 'Zhi Mang Xing', cursive !important; /* 强制应用古风字体 */
-    color: white !important; /* 确保文字颜色为白色 */
+/* 菜单项样式 */
+.custom-menu.ant-menu-horizontal > .ant-menu-item {
+  color: white !important;
+  font-size: 18px;
+  padding: 0 20px;
+  transition: color 0.3s;
 }
 
-/* 鼠标悬停时的颜色变化 */
-.navbar .ant-menu-item:hover, 
-.navbar .ant-dropdown-menu-item:hover {
-    color: #ffd700 !important; /* 鼠标悬停时文字颜色为金色 */
-    background: transparent !important; /* 鼠标悬停时去掉背景色 */
+/* 菜单项悬停效果 */
+.custom-menu.ant-menu-horizontal > .ant-menu-item:hover {
+  color: #ffd700 !important;
+  background: transparent !important;
 }
 
-/* 设置菜单项的字体大小和粗细 */
-.navbar .ant-menu-item, 
-.navbar .ant-dropdown-menu-item {
-    font-size: 20px !important;
-    font-weight: 400 !important;
+/* 链接样式 */
+.custom-menu.ant-menu-item a {
+  color: inherit !important;
+  display: block;
 }
 
-/* 设置菜单项下拉菜单背景 */
-.ant-dropdown-menu {
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-/* 设置导航栏中的链接 */
-.navbar a {
-    color: white;
-    text-decoration: none;
-}
-
-/* 设置手机端菜单项布局 */
+/* 响应式调整 */
 @media (max-width: 768px) {
-    .navbar .ant-menu-horizontal {
-        display: block;
-    }
-
-
+  .custom-menu.ant-menu {
+    line-height: 48px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .custom-menu.ant-menu-horizontal > .ant-menu-item {
+    font-size: 16px;
+    padding: 0 10px;
+  }
 }
