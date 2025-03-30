@@ -3,6 +3,12 @@
 
 /* 设置导航栏背景和透明度 */
 .navbar {
+    display: flex; /* 启用 Flex 布局 */
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: space-between; /* 均匀分布*/
+   
     position: fixed;
     top: 0;
     left: 0;
@@ -10,7 +16,7 @@
     z-index: 1000;
     background: rgba(0, 0, 0, 0.6); /* 半透明黑色 */
     padding: 20px 20px;
-    color: white;
+    color: rgba(207, 136, 159, 0.914);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     transition: background 0.3s ease;
