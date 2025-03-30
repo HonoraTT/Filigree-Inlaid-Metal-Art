@@ -11,7 +11,7 @@ import Visit from './pages/Visit';
 import Events from './pages/Events';
 import Learning from './pages/Learning';
 import Research from './pages/Research';
-
+import Store from './pages/Store';
 
 // 定义样式组件
 const Container = styled.div`
@@ -38,6 +38,8 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/learning" element={<Learning />} />
         <Route path="/research" element={<Research />} />
+        <Route path="/store" element={<Store />} />
+
         </Routes>
       </Container>
     </Router>
