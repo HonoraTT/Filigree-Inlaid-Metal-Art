@@ -12,6 +12,8 @@ import Events from './pages/Events';
 import Learning from './pages/Learning';
 import Research from './pages/Research';
 import Store from './pages/Store';
+import ArtisanDetail from './artisan-detail/ArtisanDetail';
+
 
 // 定义样式组件
 const Container = styled.div`
@@ -39,7 +41,7 @@ function App() {
         <Route path="/learning" element={<Learning />} />
         <Route path="/research" element={<Research />} />
         <Route path="/store" element={<Store />} />
-
+        <Route path="/artisan-detail/:name" element={<ArtisanDetail />} /> {/* 匠人详情页面，使用名字动态路由 */}
         </Routes>
       </Container>
     </Router>

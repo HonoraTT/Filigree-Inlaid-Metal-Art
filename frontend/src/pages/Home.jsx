@@ -108,7 +108,7 @@ const Home = () => {
 
       {/* 背景介绍 */}
       <TitleSection>
-        <Title>非遗花丝镶嵌艺术</Title>
+        <Title></Title>
         <Description>
           传承千年工艺，探索精美的花丝镶嵌艺术，了解其悠久历史和制作技艺。
         </Description>
