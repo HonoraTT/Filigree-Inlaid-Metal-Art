@@ -32,6 +32,16 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav a {
+    padding: 10px;
+  }
+}
 
 .card {
   padding: 2em;
