@@ -7,9 +7,18 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+    
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
+    
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -20,6 +29,8 @@ const Navbar = () => {
         mode="horizontal"
         className="custom-menu"
         theme="dark" // 使用暗色主题避免默认亮色冲突
+        selectable={false}  // 如果不需要选中状态
+        style={{transition: 'none'}}  // 禁用动画
       >
         <Menu.Item key="home">
           <Link to="/">首页</Link>

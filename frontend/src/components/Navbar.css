@@ -8,9 +8,12 @@
   left: 0;
   right: 0;
   z-index: 1000;
+  width:100%;
   background: rgba(188, 146, 146, 0.6);
   backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(10px); /* Safari 兼容 */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  will-change: background-color, backdrop-filter;
 }
 
 /* 滚动状态 */
@@ -51,6 +54,9 @@
 
 /* 响应式调整 */
 @media (max-width: 768px) {
+  .navbar-container {
+    transition: none !important; /* 禁用分屏下的过渡 */
+  }
   .custom-menu.ant-menu {
     line-height: 48px;
     display: flex;
@@ -60,6 +66,7 @@
   .custom-menu.ant-menu-horizontal > .ant-menu-item {
     font-size: 16px;
     padding: 0 10px;
+    transition: none !important;
   }
 }
 
@@ -103,16 +110,7 @@
     border-bottom: none !important;
   }
   
-  /* 响应式调整 */
-  @media (max-width: 768px) {
-    .custom-menu.ant-menu-horizontal {
-      flex-wrap: wrap;
-    }
-    .custom-menu.ant-menu-horizontal > .ant-menu-item {
-      flex: 0 0 50%; /* 小屏幕每行显示2个 */
-      padding: 0 5px !important;
-    }
-  }
+
 
   /* 匹配导航栏高度 */
 body {
