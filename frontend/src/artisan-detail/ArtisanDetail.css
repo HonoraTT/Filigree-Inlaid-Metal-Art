@@ -1,0 +1,87 @@
+/* src/artisan-detail/ArtisanDetail.css */
+
+.artisan-detail-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  /* 标题 */
+  .header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .header .meta {
+    font-size: 1rem;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  .header .meta span {
+    margin-right: 15px;
+  }
+  
+  /* 顶部主图 */
+  .image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* 正文内容 */
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .content .text {
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .story-content {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+    white-space: pre-wrap;
+  }
+  
+  /* ✅ 插图和注释样式 —— 全屏生效 */
+  .image-container {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .artisan-img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .caption {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #555;
+    text-align: center;
+    font-style: italic;
+  }
+  
+  /* 响应式设计（仅用于微调小屏） */
+  @media (max-width: 768px) {
+    .artisan-detail-container {
+      padding: 15px;
+    }
+  
+    .header h1 {
+      font-size: 2rem;
+    }
+  }
+  
