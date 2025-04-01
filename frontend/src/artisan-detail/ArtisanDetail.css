@@ -42,13 +42,13 @@
   }
   
   .content .text {
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     color: #555;
   }
   
   .story-content {
     margin-top: 20px;
-    font-size: 1.2rem;
+    font-size: 1.05rem;
     color: #333;
     white-space: pre-wrap;
   }
