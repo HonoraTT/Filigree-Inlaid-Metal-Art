@@ -1,7 +1,9 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper-bundle.min.css';  // 引入 Swiper 样式
-import './Process.css'; // 引入自定义样式
+import 'swiper/css';  // 核心样式
+import 'swiper/css/navigation';  // 导入导航样式（如果需要）
+
+import './Process.css';  // 自定义样式
 
 const Process = () => {
   return (
