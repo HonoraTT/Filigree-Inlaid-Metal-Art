@@ -1,33 +1,229 @@
+
+
+/* 删除 footer */
+footer {
+    display: none;
+  }
+  
+  /* 基本页面样式 */
 .process-page {
-    width: 100%;
-    height: 100vh;
-    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+    background-size: cover; /* 让背景图覆盖整个容器 */
+    background-position: center center; /* 背景图居中 */
+    background-attachment: fixed; /* 背景图固定，滚动时不随内容滚动 */
     padding: 20px;
+    color: #fff; /* 如果背景较深，文字颜色改为白色 */
+    background-image: url('/images/工艺流程背景图.png'); /* 这里是你的背景图路径 */
+  }
+  
+  /* 项目标题 */
+  .animated-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+/* 步骤内容的横向布局 */
+.step-layout-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    gap: 40px;
+    max-width: 900px;  /* 限制整体容器的宽度 */
+    margin: 0 auto;  /* 居中显示 */
+  }
+  
+  /* 文字内容的宽度设置 */
+  .step-text {
+    width: 60% !important;  /* 设置文字部分宽度 */
+    max-width: 600px !important;  /* 设置最大宽度 */
+    font-size: 18px;
+    line-height: 1.7;
+    color: #444;
+  }
+  
+  
+  /* 图片部分的宽度设置 */
+  .step-image {
+    width: 35%;  /* 设置图片部分宽度 */
+  }
+  
+  .step-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .step-text h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  
+  /* Swiper 样式 */
+  .swiper-container {
+    margin-bottom: 50px;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
   }
   
   .step {
-    background: #fff;
+    width: 80%;
+    max-width: 900px;
+    background-color: #fff;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   
+  
   .step h2 {
-    font-size: 2rem;
-    color: #333;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
   }
   
   .step p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #555;
   }
   
-  .swiper-button-next, .swiper-button-prev {
-    background-color: rgba(0, 0, 0, 0.5);
+  /* 视频模态框 */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
     color: white;
-    border-radius: 50%;
+    border: none;
     padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
   }
   
+  .close-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+/* 视频按钮区域 */
+.video-buttons {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 调整按钮之间的间距 */
+  }
+  
+  .video-button {
+    background-color: #f1f1f1;  /* 背景颜色 */
+    color: #333;  /* 文字颜色 */
+    border: 1px solid #ddd;  /* 边框颜色 */
+    padding: 12px 20px;  /* 调整内边距 */
+    width: 50px;  /* 固定按钮宽度 */
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;  /* 圆角效果 */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* 加阴影效果 */
+    transition: all 0.3s ease;  /* 添加平滑过渡效果 */
+    
+    /* 文字竖排效果 */
+    writing-mode: vertical-rl;  /* 竖排文字 */
+    text-align: center;  /* 确保文字水平居中 */
+    transform: rotate(0deg); /* 旋转文字，使其朝上 */
+  }
+  
+  .video-button:hover {
+    background-color: #d3d3d3;  /* 鼠标悬停时的背景颜色 */
+    border-color: #bbb;  /* 鼠标悬停时的边框颜色 */
+  }
+  
+  .video-button:focus {
+    outline: none;  /* 去掉聚焦时的轮廓 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);  /* 鼠标点击后的阴影效果 */
+  }
+  
+  /* 页面布局容器 */
+  .content-box {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+  .swiper-button-prev,
+.swiper-button-next {
+  display: block !important;
+  z-index: 10;
+  color: #333;
+}
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .swiper-button-prev,
+.swiper-button-next {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 10 !important;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  color: #333 !important;
+  font-size: 20px;
+  top: 50% !important;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.swiper-button-prev {
+  left: 10px !important;
+}
+
+.swiper-button-next {
+  right: 10px !important;
+}
