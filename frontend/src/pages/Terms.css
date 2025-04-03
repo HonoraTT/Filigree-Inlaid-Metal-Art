@@ -1,0 +1,66 @@
+/* Terms 页面容器 */
+.terms-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-image: url('/images/术语解释背景图.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+  }
+  
+  /* 术语列表 */
+  .terms-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+  }
+  
+  /* 每个术语项 */
+  .term-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, margin 0.3s ease;
+  }
+  
+  /* 当鼠标悬停时，术语项上移 */
+  .term-item.hovered {
+    transform: translateY(-10px); /* 向上移动 */
+    margin-bottom: 20px; /* 给下方术语项留出空间 */
+  }
+  
+  /* 术语名称 */
+  .term-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    text-align: center;
+  }
+  
+  /* 解释内容 */
+  .term-definition {
+    font-size: 14px;
+    color: #555;
+    background-color: rgba(255, 255, 255, 0.9); /* 半透明背景 */
+    padding: 15px;
+    border-radius: 5px;
+    position: absolute; /* 绝对定位，使其浮动在上方 */
+    top: 100%; /* 放置在术语下方 */
+    left: 0;
+    width: 100%;
+    transform: translateY(10px);
+    opacity: 0; /* 初始状态为不可见 */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  /* 当术语项悬停时，解释内容变为可见并滑入 */
+  .term-item.hovered .term-definition {
+    opacity: 1;
+    transform: translateY(0); /* 解释内容平滑滑入 */
+  }
+  
