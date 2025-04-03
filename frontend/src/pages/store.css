@@ -1,0 +1,76 @@
+/* src/styles/store.css */
+
+/* 首页横幅样式 */
+.store-landing .hero-image {
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .store-landing .hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+  }
+  
+  .store-landing h1 {
+    font-size: 3rem;
+    font-weight: bold;
+  }
+  
+  .store-landing button {
+    margin-top: 1rem;
+    padding: 12px 24px;
+    background: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* 商品展示页 */
+  .store-shop {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  
+  .sidebar {
+    width: 200px;
+    border-right: 1px solid #ccc;
+  }
+  
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    flex: 1;
+  }
+  
+  .product-card {
+    background: #f5f5f5;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-card h4 {
+    margin: 0.5rem 0;
+  }
+  
+  button {
+    background: black;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    cursor: pointer;
+  }
+  

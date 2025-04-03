@@ -44,7 +44,7 @@ const Navbar = () => {
         <Menu.Item key="events">
           <Link to="/events">匠人档案</Link>
         </Menu.Item>
-        <Menu.Item key="store">
+        <Menu.Item key="storelanding">
           <Link to="/store">文创商店</Link>
         </Menu.Item>
         <Menu.Item key="research">
