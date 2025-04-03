@@ -1,4 +1,6 @@
 /* Terms 页面容器 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&display=swap'); /* Noto Serif SC */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC&display=swap');  /* Noto Serif SC */
 .terms-container {
     padding: 20px;
     font-family: Arial, sans-serif;
@@ -12,8 +14,18 @@
   .terms-list {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 25px;
     position: relative;
+  }
+
+  /* 设置标题的古风效果 */
+.terms-container h1 {
+    font-family: 'Noto Serif SC', serif;
+    
+    font-size: 36px;
+    font-weight: bold;
+    color: #704214; /* 深棕色，适合古风 */
+    margin-bottom: 30px;
   }
   
   /* 每个术语项 */
@@ -30,23 +42,28 @@
   
   /* 当鼠标悬停时，术语项上移 */
   .term-item.hovered {
-    transform: translateY(-10px); /* 向上移动 */
-    margin-bottom: 20px; /* 给下方术语项留出空间 */
+    transform: translateY(-20px); /* 向上移动 */
+    margin-bottom: 30px; /* 给下方术语项留出空间 */
   }
   
   /* 术语名称 */
-  .term-name {
+/* 术语名称 */
+.term-name {
+    font-family: 'Noto Serif SC', serif;
     font-weight: bold;
     font-size: 18px;
-    color: #333;
+    color: #4b2e1c; /* 深红色，符合古风 */
     text-align: center;
+    letter-spacing: 1px; /* 增加字间距，使文字更具古风气息 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* 为文字添加阴影效果 */
   }
   
   /* 解释内容 */
   .term-definition {
-    font-size: 14px;
+    font-family: 'Noto Serif SC', serif;  /* 使用清晰易读的古风字体 */
+    font-size: 16px;
     color: #555;
-    background-color: rgba(255, 255, 255, 0.9); /* 半透明背景 */
+    background-color: rgba(249, 243, 243, 0.5); /* 半透明背景 */
     padding: 15px;
     border-radius: 5px;
     position: absolute; /* 绝对定位，使其浮动在上方 */
