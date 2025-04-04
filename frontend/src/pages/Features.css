@@ -1,0 +1,74 @@
+/* Features 页面容器 */
+.features-container {
+    padding: 20px;
+    font-family: 'Noto Serif SC', serif;
+    background-image: url('/images/工艺特点背景图.png'); /* 设置背景图路径 */
+    background-size: cover; /* 背景图覆盖整个容器 */
+    background-position: center; /* 背景图居中显示 */
+    background-repeat: no-repeat; /* 防止背景图重复 */
+    background-attachment: fixed; /* 背景图固定，滚动时不移动 */
+  }
+  
+  /* 页面标题 */
+  .features-header h1 {
+    text-align: center;
+    font-size: 36px;
+    font-weight: bold;
+    color: #704214; /* 深棕色，适合古风 */
+    margin-bottom: 30px;
+  }
+  
+  /* 每个描述项的容器 */
+  .context-box {
+    background-color: rgba(255, 255, 255, 0.9); /* 半透明背景 */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    max-width: 900px; /* 限制最大宽度 */
+    line-height: 1.6;
+    margin-bottom: 50px; /* 描述和轮播之间的间隙 */
+  }
+  
+  /* 标题 */
+  .context-box h2 {
+    font-size: 30px;
+    color: #4b2e1c;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* 描述文本 */
+  .context-box p {
+    font-size: 18px;
+    color: #4b2e1c;
+    font-family: 'Noto Serif SC', serif;
+    text-align: justify; /* 两端对齐 */
+    line-height: 1.8;
+  }
+  
+  /* 图片轮播样式 */
+  .features-swiper {
+    margin-top: 20px;
+  }
+  
+  /* 每个图片项 */
+  .feature-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .feature-item img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 鼠标悬停时的效果 */
+  .feature-item:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  

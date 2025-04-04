@@ -49,7 +49,7 @@ const Process = () => {
           <div className="step animated-step fade-in-up">
             <div className="step-layout-horizontal">
               <div className="step-image">
-                <img src="/images/qiasi.jpg" alt="掐丝" />
+                <img src="/images/工艺流程/掐丝.png" alt="掐丝" />
               </div>
               <div className="step-text">
                 <h2>掐丝</h2>
@@ -64,7 +64,7 @@ const Process = () => {
           <div className="step animated-step fade-in-up">
             <div className="step-layout-horizontal">
               <div className="step-image">
-                <img src="/images/material.jpg" alt="填丝" />
+                <img src="/images/工艺流程/工艺2.png" alt="填丝" />
               </div>
               <div className="step-text">
                 <h2>填丝</h2>
@@ -77,7 +77,7 @@ const Process = () => {
           <div className="step animated-step fade-in-up">
             <div className="step-layout-horizontal">
               <div className="step-image">
-                <img src="/images/qiasi.jpg" alt="攒活" />
+                <img src="/images/工艺流程/工艺3.png" alt="攒活" />
               </div>
               <div className="step-text">
                 <h2>攒活</h2>
@@ -90,7 +90,7 @@ const Process = () => {
           <div className="step animated-step fade-in-up">
             <div className="step-layout-horizontal">
               <div className="step-image">
-                <img src="/images/qiasi.jpg" alt="焊接" />
+                <img src="/images/工艺流程/工艺4.png" alt="焊接" />
               </div>
               <div className="step-text">
                 <h2>焊接</h2>
@@ -103,7 +103,7 @@ const Process = () => {
           <div className="step animated-step fade-in-up">
             <div className="step-layout-horizontal">
               <div className="step-image">
-                <img src="/images/qiasi.jpg" alt="堆垒" />
+                <img src="/images/工艺流程/工艺5.png" alt="堆垒" />
               </div>
               <div className="step-text">
                 <h2>堆垒</h2>
@@ -116,7 +116,7 @@ const Process = () => {
           <div className="step animated-step fade-in-up">
             <div className="step-layout-horizontal">
               <div className="step-image">
-                <img src="/images/qiasi.jpg" alt="织编" />
+                <img src="/images/工艺流程/工艺6.png" alt="织编" />
               </div>
               <div className="step-text">
                 <h2>织编</h2>
