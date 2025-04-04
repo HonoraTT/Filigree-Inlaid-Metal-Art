@@ -8,17 +8,23 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  width:100%;
-  background: rgba(188, 146, 146, 0.6);
+  width: 100%;
+  /* 新增背景图片设置 */
+  background: 
+    linear-gradient(rgba(216, 121, 26, 0.6), rgba(139, 45, 21, 0.6)), /* 保留原有半透明色作为叠加层 */
+    url('/images/NavbarImage/Barbg.png') center bottom/cover no-repeat; /* 背景图片 */
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px); /* Safari 兼容 */
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   will-change: background-color, backdrop-filter;
+  height: 64px; /* 确保高度固定 */
 }
 
-/* 滚动状态 */
+/* 滚动状态 - 调整背景图片的透明度 */
 .navbar-container.scrolled {
-  background: rgba(183, 50, 50, 0.3);
+  background: 
+    linear-gradient(rgba(183, 50, 50, 0.3), rgba(183, 50, 50, 0.3)),
+    url('/images/NavbarImage/Barbg.png') center bottom/cover no-repeat;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -34,10 +40,12 @@
 
 /* 菜单项样式 */
 .custom-menu.ant-menu-horizontal > .ant-menu-item {
+  font-family: 'FangSong', serif;
   color: white !important;
   font-size: 18px;
   padding: 0 20px;
   transition: color 0.3s;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* 添加文字阴影提高可读性 */
 }
 
 /* 菜单项悬停效果 */
@@ -56,6 +64,7 @@
 @media (max-width: 768px) {
   .navbar-container {
     transition: none !important; /* 禁用分屏下的过渡 */
+    height: 48px; /* 移动端高度调整 */
   }
   .custom-menu.ant-menu {
     line-height: 48px;
@@ -70,54 +79,51 @@
   }
 }
 
-
 .custom-menu.ant-menu-horizontal > .ant-menu-item:hover {
-    color: #ffd700 !important;
-    background: transparent !important;
-  }
-  
-  /* 新增：设置选中/点击状态 */
-  .custom-menu .ant-menu-item-selected,
-  .custom-menu .ant-menu-item-selected:hover {
-    background-color: rgba(183, 50, 50, 0.3) !important; /* 使用你的主题红色 */
-    color: #ffd700 !important;
-  }
-  
-  .custom-menu .ant-menu-item:active {
-    background-color: rgba(183, 50, 50, 0.5) !important;
-  }
+  color: #ffd700 !important;
+  background: transparent !important;
+}
 
-  /* 点击后保留指示条 */
+/* 新增：设置选中/点击状态 */
+.custom-menu .ant-menu-item-selected,
+.custom-menu .ant-menu-item-selected:hover {
+  background-color: rgba(183, 50, 50, 0.3) !important;
+  color: #ffd700 !important;
+}
+
+.custom-menu .ant-menu-item:active {
+  background-color: rgba(183, 50, 50, 0.5) !important;
+}
+
+/* 点击后保留指示条 */
 .custom-menu .ant-menu-item-selected::after {
-    border-bottom: 2px solid #ffd700 !important;
-    bottom: -2px; /* 调整位置 */
-  }
+  border-bottom: 2px solid #ffd700 !important;
+  bottom: -2px; /* 调整位置 */
+}
 
-  /* 导航栏容器 - 水平均匀排列 */
+/* 导航栏容器 - 水平均匀排列 */
 .custom-menu.ant-menu-horizontal {
-    display: flex !important;
-    justify-content: space-around !important; /* 或 space-between */
-    border-bottom: none !important;
-    background: transparent !important;
-  }
-  
-  /* 菜单项样式 */
-  .custom-menu.ant-menu-horizontal > .ant-menu-item {
-    flex: 1; /* 等宽分布 */
-    text-align: center;
-    padding: 0 10px !important;
-    margin: 0 !important;
-    border-bottom: none !important;
-  }
-  
+  display: flex !important;
+  justify-content: space-around !important;
+  border-bottom: none !important;
+  background: transparent !important;
+}
 
+/* 菜单项样式 */
+.custom-menu.ant-menu-horizontal > .ant-menu-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 10px !important;
+  margin: 0 !important;
+  border-bottom: none !important;
+}
 
-  /* 匹配导航栏高度 */
+/* 匹配导航栏高度 */
 body {
-    padding-top: 30px; /* 根据导航栏实际高度调整 */
-  }
-  
-  /* 如果使用Ant Design Layout */
-  .ant-layout-content {
-    padding-top: 64px !important;
-  }
+  padding-top: 64px; /* 根据导航栏实际高度调整 */
+}
+
+/* 如果使用Ant Design Layout */
+.ant-layout-content {
+  padding-top: 64px !important;
+}

@@ -9,7 +9,7 @@ import About from './pages/About'; // 如果有关于页�
 import Navbar from './components/Navbar';
 import Visit from './pages/Visit';
 import Events from './pages/Events';
-import Learning from './pages/Learning';
+import Gallery from './pages/Gallery';
 import Research from './pages/Research';
 import StoreLanding from './pages/StoreLanding';
 import StoreShop from './pages/StoreShop';
@@ -43,7 +43,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/visit" element={<Visit />} />
           <Route path="/events" element={<Events />} />
-          <Route path="/learning" element={<Learning />} />
+          <Route path="/gallery" element={<Gallery />} />
           <Route path="/research" element={<Research />} />
           <Route path="/store" element={<StoreLanding />} />
           <Route path="/shop" element={<StoreShop />} />

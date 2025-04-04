@@ -1,3 +1,20 @@
+@font-face {
+  font-family: 'HuaSiFont';
+  src: url('/fonts/禹卫书法行书简体.TTF') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 避免文字闪烁 */
+}
+
+@font-face {
+  font-family: 'FangSong';
+  src: url('/fonts/AaGuDianKeBenSong-2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 避免文字闪烁 */
+}
+
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -26,7 +43,7 @@ a:hover {
 body {
   margin: 0;
   font-family: 'KaiTi', serif;  /* 使用楷体或者其他合适的中文字体 */
-  background-color: #F8F4E6;  /* 温暖的米白色背景 */
+  background-color:transparent  !important;  
   color: #4B2F22;  /* 深咖色字体 */
 }
 /* 轮播图的点 */
@@ -36,7 +53,7 @@ body {
 
 /* 使标题文字更加古典 */
 h1, h2, h3 {
-  font-family: 'KaiTi', serif;
+  font-family: 'FangSong', serif;
   font-weight: bold;
 }
 
@@ -71,3 +88,5 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
