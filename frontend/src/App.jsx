@@ -13,7 +13,7 @@ import Gallery from './pages/Gallery';
 import Research from './pages/Research';
 import StoreLanding from './pages/StoreLanding';
 import StoreShop from './pages/StoreShop';
-
+import ProductDetail from './pages/ProductDetail'; // 确保导入ProductDetail
 import ArtisanDetail from './artisan-detail/ArtisanDetail';
 import Introduction from './pages/Introduction';
 import Process from './pages/Process';
