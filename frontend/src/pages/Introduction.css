@@ -7,35 +7,36 @@
   
   .timeline-container {
     position: relative;
-    max-width: 1200px;
+    max-width: 2000px;
     margin: 0 auto;
+    background-color: transparent !important; /* 让容器完全透明 */
     padding: 40px 0 100px; /* 增加底部留白 */
   }
   
   .center-line {
     position: absolute;
     left: 50%;
-    width: 4px;
-    background: #6b4f3a;
+    width: 2px;
+    background: #856954;
     transform: translateX(-50%);
-    transition: height 0.3s ease; /* 添加高度过渡动画 */
+    transition: height 1s ease; /* 添加高度过渡动画 */
   }
   
   .timeline-item {
     width: 45%;
     opacity: 0;
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     margin: 30px 0; /* 统一间距 */
   }
   
   .timeline-item.left {
-    left: 5%;
+    left: 4%;
     transform: translateX(-30px);
   }
   
   .timeline-item.right {
-    left: 50%;
+    left: 51%;
     transform: translateX(30px);
   }
   
@@ -45,11 +46,20 @@
   }
   
   .content {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.1);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     position: relative;
     margin: 2rem 0;
+  }
+  /* 传承意义部分样式 */
+.meaning-section {
+    max-width: 2000px; /* 最大宽度限制 */
+    margin: 6rem auto; /* 上下留出更多的间距，并使其居中 */
+    padding: 3rem; /* 内边距，给内容一定的空间 */
+    background: rgba(255, 255, 255, 0.1); /* 背景色稍微透明 */
+    border-radius: 16px; /* 圆角效果 */
+    
   }
   
