@@ -1,16 +1,139 @@
-.login-container {
+/* 背景样式 */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/LoginImages/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    padding: 20px;
+  }
+  
+  /* 半透明遮罩 */
+  .login-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(93, 64, 55, 0.4); /* 使用主题色系 */
+    z-index: 0;
+  }
+  
+  .login-container {
     max-width: 400px;
-    margin: 2rem auto;
+    width: 100%;
     padding: 2rem;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(246, 218, 193, 0.95);
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
   }
   
   .login-container h2 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #5d4037; /* 棕色系，符合传统工艺风格 */
+    color: #5d4037;
+  }
+  
+  .third-party-login {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .third-party-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: rgb(253, 246, 226);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    position: relative;
+  }
+  
+  .third-party-btn .icon {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    left: 15px;
+  }
+  
+  .third-party-btn.google {
+    color: #4285F4;
+    border-color: #D9D9D9;
+  }
+  
+  .third-party-btn.google:hover {
+    background: #F8F9FA;
+    border-color: #D1D1D1;
+  }
+  
+  .third-party-btn.github {
+    color: #24292E;
+    border-color: #D9D9D9;
+  }
+  
+  .third-party-btn.github:hover {
+    background: #F6F8FA;
+    border-color: #D1D1D1;
+  }
+  
+  .divider {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .divider::before,
+  .divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .divider::before {
+    margin-right: 10px;
+  }
+  
+  .divider::after {
+    margin-left: 10px;
+  }
+  
+  .login-types {
+    display: flex;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .login-types button {
+    flex: 1;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .login-types button.active {
+    border-bottom-color: #8d6e63;
+    color: #8d6e63;
+    font-weight: bold;
   }
   
   .form-group {
@@ -20,25 +143,122 @@
   .form-group label {
     display: block;
     margin-bottom: 0.5rem;
+    color: #5d4037;
+    font-weight: 500;
   }
   
   .form-group input {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
     border: 1px solid #ddd;
     border-radius: 4px;
+    transition: border-color 0.3s;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #8d6e63;
+  }
+  
+  .phone-input {
+    display: flex;
+  }
+  
+  .phone-input .country-code {
+    width: 80px;
+    margin-right: 10px;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: white;
+  }
+  
+  .phone-input input {
+    flex: 1;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  
+  .forgot-password {
+    color: #8d6e63;
+    cursor: pointer;
+    font-size: 14px;
+    transition: color 0.2s;
+  }
+  
+  .forgot-password:hover {
+    color: #6d4c41;
+    text-decoration: underline;
   }
   
   .btn {
-    width: 100%;
     padding: 0.75rem;
     background-color: #8d6e63;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 500;
   }
   
   .btn:hover {
     background-color: #6d4c41;
+  }
+  
+  .toggle-auth {
+    text-align: center;
+    margin-top: 1rem;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .toggle-auth span {
+    color: #8d6e63;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: color 0.2s;
+  }
+  
+  .toggle-auth span:hover {
+    color: #6d4c41;
+    text-decoration: underline;
+  }
+  
+  .browser-trial {
+    text-align: center;
+    margin-top: 1.5rem;
+    color: #999;
+    font-size: 12px;
+  }
+  
+  .alert {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    background-color: #f8d7da;
+    color: #721c24;
+    font-size: 14px;
+    border: 1px solid #f5c6cb;
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 480px) {
+    .login-container {
+      padding: 1.5rem;
+    }
+    
+    .login-page {
+      background-attachment: scroll;
+      padding: 10px;
+    }
+    
+    .phone-input .country-code {
+      width: 70px;
+    }
   }

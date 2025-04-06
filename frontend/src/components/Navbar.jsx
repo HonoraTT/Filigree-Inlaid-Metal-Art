@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import './Navbar.css'; // 确保路径正确
+import { UserOutlined } from '@ant-design/icons';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -50,6 +51,17 @@ const Navbar = () => {
         <Menu.Item key="research">
           <Link to="/research">联系我们</Link>
         </Menu.Item>
+        
+        <Menu.Item 
+          key="login" 
+          style={{ marginLeft: 'auto' }} // 关键：让登录项靠右
+        >
+          <Link to="/login">
+            <UserOutlined style={{ fontSize: '16px' }} />
+            <span style={{ marginLeft: '8px' }}>登录</span>
+          </Link>
+        </Menu.Item>
+
       </Menu>
     </div>
   );
