@@ -38,7 +38,7 @@ const Home = () => {
       title: "匠人档案",
       description: "认识非遗传承大师，聆听他们的工艺故事。这些匠人用毕生心血守护着传统工艺的薪火相传。",
       imageUrl: "/images/nav/artisans.png",
-      linkPath: "/event",
+      linkPath: "/events",
       index: "03"
     },
     {
@@ -46,7 +46,7 @@ const Home = () => {
       title: "文创商店",
       description: "收藏传统艺术精品，将千年工艺带回家。我们精选最具代表性的花丝镶嵌作品，让传统美学融入现代生活。",
       imageUrl: "/images/nav/store.png",
-      linkPath: "/storeLanding",
+      linkPath: "/store",
       index: "04"
     },
     {
@@ -70,7 +70,7 @@ const Home = () => {
           width: "100vw",
           height: "100vh",
           zIndex: 0,
-          backgroundImage: "url('/images/HomePageImages/ancientbackground.jpg')",
+          backgroundImage: "url('/images/HomePageImages/ancientbackground.png')",
           opacity: bgOpacity,
           backgroundSize: "cover",
         }}

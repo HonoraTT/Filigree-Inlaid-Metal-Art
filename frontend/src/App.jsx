@@ -13,12 +13,13 @@ import Gallery from './pages/Gallery';
 import Research from './pages/Research';
 import StoreLanding from './pages/StoreLanding';
 import StoreShop from './pages/StoreShop';
-
 import ArtisanDetail from './artisan-detail/ArtisanDetail';
 import Introduction from './pages/Introduction';
 import Process from './pages/Process';
 import Features from './pages/Features';
 import Terms from './pages/Terms';
+
+import Login from  './pages/Login';
 
 // 定义样式组件
 const Container = styled.div`
@@ -39,6 +40,7 @@ function App() {
       <Container>
         <HeaderStyled></HeaderStyled>
         <Routes>
+          <Route path="/login" element={<Login />} />
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/visit" element={<Visit />} />

@@ -25,7 +25,7 @@ const DunhuangParallaxHeader = ({ scrollProgress = { get: () => 0 } }) => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundImage: "url('/images/HomePageImages/ancientbackground.jpg')",
+          //backgroundImage: "url('/images/HomePageImages/ancientbackground.png')",
           //backgroundColor: "rgba(0,0,0,0.3)", // 改用半透明黑色测试
           backgroundSize: "cover",
           zIndex: 0,
