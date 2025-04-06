@@ -51,42 +51,51 @@ const StoreShop = () => {
         </div>
       </div>
 
-      <aside className="sidebar">
-        <h3>分类</h3>
-        <ul>
-          <li onClick={() => setSelectedCategory('所有')}>所有</li>
-          <li onClick={() => setSelectedCategory('首饰')}>首饰</li>
-          <li onClick={() => setSelectedCategory('家居装饰')}>家居装饰</li>
-          <li onClick={() => setSelectedCategory('手工艺品')}>手工艺品</li>
-        </ul>
-        <h3>筛选</h3>
-        <p>价格：¥{priceRange[0]} - ¥{priceRange[1]}</p>
-        <input
-          type="range"
-          min="18"
-          max="130"
-          value={priceRange[0]}
-          onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
-        />
-        <input
-          type="range"
-          min="18"
-          max="130"
-          value={priceRange[1]}
-          onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
-        />
-      </aside>
+      <div className="store-shop-content">
+        {/* 侧边栏 */}
+        <aside className="sidebar">
+          <h3>分类</h3>
+          <ul>
+            <li onClick={() => setSelectedCategory('所有')}>所有</li>
+            <li onClick={() => setSelectedCategory('首饰')}>首饰</li>
+            <li onClick={() => setSelectedCategory('家居装饰')}>家居装饰</li>
+            <li onClick={() => setSelectedCategory('手工艺品')}>手工艺品</li>
+          </ul>
+          <h3>筛选</h3>
+          <p>价格：¥{priceRange[0]} - ¥{priceRange[1]}</p>
+          <input
+            type="range"
+            min="18"
+            max="130"
+            value={priceRange[0]}
+            onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
+          />
+          <input
+            type="range"
+            min="18"
+            max="130"
+            value={priceRange[1]}
+            onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
+          />
+        </aside>
 
-      <main className="products">
-        {filteredProducts.map((item) => (
-          <div key={item.id} className="product-card">
-            <img src={item.image} alt={item.name} />
-            <h4>{item.name}</h4>
-            <p>¥{item.price}</p>
-            <button onClick={() => handleAddToCart(item)}>加入购物车</button>
+        {/* 商品展示区域 */}
+        <main className="products-container">
+          {/* 显示分类标题 */}
+          <h2 className="category-title">{selectedCategory === '所有' ? '所有商品' : selectedCategory}</h2>
+
+          <div className="products">
+            {filteredProducts.map((item) => (
+              <div key={item.id} className="product-card">
+                <img src={item.image} alt={item.name} />
+                <h4>{item.name}</h4>
+                <p>¥{item.price}</p>
+                <button onClick={() => handleAddToCart(item)}>加入购物车</button>
+              </div>
+            ))}
           </div>
-        ))}
-      </main>
+        </main>
+      </div>
     </div>
   );
 };
