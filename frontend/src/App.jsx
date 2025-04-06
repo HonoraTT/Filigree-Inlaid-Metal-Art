@@ -13,6 +13,7 @@ import Gallery from './pages/Gallery';
 import Research from './pages/Research';
 import StoreLanding from './pages/StoreLanding';
 import StoreShop from './pages/StoreShop';
+
 import ArtisanDetail from './artisan-detail/ArtisanDetail';
 import Introduction from './pages/Introduction';
 import Process from './pages/Process';
@@ -49,6 +50,7 @@ function App() {
           <Route path="/research" element={<Research />} />
           <Route path="/store" element={<StoreLanding />} />
           <Route path="/shop" element={<StoreShop />} />
+          <Route path="/shop/:id" element={<ProductDetail />} />  {/* 商品详情页面 */}
           <Route path="/artisan-detail/:name" element={<ArtisanDetail />} /> {/* 匠人详情页面，使用名字动态路由 */}
           <Route path="/visit/introduction" element={<Introduction />} />
           <Route path="/visit/process" element={<Process />} />

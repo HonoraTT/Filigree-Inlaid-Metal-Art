@@ -1,76 +1,116 @@
-/* src/styles/store.css */
+/* 样式用于顶部搜索框和购物车 */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ccc;
+}
 
-/* 首页横幅样式 */
-.store-landing .hero-image {
-    height: 90vh;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-  
-  .store-landing .hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-  }
-  
-  .store-landing h1 {
-    font-size: 3rem;
-    font-weight: bold;
-  }
-  
-  .store-landing button {
-    margin-top: 1rem;
-    padding: 12px 24px;
-    background: black;
-    color: white;
-    border: none;
-    cursor: pointer;
-  }
-  
-  /* 商品展示页 */
+.search-cart {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: 8px;
+  margin-right: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.cart-button {
+  padding: 8px 16px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-button:hover {
+  background-color: #333;
+}
+
+/* 商品展示 */
+.store-shop {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.sidebar {
+  width: 200px;
+  border-right: 1px solid #ccc;
+  padding-right: 1rem;
+}
+
+.sidebar h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  color: #007bff;
+}
+
+/* 商品展示区域 */
+.products {
+  flex: 2 1 85%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.product-card h4 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.product-card p {
+  margin: 0;
+  color: #666;
+}
+
+@media (max-width: 768px) {
   .store-shop {
-    display: flex;
-    padding: 2rem;
-    gap: 2rem;
+    flex-direction: column;
   }
-  
-  .sidebar {
-    width: 200px;
-    border-right: 1px solid #ccc;
-  }
-  
+
   .products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 2rem;
-    flex: 1;
+    grid-template-columns: 1fr;
   }
-  
-  .product-card {
-    background: #f5f5f5;
-    padding: 1rem;
-    text-align: center;
-    border-radius: 8px;
-  }
-  
-  .product-card img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .product-card h4 {
-    margin: 0.5rem 0;
-  }
-  
-  button {
-    background: black;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    cursor: pointer;
-  }
-  
+}
