@@ -4,6 +4,14 @@ import 'swiper/css';  // 核心样式
 import 'swiper/css/navigation';  // 导入导航样式
 import './Features.css';  // 自定义样式
 
+/**
+ * 功能组件：Features
+ *
+ * 用于展示花丝镶嵌工艺的特点，包括精致工艺、艺术性与表现力、材质与耐久性、历史与文化价值等。
+ * 组件包含一个文本描述区域和一个图片轮播区域，用户可以通过鼠标移动切换图片，点击图片可以查看对应的详细描述。
+ *
+ * @returns 返回 JSX 元素，展示花丝镶嵌工艺的特点。
+ */
 const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   const swiperRef = useRef(null);  // 创建 swiper 引用
