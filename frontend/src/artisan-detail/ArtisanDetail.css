@@ -1,87 +1,103 @@
-/* src/artisan-detail/ArtisanDetail.css */
+/* 给页面的空白部分添加背景图 */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url('/images/匠人详情背景图.png'); /* 这里设置页面背景图路径 */
+  background-size: cover; /* 背景图覆盖整个页面 */
+  background-position: center center; /* 背景图居中 */
+  background-repeat: no-repeat; /* 防止背景图重复 */
+}
 
+/* 匠人详情容器的样式 */
 .artisan-detail-container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff; /* 保证内容区有白色背景 */
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  border-radius: 10px; /* 设置容器圆角 */
+}
+
+/* 标题 */
+.header h1 {
+  font-size: 2.0rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* 元数据部分 */
+.header .meta {
+  font-size: 1rem;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.header .meta span {
+  margin-right: 15px;
+}
+
+/* 图片部分 */
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* 正文内容部分 */
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 文字部分 */
+.content .text {
+  font-size: 1.05rem;
+  color: #555;
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明背景确保文字清晰 */
+  padding: 15px;
+  border-radius: 10px; /* 圆角 */
+}
+
+/* 文本区域 */
+.story-content {
+  margin-top: 20px;
+  font-size: 1.05rem;
+  color: #333;
+  white-space: pre-wrap;
+}
+
+/* 插图和注释样式 */
+.image-container {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.artisan-img {
+  max-width: 60%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.caption {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #555;
+  text-align: center;
+  font-style: italic;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .artisan-detail-container {
+    padding: 15px;
   }
-  
-  /* 标题 */
+
   .header h1 {
-    font-size: 2.0rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
+    font-size: 2rem;
   }
-  
-  .header .meta {
-    font-size: 1rem;
-    color: #777;
-    margin-bottom: 20px;
-  }
-  
-  .header .meta span {
-    margin-right: 15px;
-  }
-  
-  /* 顶部主图 */
-  .image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  /* 正文内容 */
-  .content {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .content .text {
-    font-size: 1.05rem;
-    color: #555;
-  }
-  
-  .story-content {
-    margin-top: 20px;
-    font-size: 1.05rem;
-    color: #333;
-    white-space: pre-wrap;
-  }
-  
-  /* ✅ 插图和注释样式 —— 全屏生效 */
-  .image-container {
-    text-align: center;
-    margin: 30px 0;
-  }
-  
-  .artisan-img {
-    max-width: 60%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .caption {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #555;
-    text-align: center;
-    font-style: italic;
-  }
-  
-  /* 响应式设计（仅用于微调小屏） */
-  @media (max-width: 768px) {
-    .artisan-detail-container {
-      padding: 15px;
-    }
-  
-    .header h1 {
-      font-size: 2rem;
-    }
-  }
-  
+}
