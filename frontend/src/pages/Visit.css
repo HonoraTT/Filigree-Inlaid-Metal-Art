@@ -1,40 +1,30 @@
-/* Visit.css 修复版 */
+/* Visit.css */
+
 .visit-page {
   display: flex;
-  min-height: 100vh; /* 使用最小高度保证基准 */
-  background: #fff; /* 设置页面背景色 */
-  position: relative;
-  overflow: hidden;
+  height: 100vh; /* 确保页面高度占满屏幕 */
+  overflow: hidden; /* 防止背景图溢出 */
 }
 
-/* 优化后的 visit-section */
 .visit-section {
   flex: 1;
-  height: 100vh; /* 显式设置高度 */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  transition: transform 0.5s ease; /* 更改为 transform 以便于控制动画效果 */
+  background-size: cover; /* 背景图覆盖整个容器 */
+  background-position: center; /* 背景图居中显示 */
+  background-repeat: no-repeat; /* 防止背景图重复 */
+  transition: flex 0.5s ease, transform 0.5s ease;
   position: relative;
   cursor: pointer;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.1); /* 简化内阴影 */
+  min-height: 100%; /* 确保背景图适应容器的高度 */
 }
 
-/* 简化背景保护层 */
-.section-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: inherit;
-  z-index: 1;
+.visit-section:hover {
+  flex: 1.5;
+  transform: scale(1.02); /* 鼠标悬停时放大 */
+  z-index: 2; /* 确保悬停效果优先显示 */
 }
 
-/* 简化 overlay */
+/* 遮罩层样式 */
 .section-overlay {
-  position: relative;
-  z-index: 2; /* 确保内容在背景层之上 */
   height: 100%;
   width: 100%;
   color: white;
@@ -42,30 +32,42 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.3s ease;
   text-align: center;
-  background: linear-gradient(
-    to bottom,
-    rgba(0,0,0,0.4) 0%,
-    rgba(0,0,0,0.4) 50%,
-    rgba(0,0,0,0.4) 100%
-  ); /* 简化渐变遮罩 */
 }
 
+.section-overlay h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.section-overlay p {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* 响应式设计：调整较小屏幕下的布局 */
 @media (max-width: 768px) {
+  .visit-page {
+      flex-direction: column; /* 在小屏幕下，改变布局为垂直排列 */
+      height: auto; /* 使页面自适应内容高度 */
+  }
+
   .visit-section {
-    height: 50vh;
-    min-height: 400px; /* 保证最小高度 */
-    flex: unset;
-    width: 100%;
+      height: 50vh; /* 在小屏幕下限制每个区块的高度 */
+      background-attachment: scroll; /* 解决背景固定效果在移动端上的问题 */
   }
 
   .visit-section:hover {
-    transform: none; /* 保证小屏幕下无浮动效果 */
+      flex: unset; /* 取消鼠标悬停时的伸展效果 */
+      transform: scale(1.01); /* 在小屏幕上放大比例稍微减小 */
   }
 }
 
-/* 新增全局背景覆盖 */
-body {
-  margin: 0;
-  background: #fff !important; /* 强制覆盖默认背景色 */
-}
+/* 进一步优化背景图的显示，避免在大屏设备上出现重复背景 */
+@media (min-width: 992px) {
+  .visit-section {
+      background-attachment: fixed; /* 背景图固定，滚动时不移动 */
+  }
+} 
