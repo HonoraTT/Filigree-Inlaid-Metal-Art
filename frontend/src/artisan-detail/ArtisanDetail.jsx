@@ -12,7 +12,7 @@ const artisans = [
     bio: '辜国强，花丝镶嵌工艺大师，致力于传承传统的匠人技艺，历经多年研究与创新，作品广受欢迎。',
     date: '2025-03-31',
     source: '中国文化遗产博物馆',
-    image: '/images/辜国强.png', // 图片路径
+    image: '/images/images匠人/辜国强.png', // 图片路径
   },
   {
     name: '白静宜',
@@ -20,7 +20,7 @@ const artisans = [
     bio: '白静宜，民间艺术传承者，专注于中国传统文化的推广和创新。',
     date: '2025-03-30',
     source: '中国民间艺术馆',
-    image: '/images/白静宜.png', // 图片路径
+    image: '/images/images匠人/白静宜.png', // 图片路径
   },
   {
     name: '董瑞京',
@@ -28,7 +28,7 @@ const artisans = [
     bio: '董瑞京，民间艺术传承者，专注于中国传统文化的推广和创新。',
     date: '2025-03-30',
     source: '中国民间艺术馆',
-    image: '/images/董瑞京.png', // 图片路径
+    image: '/images/images匠人/董瑞京.png', // 图片路径
   },
   {
     name: '李昌义',
@@ -36,7 +36,7 @@ const artisans = [
     bio: '李昌义，民间艺术传承者，专注于中国传统文化的推广和创新。',
     date: '2025-03-30',
     source: '中国民间艺术馆',
-    image: '/images/李昌义.png', // 图片路径
+    image: '/images/images匠人/李昌义.png', // 图片路径
   },
   {
     name: '马维盛',
@@ -44,7 +44,7 @@ const artisans = [
     bio: '马维盛，民间艺术传承者，专注于中国传统文化的推广和创新。',
     date: '2025-03-30',
     source: '中国民间艺术馆',
-    image: '/images/马维盛.png', // 图片路径
+    image: '/images/images匠人/马维盛.png', // 图片路径
   },
   {
     name: '王树文',
@@ -52,7 +52,7 @@ const artisans = [
     bio: '王树文，民间艺术传承者，专注于中国传统文化的推广和创新。',
     date: '2025-03-30',
     source: '中国民间艺术馆',
-    image: '/images/王树文.png', // 图片路径
+    image: '/images/images匠人/王树文.png', // 图片路径
   },
 ];
 

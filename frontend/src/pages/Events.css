@@ -1,70 +1,76 @@
-/* src/pages/Events.css */
+/* artisan-profile-container 样式保持不变 */
+/* 为整个页面添加背景图 */
 
 .artisan-profile-container {
-    display: flex;
-    padding: 20px;
-    background-color: #fff;
+  display: flex;
+  padding: 50px;
+  background-color: #fff;
+  align-items: stretch;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.left-image {
+  flex: 1;
+  min-width: 50%;
+  position: relative;
+  margin-right: 30px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 中央对齐图片 */
+}
+
+.left-image img {
+  width: 100%;   /* 让图片充满容器 */
+  height: auto;  /* 自动调整高度 */
+  object-fit: contain; /* 图片完全显示，保持比例 */
+  transition: transform 0.3s ease;
+}
+
+.left-image:hover img {
+  transform: scale(1.05); /* 悬停时放大效果 */
+}
+
+.right-content {
+  flex: 1;
+  min-width: 50%;
+  padding: 40px;
+  background-color: #f8f9fa;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+  .artisan-profile-container {
+    flex-direction: column;
+    padding: 30px;
   }
-  
+
   .left-image {
-    flex: 1;
-    height: 100%;
-    position: relative;
+    margin-right: 0;
+    margin-bottom: 30px;
   }
-  
-  .left-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+}
+
+@media (max-width: 576px) {
+  .left-image {
+    height: auto;
   }
-  
-  .right-content {
-    flex: 2;
-    padding: 20px;
-    background-color: #f8f9fa;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin-left: 20px;
-  }
-  
-  .right-content h2 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .right-content .bio {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-  }
-  
-  .timeline, .more-info {
-    margin-top: 30px;
-  }
-  
-  .timeline h3, .more-info h3 {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    list-style-type: none;
-  }
-  
-  ul li {
-    font-size: 16px;
-    margin: 10px 0;
-  }
-  
-  ul li a {
-    text-decoration: none;
-    color: #007BFF;
-  }
-  
-  ul li a:hover {
-    text-decoration: underline;
-  }
-  
+}
+
+/* 确保内容区域背景半透明 */
+.right-content {
+  background-color: rgba(248, 249, 250, 0.9);
+}
+
+/* 匠人列表悬停效果 */
+.artisan-item:hover {
+  transform: translateX(10px);
+  transition: transform 0.3s ease;
+}
