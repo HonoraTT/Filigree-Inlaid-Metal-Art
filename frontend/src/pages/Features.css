@@ -106,6 +106,8 @@
   max-width: 900px; /* 限制最大宽度 */
   line-height: 1.6;
   margin-bottom: 50px; /* 描述和轮播之间的间隙 */
+  height: 400px; /* 固定高度 */
+  overflow: auto; /* 内容超出时滚动 */
 }
 
 /* 标题 */
