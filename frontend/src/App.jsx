@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Visit from './pages/Visit';
 import Events from './pages/Events';
 import Gallery from './pages/Gallery';
+import Cart from './components/Cart/Cart';
 
 import Research from './pages/Research';
 import StoreLanding from './pages/StoreLanding';
@@ -52,6 +53,7 @@ function App() {
           <Route path="/store" element={<StoreLanding />} />
           <Route path="/shop" element={<StoreShop />} />
           <Route path="/shop/:id" element={<ProductDetail />} />  {/* 商品详情页面 */}
+          <Route path="/cart" element={<Cart />} />
           <Route path="/artisan-detail/:name" element={<ArtisanDetail />} /> {/* 匠人详情页面，使用名字动态路由 */}
           <Route path="/visit/introduction" element={<Introduction />} />
           <Route path="/visit/process" element={<Process />} />
