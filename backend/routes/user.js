@@ -3,9 +3,10 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 const User = require('../models/User'); // 添加User模型导入
 const bcrypt = require('bcryptjs'); // 密码加密
+const authMiddleware = require('../middlewares/authMiddleware');
 
 // 获取用户信息
-router.get('/profile', userController.getProfile);
+router.get('/profile', authMiddleware, userController.getProfile);
 
 // 注册用户 API
 router.post('/register', async (req, res) => {
@@ -14,13 +15,13 @@ router.post('/register', async (req, res) => {
 
         // 验证输入
         if (!username || !email || !password) {
-            return res.status(400).json({ message: "请提供所有必填字�?" });
+            return res.status(400).json({ message: "请提供所有必填字段" });
         }
 
         // 检查用户是否已存在
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({ message: "用户已存�?" });
+            return res.status(400).json({ message: "用户已存在" });
         }
 
         // 加密密码
