@@ -40,8 +40,8 @@ const Gallery = () => {
     }
   ];
 
-  // 下一张
-  const handleNext = () => {
+  // 上一张
+  const handlePrev = () => {
     if (slideRef.current) {
       const items = slideRef.current.querySelectorAll('.item');
       if (items.length > 0) {
@@ -50,8 +50,8 @@ const Gallery = () => {
     }
   };
 
-  // 上一张
-  const handlePrev = () => {
+  // 下一张
+  const handleNext = () => {
     if (slideRef.current) {
       const items = slideRef.current.querySelectorAll('.item');
       if (items.length > 0) {
