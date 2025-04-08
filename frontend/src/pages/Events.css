@@ -1,76 +1,131 @@
-/* artisan-profile-container 样式保持不变 */
-/* 为整个页面添加背景图 */
-
 .artisan-profile-container {
   display: flex;
-  padding: 50px;
-  background-color: #fff;
-  align-items: stretch;
+  flex-wrap: wrap;
+  background-color: #f5f5f5; /* 古风柔和背景色 */
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 40px auto;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.left-image {
-  flex: 1;
-  min-width: 50%;
-  position: relative;
-  margin-right: 30px;
-  overflow: hidden;
-  border-radius: 10px;
-  background: #f0f0f0;
+/* 图文左右分布 */
+.profile-wrapper {
+  flex: 1 1 50%;
   display: flex;
   justify-content: center;
-  align-items: center; /* 中央对齐图片 */
-}
-
-.left-image img {
-  width: 100%;   /* 让图片充满容器 */
-  height: auto;  /* 自动调整高度 */
-  object-fit: contain; /* 图片完全显示，保持比例 */
-  transition: transform 0.3s ease;
-}
-
-.left-image:hover img {
-  transform: scale(1.05); /* 悬停时放大效果 */
-}
-
-.right-content {
-  flex: 1;
-  min-width: 50%;
-  padding: 40px;
-  background-color: #f8f9fa;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  align-items: center;
   position: relative;
-  z-index: 1;
+  padding: 20px;
 }
 
-/* 响应式调整 */
-@media (max-width: 992px) {
+/* 修改后的图文容器，图片作为背景 */
+.image-text-combined {
+  width: 100%;
+  max-width: 480px;
+  position: relative;
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+.image-text-combined:hover {
+  transform: scale(1.05);
+}
+
+.artisan-img {
+  display: none; /* 隐藏图片 */
+}
+
+/* 文字层叠在背景上 */
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+  color: #fff;
+  font-family: 'KaiTi', '楷体', 'serif'; /* 古风字体 */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.image-overlay h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.image-overlay .bio {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* 右侧匠人列表区域 */
+.right-content {
+  flex: 1 1 50%;
+  background: #fafafa;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: 'KaiTi', '楷体', 'serif'; /* 古风字体 */
+}
+
+.right-content h2 {
+  font-size: 24px;
+  color: #704214; /* 深棕色，符合古风感觉 */
+  margin-bottom: 20px;
+  text-align: center;
+  border-bottom: 2px solid #704214; /* 添加下划线 */
+  padding-bottom: 8px;
+}
+
+.artisan-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.artisan-item {
+  padding: 12px 16px;
+  border-left: 4px solid transparent;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  font-family: 'KaiTi', '楷体', 'serif'; /* 古风字体 */
+}
+
+.artisan-item:hover {
+  border-left: 4px solid #704214;
+  background-color: #f0eae2;
+  transform: translateX(4px);
+}
+
+/* 页面响应式设计 */
+@media (max-width: 768px) {
   .artisan-profile-container {
     flex-direction: column;
-    padding: 30px;
   }
 
-  .left-image {
-    margin-right: 0;
-    margin-bottom: 30px;
+  .profile-wrapper, .right-content {
+    flex: 1 1 100%;
+    padding: 20px;
   }
-}
 
-@media (max-width: 576px) {
-  .left-image {
+  .image-text-combined {
+    aspect-ratio: auto;
     height: auto;
   }
-}
 
-/* 确保内容区域背景半透明 */
-.right-content {
-  background-color: rgba(248, 249, 250, 0.9);
-}
-
-/* 匠人列表悬停效果 */
-.artisan-item:hover {
-  transform: translateX(10px);
-  transition: transform 0.3s ease;
+  .image-overlay {
+    position: relative;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 0 0 12px 12px;
+  }
 }

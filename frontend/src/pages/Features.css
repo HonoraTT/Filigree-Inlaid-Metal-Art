@@ -10,7 +10,26 @@
   min-height: 100vh; /* 使容器至少占满屏幕 */
   position: relative;
 }
+/* 图标容器 */
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  transition: all 0.3s ease;
+}
 
+/* 图标样式 */
+.feature-icon {
+  width: 80px;
+  height: 80px;
+  padding: 15px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
 /* 页面标题 */
 .features-header h1 {
   text-align: center;
@@ -19,7 +38,53 @@
   color: #704214; /* 深棕色，适合古风 */
   margin-bottom: 30px;
 }
+/* 标题文字 */
+.feature-title {
+  font-size: 1.2rem;
+  color: #4b2e1c;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+}
 
+/* 悬停效果 */
+.feature-item:hover .feature-icon {
+  transform: scale(1.1) rotate(10deg);
+  background: rgba(255,228,181,0.9);
+}
+
+.feature-item:hover .feature-title {
+  color: #704214;
+  text-decoration: underline;
+}
+
+/* 响应式调整 */
+@media (max-width: 992px) {
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .feature-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .icon-wrapper {
+    gap: 8px;
+    padding: 10px;
+  }
+  
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .feature-title {
+    font-size: 0.9rem;
+  }
+}
 /* 每个描述项的容器 */
 .context-box {
   background-color: rgba(255, 255, 255, 0.9); /* 半透明背景 */

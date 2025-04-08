@@ -1,7 +1,7 @@
 // src/pages/Events.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Events.css'; // 样式文件
+import './Events.css';
 
 const artisans = [
   {
@@ -23,11 +23,13 @@ const artisans = [
     name: '董瑞京',
     image: '/images/images匠人/董瑞京.png',
     bio: '董瑞京，民间艺术传承者，专注于中国传统文化的推广和创新。',
-  },{
+  },
+  {
     name: '李昌义',
     image: '/images/images匠人/李昌义.png',
     bio: '李昌义，民间艺术传承者，专注于中国传统文化的推广和创新。',
-  },{
+  },
+  {
     name: '王树文',
     image: '/images/images匠人/王树文.png',
     bio: '王树文，民间艺术传承者，专注于中国传统文化的推广和创新。',
@@ -36,7 +38,7 @@ const artisans = [
 
 const Events = () => {
   const [hoveredArtisan, setHoveredArtisan] = useState(artisans[0]);
-  const navigate = useNavigate(); // 用于页面跳转
+  const navigate = useNavigate();
 
   const handleHover = (artisan) => {
     setHoveredArtisan(artisan);
@@ -48,28 +50,29 @@ const Events = () => {
 
   return (
     <div className="artisan-profile-container">
-      {/* 左侧匠人图片区域 */}
-      <div className="left-image">
-        <img 
-          src={hoveredArtisan.image} 
-          alt="匠人图像" 
-          className="artisan-img" 
-          onClick={() => handleClick(hoveredArtisan.name)}  // 点击跳转到匠人详情页面
-        />
+      <div className="profile-wrapper">
+        <div className="image-text-combined" onClick={() => handleClick(hoveredArtisan.name)}>
+          <img
+            src={hoveredArtisan.image}
+            alt="匠人图像"
+            className="artisan-img"
+          />
+          <div className="image-overlay">
+            <h2>{hoveredArtisan.name}</h2>
+            <p className="bio">{hoveredArtisan.bio}</p>
+          </div>
+        </div>
       </div>
 
-      {/* 右侧内容区域 */}
       <div className="right-content">
         <h2>匠人档案</h2>
-        <p className="bio">{hoveredArtisan.bio}</p>
-
         <div className="artisan-list">
           {artisans.map((artisan) => (
             <div
               key={artisan.name}
               className="artisan-item"
-              onMouseEnter={() => handleHover(artisan)} // 悬停切换图片
-              onClick={() => handleClick(artisan.name)} // 点击跳转到详情页
+              onMouseEnter={() => handleHover(artisan)}
+              onClick={() => handleClick(artisan.name)}
             >
               <h3>{artisan.name}</h3>
             </div>
