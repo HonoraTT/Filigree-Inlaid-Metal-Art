@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import api from '../utils/api'; // 使用封装后的 axios 实例
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function Login() {
-  const [loginType, setLoginType] = useState('username'); // username, phone, email
+  const [loginType, setLoginType] = useState('username');
   const [formData, setFormData] = useState({
     username: '',
     phone: '',
@@ -15,6 +15,7 @@ export default function Login() {
   });
   const [error, setError] = useState('');
   const [isRegister, setIsRegister] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -26,7 +27,7 @@ export default function Login() {
     try {
       const endpoint = isRegister ? '/api/auth/register' : '/api/auth/login';
       let payload;
-      
+
       if (loginType === 'username') {
         payload = { username: formData.username, password: formData.password };
       } else if (loginType === 'phone') {
@@ -35,11 +36,15 @@ export default function Login() {
         payload = { email: formData.email, password: formData.password };
       }
 
-      const response = await axios.post(`http://localhost:5000${endpoint}`, payload);
+      if (rememberMe) {
+        payload.rememberMe = true;
+      }
+
+      const response = await api.post(endpoint, payload); //  替换为封装后的 api 调用
       localStorage.setItem('token', response.data.token);
       navigate('/artisan-detail');
     } catch (err) {
-      setError(err.response?.data?.error || (isRegister ? 'Registration failed' : 'Login failed'));
+      setError(err.response?.data?.message || (isRegister ? '注册失败，请检查信息' : '登录失败，请重试'));
     }
   };
 
@@ -50,24 +55,24 @@ export default function Login() {
   return (
     <div className="login-page">
       <div className="login-container">
-        <h2>花丝镶嵌工艺{isRegister ? '注册' : '登录'}</h2>
-        
+        <h2>{isRegister ? '注册' : '登录'}</h2>
+
         <div className="third-party-login">
-          <button className="third-party-btn google" onClick={() => handleThirdPartyLogin('google')}>
+          <button className="third-party-btn" onClick={() => handleThirdPartyLogin('google')}>
             <FontAwesomeIcon icon={faGoogle} className="icon" />
-            <span>Google登录</span>
+            <span>Google {isRegister ? '注册' : '登录'}</span>
           </button>
-          <button className="third-party-btn github" onClick={() => handleThirdPartyLogin('github')}>
+          <button className="third-party-btn" onClick={() => handleThirdPartyLogin('github')}>
             <FontAwesomeIcon icon={faGithub} className="icon" />
-            <span>GitHub登录</span>
+            <span>GitHub {isRegister ? '注册' : '登录'}</span>
           </button>
           <div className="divider">
-            <span>其他登录/注册方式</span>
+            <span>其他{isRegister ? '注册' : '登录'}方式</span>
           </div>
         </div>
-        
-        {error && <div className="alert alert-danger">{error}</div>}
-        
+
+        {error && <div className="alert">{error}</div>}
+
         <form onSubmit={handleSubmit}>
           <div className="login-types">
             <button 
@@ -92,23 +97,22 @@ export default function Login() {
               邮箱
             </button>
           </div>
-          
+
           {loginType === 'username' && (
             <div className="form-group">
-              <label>用户名</label>
               <input
                 type="text"
                 name="username"
+                placeholder="用户名"
                 value={formData.username}
                 onChange={handleChange}
                 required
               />
             </div>
           )}
-          
+
           {loginType === 'phone' && (
             <div className="form-group">
-              <label>手机号</label>
               <div className="phone-input">
                 <select className="country-code">
                   <option>+86</option>
@@ -118,6 +122,7 @@ export default function Login() {
                 <input
                   type="tel"
                   name="phone"
+                  placeholder="手机号"
                   value={formData.phone}
                   onChange={handleChange}
                   required
@@ -125,52 +130,58 @@ export default function Login() {
               </div>
             </div>
           )}
-          
+
           {loginType === 'email' && (
             <div className="form-group">
-              <label>邮箱</label>
               <input
                 type="email"
                 name="email"
+                placeholder="邮箱"
                 value={formData.email}
                 onChange={handleChange}
                 required
               />
             </div>
           )}
-          
+
           <div className="form-group">
-            <label>密码</label>
             <input
               type="password"
               name="password"
+              placeholder="密码"
               value={formData.password}
               onChange={handleChange}
               required
             />
           </div>
-          
+
+          <div className="remember-me">
+            <input 
+              type="checkbox" 
+              id="remember" 
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
+            <label htmlFor="remember">记住我</label>
+          </div>
+
           <div className="form-actions">
             {!isRegister && (
               <span className="forgot-password" onClick={() => navigate('/forgot-password')}>
-                忘记密码
+                忘记密码?
               </span>
             )}
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn">
               {isRegister ? '注册' : '登录'}
             </button>
           </div>
         </form>
-        
+
         <div className="toggle-auth">
-          {isRegister ? '已有账号？' : '没有账号？'}
+          {isRegister ? '已有账号?' : '没有账号?'}
           <span onClick={() => setIsRegister(!isRegister)}>
             {isRegister ? '去登录' : '去注册'}
           </span>
-        </div>
-        
-        <div className="browser-trial">
-          <span>在浏览器中试用</span>
         </div>
       </div>
     </div>
