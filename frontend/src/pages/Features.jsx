@@ -105,13 +105,12 @@ const Features = () => {
         onMouseEnter={() => setActiveFeature(index)}
       >
         <div className="icon-wrapper">
-          <img 
-            src={feature.icon} 
-            alt={feature.title}
-            className="feature-icon"
-          />
-          <span className="feature-title">{feature.title}</span>
-        </div>
+  <div className="feature-icon-box">
+    <img src={feature.icon} alt={feature.title} className="feature-icon" />
+  </div>
+  <span className="feature-title">{feature.title}</span>
+</div>
+
       </div>
     </SwiperSlide>
   ))}

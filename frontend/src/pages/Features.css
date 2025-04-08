@@ -10,25 +10,38 @@
   min-height: 100vh; /* 使容器至少占满屏幕 */
   position: relative;
 }
-/* 图标容器 */
+/* 横向排列图标+文字 */
 .icon-wrapper {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 15px;
-  padding: 20px;
+  gap: 12px;
+  background: rgba(255,255,255,0.95);
+  padding: 12px 18px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   transition: all 0.3s ease;
+  font-family: 'Noto Serif SC', serif;
+  cursor: pointer;
 }
 
-/* 图标样式 */
+/* 图标图片本身 */
 .feature-icon {
-  width: 80px;
-  height: 80px;
-  padding: 15px;
-  background: rgba(255,255,255,0.9);
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* 图标样式容器 */
+.feature-icon-box {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 /* 页面标题 */
 .features-header h1 {
@@ -40,22 +53,20 @@
 }
 /* 标题文字 */
 .feature-title {
-  font-size: 1.2rem;
-  color: #4b2e1c;
+  font-size: 18px;
+  color: #5b2c0d;
   font-weight: 600;
-  text-align: center;
   white-space: nowrap;
+  letter-spacing: 1px;
 }
-
-/* 悬停效果 */
-.feature-item:hover .feature-icon {
-  transform: scale(1.1) rotate(10deg);
-  background: rgba(255,228,181,0.9);
-}
-
+/* 鼠标悬停效果 */
 .feature-item:hover .feature-title {
-  color: #704214;
+  color: #a56c2b;
   text-decoration: underline;
+}
+
+.feature-item:hover .feature-icon-box {
+  background-color: #f5e2c4;
 }
 
 /* 响应式调整 */
@@ -116,26 +127,7 @@
 }
 
 /* 图片轮播样式 */
-.features-swiper {
-  margin-top: 20px;
-  position: relative;
-}
 
-/* 每个图片项 */
-.feature-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* 图片 */
-.feature-item img {
-  width: 100%;
-  height: auto; /* 确保图片不被拉伸 */
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
-}
 
 /* 鼠标悬停时的效果 */
 .feature-item:hover img {
