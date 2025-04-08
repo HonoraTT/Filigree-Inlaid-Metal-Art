@@ -9,34 +9,34 @@ const Gallery = () => {
   // 轮播图数据
   const slides = [
     {
-      image: 'https://i.ibb.co/qCkd9jS/img1.jpg',
-      name: 'Switzerland',
-      des: '你好，自然！'
+      image:  '/images/作品展示/轮播1.png',
+      name: 'Filigree Inlay Crafts',
+      des: '你好，花丝镶嵌！'
     },
     {
-      image: 'https://i.ibb.co/jrRb11q/img2.jpg',
-      name: 'Finland',
-      des: '你好，自然！'
+      image: '/images/作品展示/轮播2.png',
+      name: 'Filigree Inlay Crafts',
+      des: '你好，花丝镶嵌！'
     },
     {
-      image: 'https://i.ibb.co/NSwVv8D/img3.jpg',
-      name: 'Iceland',
-      des: '你好，自然！'
+      image: '/images/作品展示/轮播3.png',
+      name: 'Filigree Inlay Crafts',
+      des: '你好，花丝镶嵌！'
     },
     {
-      image: 'https://i.ibb.co/Bq4Q0M8/img4.jpg',
-      name: 'Australia',
-      des: '你好，自然！'
+      image: '/images/作品展示/轮播4.png',
+      name:'Filigree Inlay Crafts',
+      des: '你好，花丝镶嵌！'
     },
     {
-      image: 'https://i.ibb.co/jTQfmTq/img5.jpg',
-      name: 'Netherland',
-      des: '你好，自然！'
+      image: '/images/作品展示/轮播5.png',
+      name: 'Filigree Inlay Crafts',
+      des: '你好，花丝镶嵌！'
     },
     {
-      image: 'https://i.ibb.co/RNkk6L0/img6.jpg',
-      name: 'Ireland',
-      des: '你好，自然！'
+      image:'/images/作品展示/轮播6.png',
+      name: 'Filigree Inlay Crafts',
+      des: '你好，花丝镶嵌！'
     }
   ];
 
