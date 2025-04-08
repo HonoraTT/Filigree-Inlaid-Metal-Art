@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import Visit from './pages/Visit';
 import Events from './pages/Events';
 import Gallery from './pages/Gallery';
+
 import Research from './pages/Research';
 import StoreLanding from './pages/StoreLanding';
 import StoreShop from './pages/StoreShop';

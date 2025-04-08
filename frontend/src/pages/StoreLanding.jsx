@@ -24,15 +24,15 @@ const StoreLanding = () => {
         <div className="gallery-grid">
           {/* 商品列表 */}
           {[ 
-            { id: 1, image: '/images/文创商店/cup1.png', name: '花丝杯', price: '¥25.00' },
-            { id: 2, image: '/images/文创商店/cup2.png', name: '镶嵌杯', price: '¥38.00' },
-            { id: 3, image: '/images/文创商店/cup3.png', name: '艺术杯', price: '¥30.00' },
-            { id: 4, image: '/images/文创商店/cup4.png', name: '陶瓷碗', price: '¥28.00' },
-            { id: 5, image: '/images/文创商店/cup5.png', name: '艺术壶', price: '¥50.00' },
-            { id: 6, image: '/images/文创商店/cup6.png', name: '花丝盘', price: '¥35.00' },
-            { id: 7, image: '/images/文创商店/cup7.png', name: '陶瓷壶', price: '¥45.00' },
-            { id: 8, image: '/images/文创商店/cup8.png', name: '手工碗', price: '¥40.00' },
-            { id: 9, image: '/images/文创商店/cup9.png', name: '工艺瓶', price: '¥60.00' },
+            { id: 1, image: '/images/文创商店/花丝头饰.png', name: '花丝头饰', price: '¥25.00' },
+            { id: 2, image: '/images/文创商店/花丝扣包.png', name: '花丝扣包', price: '¥38.00' },
+            { id: 3, image: '/images/文创商店/手工花丝花.png', name: '手工花丝花', price: '¥30.00' },
+            { id: 4, image: '/images/文创商店/花丝宝石戒指.png', name: '花丝宝石戒指', price: '¥28.00' },
+            { id: 5, image: '/images/文创商店/花丝发钗.png', name: '花丝发钗', price: '¥50.00' },
+            { id: 6, image: '/images/文创商店/花丝地毯.png', name: '花丝地毯', price: '¥35.00' },
+            { id: 7, image: '/images/文创商店/龙图腾摆件.png', name: '龙图腾摆件', price: '¥45.00' },
+            { id: 8, image: '/images/文创商店/花丝蝴蝶.png', name: '花丝蝴蝶', price: '¥40.00' },
+            { id: 9, image: '/images/文创商店/花丝车载挂件.png', name: '花丝车载挂件', price: '¥60.00' },
           ].map((product) => (
             <Link key={product.id} to={`/shop/${product.id}`} className="product-card">
               <img src={product.image} alt={product.name} />

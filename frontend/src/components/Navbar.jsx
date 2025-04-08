@@ -36,8 +36,8 @@ const Navbar = () => {
         <Menu.Item key="home">
           <Link to="/">首页</Link>
         </Menu.Item>
-        <Menu.Item key="learning">
-          <Link to="/learning">作品展示</Link>
+        <Menu.Item key="gallery">
+          <Link to="/gallery">作品展示</Link>
         </Menu.Item>
         <Menu.Item key="visit">
           <Link to="/visit">工艺百科</Link>

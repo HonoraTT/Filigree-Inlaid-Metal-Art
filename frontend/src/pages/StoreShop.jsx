@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import './store.css';
 
 const products = [
-  { id: 1, name: '花丝杯', price: 25.0, category: '家居装饰', image: '/images/文创商店/cup1.png' },
-  { id: 2, name: '镶嵌杯', price: 38.0, category: '首饰', image: '/images/文创商店/cup2.png' },
-  { id: 3, name: '艺术杯', price: 30.0, category: '家居装饰', image: '/images/文创商店/cup3.png' },
-  { id: 4, name: '陶瓷碗', price: 28.0, category: '家居装饰', image: '/images/文创商店/cup4.png' },
-  { id: 5, name: '艺术壶', price: 50.0, category: '家居装饰', image: '/images/文创商店/cup5.png' },
-  { id: 6, name: '花丝盘', price: 35.0, category: '手工艺品', image: '/images/文创商店/cup6.png' },
-  { id: 7, name: '陶瓷壶', price: 45.0, category: '家居装饰', image: '/images/文创商店/cup7.png' },
-  { id: 8, name: '手工碗', price: 40.0, category: '家居装饰', image: '/images/文创商店/cup8.png' },
-  { id: 9, name: '工艺瓶', price: 60.0, category: '家居装饰', image: '/images/文创商店/cup9.png' },
+  { id: 1, name: '花丝头饰', price: 25.0, category: '首饰', image:  '/images/文创商店/花丝头饰.png' },
+  { id: 2, name: '花丝扣包', price: 38.0, category: '手工艺品', image:'/images/文创商店/花丝扣包.png' },
+  { id: 3, name: '手工花丝花', price: 30.0, category: '手工艺品', image: '/images/文创商店/手工花丝花.png' },
+  { id: 4, name: '花丝宝石戒指', price: 28.0, category: '首饰', image: '/images/文创商店/花丝宝石戒指.png'},
+  { id: 5, name: '花丝发钗', price: 50.0, category: '首饰', image: '/images/文创商店/花丝发钗.png'},
+  { id: 6, name: '花丝地毯', price: 35.0, category: '家居装饰', image: '/images/文创商店/花丝地毯.png' },
+  { id: 7, name: '龙图腾摆件', price: 45.0, category: '手工艺品', image:'/images/文创商店/龙图腾摆件.png' },
+  { id: 8, name: '花丝蝴蝶', price: 40.0, category: '手工艺品', image: '/images/文创商店/花丝蝴蝶.png' },
+  { id: 9, name: '花丝车载挂件', price: 60.0, category: '家居装饰', image: '/images/文创商店/花丝车载挂件.png' },
 ];
-
 const StoreShop = () => {
   // 设置状态用于管理分类筛选、价格筛选、搜索框和购物车
   const [cart, setCart] = useState([]);
