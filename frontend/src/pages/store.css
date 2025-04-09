@@ -95,7 +95,7 @@
 
 /* 首页横幅样式 */
 .store-landing .hero-image {
-  height: 90vh;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   position: relative;
