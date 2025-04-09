@@ -10,33 +10,27 @@ const Gallery = () => {
   const slides = [
     {
       image: '/images/作品展示/轮播1.png',
-      name: 'Filigree Inlay Crafts',
-      des: '你好，花丝镶嵌！'
+     
     },
     {
       image: '/images/作品展示/轮播2.png',
-      name: 'Filigree Inlay Crafts',
-      des: '你好，花丝镶嵌！'
+    
     },
     {
       image: '/images/作品展示/轮播3.png',
-      name: 'Filigree Inlay Crafts',
-      des: '你好，花丝镶嵌！'
+     
     },
     {
       image: '/images/作品展示/轮播4.png',
-      name: 'Filigree Inlay Crafts',
-      des: '你好，花丝镶嵌！'
+     
     },
     {
       image: '/images/作品展示/轮播5.png',
-      name: 'Filigree Inlay Crafts',
-      des: '你好，花丝镶嵌！'
+     
     },
     {
       image: '/images/作品展示/轮播6.png',
-      name: 'Filigree Inlay Crafts',
-      des: '你好，花丝镶嵌！'
+    
     }
   ];
 
@@ -111,11 +105,7 @@ const Gallery = () => {
               className="item"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              <div className="content">
-                <div className="name">{slide.name}</div>
-                <div className="des">{slide.des}</div>
-                <button>See More</button>
-              </div>
+             
             </div>
           ))}
         </div>
