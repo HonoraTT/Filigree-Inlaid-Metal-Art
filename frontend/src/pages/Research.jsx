@@ -1,194 +1,153 @@
-import React from 'react';
-import styled from 'styled-components';
 
-// 联系方式部分样式
-const ContactContainer = styled.div`
-  padding: 40px;
-  background-color: #f9f9f9;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgb(239, 162, 162);
-  margin: 30px auto;
-  max-width: 100%;   /* 让容器最大宽度占满整个页面 */
-  width: 95%;        /* 实际显示宽度为页面的 95% */
-  border: 1px solid #ddd;
-  background: linear-gradient(to bottom, #ffffff, #f0f0f0);
-`;
+// src/pages/News.jsx
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import './News.css';
 
-
-const ContactHeader = styled.h2`
-  font-size: 2.5rem;
-  color: #333;
-  text-align: center;
-  border-bottom: 2px rgb(239, 162, 162); /* 添加下划线 */
-  padding-bottom: 10px;
-  margin-bottom: 20px;
-`;
-
-const ContactDetails = styled.div`
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-`;
-
-const ContactItem = styled.div`
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 15px;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgb(239, 162, 162); /* 为每个项添加阴影 */
-  background-color: #fff;
-  margin: 10px;
-  transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-5px); /* 悬停时向上浮动 */
-    box-shadow: 0 4px 12px rgb(239, 162, 162);
+const newsData = [
+  {
+    type: 'exhibition',
+    title: '千年匠心——故宫花丝镶嵌特展',
+    date: '2024/03/15-06/20',
+    location: '故宫博物院·珍宝馆',
+    highlight: '展出明清宫廷花丝文物40余件',
+    image: '/news/exhibition1.jpg',
+    style: { 
+      background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
+      fontColor: '#4b2e1c'
+    }
+  },
+  {
+    type: 'workshop',
+    title: '非遗技艺体验工坊开放预约',
+    date: '每周六 14:00-16:00',
+    location: '国家工艺美术馆',
+    highlight: '国家级传承人现场指导',
+    image: '/news/workshop1.jpg',
+    style: {
+      background: 'linear-gradient(45deg, #f0e6d3, #c9b79c)',
+      fontColor: '#4b2e1c'
+    }
+  },
+  {
+    type: 'research',
+    title: '传统工艺与现代科技融合研讨会',
+    date: '2024/04/20 09:00',
+    location: '清华大学美术学院',
+    highlight: '3D打印技术在花丝镶嵌中的应用',
+    image: '/news/tech1.jpg',
+    style: {
+      background: 'linear-gradient(160deg, #704214, #2c1a0d)',
+      fontColor: '#d4af37'
+    }
+  },
+  {
+    type: 'research',
+    title: '与现代科技融合研讨会',
+    date: '2024/04/20 09:00',
+    location: '清华大学美术学院',
+    highlight: '3D打印技术在花丝镶嵌中的应用',
+    image: '/news/tech1.jpg',
+    style: {
+      background: 'linear-gradient(160deg, #704214, #2c1a0d)',
+      fontColor: '#d4af37'
+    }
   }
-`;
+];
 
-const ContactLink = styled.a`
-  color:rgb(237, 203, 118);
-  text-decoration: none;
-  font-weight: bold;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
+const News = () => {
+  const [activeType, setActiveType] = useState('all');
 
-// 联系表单部分样式
-const FormContainer = styled.div`
-  margin-top: 40px;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgb(239, 162, 162);
-`;
-
-const FormTitle = styled.h3`
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 20px;
-`;
-
-const Form = styled.form`
-  display: flex;
-  flex-direction: column;
-  max-width: 600px;
-  margin: 0 auto;
-`;
-
-const Input = styled.input`
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  transition: border-color 0.3s;
-
-  &:focus {
-    border-color:rgb(237, 203, 118);
-    outline: none;
-  }
-`;
-
-const Textarea = styled.textarea`
-  padding: 12px;
-  margin: 10px 0;
-  font-size: 1rem;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  height: 150px;
-  transition: border-color 0.3s;
-
-  &:focus {
-    border-color:rgb(237, 203, 118);
-    outline: none;
-  }
-`;
-
-const SubmitButton = styled.button`
-  padding: 12px 20px;
-  background-color: rgb(237, 203, 118);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  margin-top: 15px;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: rgb(237, 203, 118);
-  }
-`;
-
-// Google/百度地图容器样式
-const MapContainer = styled.div`
-  margin-top: 40px;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgb(239, 162, 162);
-`;
-
-const PageName = () => {
   return (
-    <div>
-      {/* 页面标题 */}
-      <h1 style={{ textAlign: 'center', marginTop: '50px', fontSize: '2.5rem' }}>联系我们</h1>
-      <p style={{ textAlign: 'center', marginBottom: '40px' }}>欢迎来到联系我们页面。</p>
+    <div className="news-container">
+      {/* 动态标题 */}
+      <motion.h1 
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="main-title"
+      >
+        金丝银缕·匠心传承
+        <span className="subtitle">花丝镶嵌最新动态</span>
+      </motion.h1>
 
-      {/* 联系方式部分 */}
-      <ContactContainer>
-        <ContactHeader>联系方式</ContactHeader>
+      {/* 交互式导航 */}
+      <nav className="news-nav">
+        {['all', 'exhibition', 'workshop', 'research'].map((type) => (
+          <button
+            key={type}
+            className={`nav-item ${activeType === type ? 'active' : ''}`}
+            onClick={() => setActiveType(type)}
+          >
+            {{
+              all: '全部',
+              exhibition: '特展预告',
+              workshop: '体验工坊',
+              research: '学术动态'
+            }[type]}
+          </button>
+        ))}
+      </nav>
 
-        <ContactDetails>
-          <ContactItem>
-            <h4>电话</h4>
-            <p><ContactLink href="tel:+123456789">+86 139 7233 3676</ContactLink></p>
-          </ContactItem>
-          <ContactItem>
-            <h4>地址</h4>
-            <p>中国上海市黄浦区成都南路110号</p>
-          </ContactItem>
-          <ContactItem>
-            <h4>邮箱</h4>
-            <p><ContactLink href="mailto:example@example.com">example@example.com</ContactLink></p>
-          </ContactItem>
-          <ContactItem>
-            <h4>微信公众号</h4>
-            <p>扫描二维码关注</p>
-            <img src="wechat-qr-code.png" alt="微信二维码" width="150" />
-          </ContactItem>
-        </ContactDetails>
+      {/* 动态卡片网格 */}
+      <div className="news-grid">
+        {newsData
+          .filter(item => activeType === 'all' || item.type === activeType)
+          .map((item, index) => (
+            <motion.article 
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: index * 0.1 }}
+              className="news-card"
+              style={{ background: item.style.background }}
+            >
+              <div className="card-image" style={{ backgroundImage: `url(${item.image})` }} />
+              
+              <div className="card-content" style={{ color: item.style.fontColor }}>
+                <div className="meta-tag">{item.type === 'exhibition' ? '🔥 热门特展' : '📅 即将开始'}</div>
+                <h3>{item.title}</h3>
+                <div className="info-row">
+                  <svg className="icon"><use xlinkHref="#icon-calendar"/></svg>
+                  <span>{item.date}</span>
+                </div>
+                <div className="info-row">
+                  <svg className="icon"><use xlinkHref="#icon-location"/></svg>
+                  <span>{item.location}</span>
+                </div>
+                <p className="highlight">{item.highlight}</p>
+                <button 
+                  className="detail-btn"
+                  style={{ 
+                    backgroundColor: item.style.fontColor,
+                    color: item.style.background
+                  }}
+                >
+                  查看详情 →
+                </button>
+              </div>
+            </motion.article>
+          ))}
+      </div>
 
-        {/* 联系表单部分 */}
-        <FormContainer>
-          <FormTitle>联系表单</FormTitle>
-          <Form>
-            <Input type="text" placeholder="您的姓名" required />
-            <Input type="email" placeholder="您的邮箱" required />
-            <Textarea placeholder="留言内容" required />
-            <SubmitButton type="submit">提交</SubmitButton>
-          </Form>
-        </FormContainer>
+      {/* 时间线分隔符 */}
+      <div className="timeline-divider">
+        <div className="timeline-line" />
+        <div className="deco-bead" />
+        <div className="deco-bead" />
+        <div className="deco-bead" />
+      </div>
 
-        {/* 嵌入地图部分 */}
-        <MapContainer>
-          <h3>我们的位置</h3>
-          {/* Google地图嵌入代码 */}
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3411.967311986267!2d121.46760800000001!3d31.221635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35b2700d3adbb2c9%3A0x1f4be94660cb7fa!2z6Iqx5Lid6ZW25bWM!5e0!3m2!1szh-CN!2sjp!4v1743422468642!5m2!1szh-CN!2sjp"
-            width="600"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
-        </MapContainer>
-      </ContactContainer>
+      {/* 附加功能模块 */}
+      <section className="subscribe-section">
+        <h2>订阅工艺动态</h2>
+        <p>第一时间获取展览资讯、工坊开放信息</p>
+        <div className="subscribe-form">
+          <input type="email" placeholder="输入您的电子邮箱" />
+          <button>订阅更新</button>
+        </div>
+      </section>
     </div>
   );
 };
 
-export default PageName;
+export default News;

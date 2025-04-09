@@ -51,7 +51,7 @@ const Home = () => {
     },
     {
       id: 5,
-      title: "联系我们",
+      title: "有关动态",
       description: "加入传统文化传承，与我们共同守护非遗技艺。无论是合作、学习还是收藏，我们都期待您的联系。",
       imageUrl: "/images/nav/contact.png",
       linkPath: "/research",
@@ -109,7 +109,8 @@ const Home = () => {
       </div>
 
       {/* 导航区域 */}
-      <NavigationSection navItems={navItems} />
+      <NavigationSection navItems={navItems}
+       />
     </div>
   );
 };

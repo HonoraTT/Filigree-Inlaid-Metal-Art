@@ -49,7 +49,7 @@ const Navbar = () => {
           <Link to="/store">文创商店</Link>
         </Menu.Item>
         <Menu.Item key="research">
-          <Link to="/research">联系我们</Link>
+          <Link to="/research">有关动态</Link>
         </Menu.Item>
         
         <Menu.Item 
