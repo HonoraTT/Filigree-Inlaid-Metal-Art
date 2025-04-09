@@ -95,7 +95,7 @@
 
 /* 首页横幅样式 */
 .store-landing .hero-image {
-  height: 90vh;
+  height: 100vh;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -203,15 +203,26 @@
 }
 
 .cart-button {
-  padding: 0.5rem 1rem;
-  background-color: #9f9079;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: #000;
+  color: #fff;
   border: none;
-  color: white;
+  border-radius: 4px;
   cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.cart-button i {
+  font-size: 16px;
 }
 
 .cart-button:hover {
-  background-color: #e67e22;
+  background-color: #333;
+  transform: translateY(-2px);
 }
 
 /* 商品展示（Shop页面） */

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './store.css';
 
 const products = [
@@ -12,18 +13,51 @@ const products = [
   { id: 8, name: '花丝蝴蝶', price: 40.0, category: '手工艺品', image: '/images/文创商店/花丝蝴蝶.png' },
   { id: 9, name: '花丝车载挂件', price: 60.0, category: '家居装饰', image: '/images/文创商店/花丝车载挂件.png' },
 ];
+
 const StoreShop = () => {
-  // 设置状态用于管理分类筛选、价格筛选、搜索框和购物车
-  const [cart, setCart] = useState([]);
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('所有');
   const [priceRange, setPriceRange] = useState([18, 130]);
   const [searchQuery, setSearchQuery] = useState("");
+  
+  // 从 localStorage 获取购物车数据
+  const [cart, setCart] = useState(() => {
+    const savedCart = localStorage.getItem('cart');
+    return savedCart ? JSON.parse(savedCart) : [];
+  });
+
+  // 当购物车数据改变时，保存到 localStorage
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
 
   // 处理加入购物车
   const handleAddToCart = (product) => {
-    setCart([...cart, product]);
+    // 检查商品是否已在购物车中
+    const existingItem = cart.find(item => item.id === product.id);
+    
+    if (existingItem) {
+      // 如果商品已存在，增加数量
+      const updatedCart = cart.map(item =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+      setCart(updatedCart);
+    } else {
+      // 如果商品不存在，添加新商品
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
     alert(`${product.name} 已加入购物车！`);
   };
+
+  // 跳转到购物车页面
+  const goToCart = () => {
+    navigate('/cart');
+  };
+
+  // 计算购物车中的总商品数量
+  const cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
 
   // 根据分类、价格和搜索条件筛选商品
   const filteredProducts = products.filter((product) => {
@@ -44,8 +78,9 @@ const StoreShop = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <button className="cart-button" onClick={() => alert(`购物车共有 ${cart.length} 件商品`)}>
-            购物车 ({cart.length})
+          <button className="cart-button" onClick={goToCart}>
+            <i className="fas fa-shopping-cart"></i>
+            购物车 ({cartItemCount})
           </button>
         </div>
       </div>

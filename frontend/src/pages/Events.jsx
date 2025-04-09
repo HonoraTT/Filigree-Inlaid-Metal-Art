@@ -1,4 +1,3 @@
-// src/pages/Events.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Events.css';
@@ -40,28 +39,26 @@ const Events = () => {
   const [hoveredArtisan, setHoveredArtisan] = useState(artisans[0]);
   const navigate = useNavigate();
 
+  // 更新悬停匠人信息
   const handleHover = (artisan) => {
     setHoveredArtisan(artisan);
   };
 
+  // 点击匠人名称跳转至详情页
   const handleClick = (artisanName) => {
     navigate(`/artisan-detail/${artisanName}`);
   };
 
   return (
     <div className="artisan-profile-container">
-      <div className="profile-wrapper">
-        <div className="image-text-combined" onClick={() => handleClick(hoveredArtisan.name)}>
-          <img
-            src={hoveredArtisan.image}
-            alt="匠人图像"
-            className="artisan-img"
-          />
-          <div className="image-overlay">
-            <h2>{hoveredArtisan.name}</h2>
-            <p className="bio">{hoveredArtisan.bio}</p>
-          </div>
-        </div>
+      {/* 左侧匠人图片区域 */}
+      <div className="left-image">
+        <img 
+          src={hoveredArtisan.image} 
+          alt={hoveredArtisan.name} 
+          className="artisan-img" 
+          onClick={() => handleClick(hoveredArtisan.name)}  // 点击跳转到匠人详情页面
+        />
       </div>
 
       <div className="right-content">

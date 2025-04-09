@@ -19,6 +19,9 @@ connectDB(); // 确保在路由前连接数据库
 const userRoutes = require("./routes/user");
 app.use("/api/users", userRoutes);
 
+const authRoutes = require("./routes/auth");
+app.use("/api/auth", authRoutes);
+
 // 测试路由
 app.get("/", (req, res) => {
   res.send("Hello, Express server is running!");
