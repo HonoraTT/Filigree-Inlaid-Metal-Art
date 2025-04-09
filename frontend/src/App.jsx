@@ -35,6 +35,7 @@ const HeaderStyled = styled.h1`
   color: #343a40;
 `;
 
+
 // 主应用组�
 function App() {
   return (
@@ -44,7 +45,7 @@ function App() {
         <HeaderStyled></HeaderStyled>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/visit" element={<Visit />} />
           <Route path="/events" element={<Events />} />
