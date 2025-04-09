@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Events.css'; // 样式文件
+import './Events.css';
 
 const artisans = [
   {
@@ -37,7 +37,7 @@ const artisans = [
 
 const Events = () => {
   const [hoveredArtisan, setHoveredArtisan] = useState(artisans[0]);
-  const navigate = useNavigate(); // 用于页面跳转
+  const navigate = useNavigate();
 
   // 更新悬停匠人信息
   const handleHover = (artisan) => {
@@ -61,18 +61,15 @@ const Events = () => {
         />
       </div>
 
-      {/* 右侧内容区域 */}
       <div className="right-content">
         <h2>匠人档案</h2>
-        <p className="bio">{hoveredArtisan.bio}</p>
-
         <div className="artisan-list">
           {artisans.map((artisan) => (
             <div
               key={artisan.name}
               className="artisan-item"
-              onMouseEnter={() => handleHover(artisan)} // 悬停切换图片
-              onClick={() => handleClick(artisan.name)} // 点击跳转到详情页
+              onMouseEnter={() => handleHover(artisan)}
+              onClick={() => handleClick(artisan.name)}
             >
               <h3>{artisan.name}</h3>
             </div>

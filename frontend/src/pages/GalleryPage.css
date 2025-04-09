@@ -40,11 +40,11 @@
 }
 
 /* 调整两侧缩略图位置 */
-.slide .item:nth-child(3) { right: 40px; }
-.slide .item:nth-child(4) {  right: 270px; }
-.slide .item:nth-child(5) {  right: 500px; }
+.slide .item:nth-child(3) { right: 430px; }
+.slide .item:nth-child(4) {  right: 220px; }
+.slide .item:nth-child(5) {  right: 10px; }
 .slide .item:nth-child(n + 6) { 
-  right: 710px;
+  right: 0px;
   opacity: 0;
 }
 
