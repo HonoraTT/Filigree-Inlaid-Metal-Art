@@ -1,4 +1,12 @@
-/* 背景样式 */
+
+@font-face {
+    font-family: 'FangSong';
+    src: url('/fonts/AaGuDianKeBenSong-2.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 .login-page {
     min-height: 100vh;
     display: flex;
@@ -7,258 +15,301 @@
     background-image: url('/images/LoginImages/bg.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
     background-attachment: fixed;
-    position: relative;
     padding: 20px;
-  }
-  
-  /* 半透明遮罩 */
-  .login-page::before {
+    overflow: hidden;
+    position: relative;
+    filter: none !important; 
+}
+
+/* 添加全屏背景层 */
+.login-page::before {
     content: '';
-    position: absolute;
+    position: fixed; /* 改为fixed定位 */
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(93, 64, 55, 0.4); /* 使用主题色系 */
-    z-index: 0;
-  }
+    background: inherit;
+    background-size: cover;
+    z-index: -2;
+}
   
-  .login-container {
+.login-container {
     max-width: 400px;
     width: 100%;
     padding: 2rem;
-    background: rgba(246, 218, 193, 0.95);
-    border-radius: 8px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
     position: relative;
+    overflow: hidden;
     z-index: 1;
-  }
+    font-family: 'FangSong',serif !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    isolation: isolate;
+    transform: translateZ(0);
+}
   
-  .login-container h2 {
+.login-container::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: inherit;
+    background-attachment: fixed;
+    background-position: center;
+    z-index: -1;
+    filter: blur(20px) brightness(0.9);
+    backdrop-filter: blur(20px);
+    margin: 20px;
+}
+
+.login-container,
+.login-container * {
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.login-types {
+    display: flex;
+    margin-bottom: 1.5rem;
+    background: rgba(220, 84, 84, 0.1);
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.login-types button {
+    flex: 1;
+    padding: 12px;
+    background: none;
+    border: none;
+    outline: none; /* 新增 */
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 4px;
+    margin: 0 2px;
+    box-shadow: none !important; /* 新增 */
+}
+
+.login-types button.active {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: #fff !important;
+    font-weight: 500;
+ /*   position: relative; 新增 */  
+}
+
+/* 新增激活状态指示条 */
+.login-types button.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 1px;
+}
+
+.login-types button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group input {
+    color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.login-container h2 {
     text-align: center;
     margin-bottom: 1.5rem;
-    color: #5d4037;
-  }
-  
-  .third-party-login {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.third-party-login {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-bottom: 20px;
-  }
-  
-  .third-party-btn {
+    margin-bottom: 1.5rem;
+}
+
+.third-party-btn {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
     padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: rgb(253, 246, 226);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
     cursor: pointer;
     transition: all 0.3s ease;
-    font-size: 14px;
+    font-size: 0.95rem;
     position: relative;
-  }
-  
-  .third-party-btn .icon {
+    color: #fff;
+}
+
+.third-party-btn .icon {
     width: 18px;
     height: 18px;
     position: absolute;
     left: 15px;
-  }
-  
-  .third-party-btn.google {
-    color: #4285F4;
-    border-color: #D9D9D9;
-  }
-  
-  .third-party-btn.google:hover {
-    background: #F8F9FA;
-    border-color: #D1D1D1;
-  }
-  
-  .third-party-btn.github {
-    color: #24292E;
-    border-color: #D9D9D9;
-  }
-  
-  .third-party-btn.github:hover {
-    background: #F6F8FA;
-    border-color: #D1D1D1;
-  }
-  
-  .divider {
+}
+
+.third-party-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.divider {
     display: flex;
     align-items: center;
-    margin: 15px 0;
-    color: #999;
-    font-size: 14px;
-  }
-  
-  .divider::before,
-  .divider::after {
+    margin: 1rem 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.divider::before,
+.divider::after {
     content: "";
     flex: 1;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .divider::before {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.divider::before {
     margin-right: 10px;
-  }
-  
-  .divider::after {
+}
+
+.divider::after {
     margin-left: 10px;
-  }
-  
-  .login-types {
-    display: flex;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #eee;
-  }
-  
-  .login-types button {
-    flex: 1;
-    padding: 10px;
-    background: none;
-    border: none;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  .login-types button.active {
-    border-bottom-color: #8d6e63;
-    color: #8d6e63;
-    font-weight: bold;
-  }
-  
-  .form-group {
-    margin-bottom: 1rem;
-  }
-  
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #5d4037;
-    font-weight: 500;
-  }
-  
-  .form-group input {
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group input {
     width: 100%;
     padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    transition: border-color 0.3s;
-  }
-  
-  .form-group input:focus {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
     outline: none;
-    border-color: #8d6e63;
-  }
-  
-  .phone-input {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.phone-input {
     display: flex;
-  }
-  
-  .phone-input .country-code {
+}
+
+.phone-input .country-code {
     width: 80px;
     margin-right: 10px;
     padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: white;
-  }
-  
-  .phone-input input {
-    flex: 1;
-  }
-  
-  .form-actions {
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.remember-me input {
+    margin-right: 8px;
+}
+
+.form-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 1.5rem;
-  }
-  
-  .forgot-password {
-    color: #8d6e63;
+}
+
+.forgot-password {
+    color: rgba(255, 255, 255, 0.9);
     cursor: pointer;
-    font-size: 14px;
+    font-size: 0.9rem;
     transition: color 0.2s;
-  }
-  
-  .forgot-password:hover {
-    color: #6d4c41;
+}
+
+.forgot-password:hover {
+    color: #fff;
     text-decoration: underline;
-  }
-  
-  .btn {
-    padding: 0.75rem;
-    background-color: #8d6e63;
-    color: white;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #5d4037;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s;
     font-weight: 500;
-  }
-  
-  .btn:hover {
-    background-color: #6d4c41;
-  }
-  
-  .toggle-auth {
+    font-size: 1rem;
+}
+
+.btn:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.toggle-auth {
     text-align: center;
-    margin-top: 1rem;
-    color: #666;
-    font-size: 14px;
-  }
-  
-  .toggle-auth span {
-    color: #8d6e63;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.9rem;
+}
+
+.toggle-auth span {
+    color: #fff;
     cursor: pointer;
     margin-left: 5px;
     transition: color 0.2s;
-  }
-  
-  .toggle-auth span:hover {
-    color: #6d4c41;
+    font-weight: 500;
+}
+
+.toggle-auth span:hover {
     text-decoration: underline;
-  }
-  
-  .browser-trial {
-    text-align: center;
-    margin-top: 1.5rem;
-    color: #999;
-    font-size: 12px;
-  }
-  
-  .alert {
+}
+
+.alert {
     padding: 12px;
-    margin-bottom: 15px;
-    border-radius: 4px;
-    background-color: #f8d7da;
+    margin-bottom: 1.5rem;
+    border-radius: 6px;
+    background-color: rgba(248, 215, 218, 0.8);
     color: #721c24;
-    font-size: 14px;
-    border: 1px solid #f5c6cb;
-  }
-  
-  /* 响应式设计 */
-  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    border: 1px solid rgba(245, 198, 203, 0.8);
+}
+
+@media (max-width: 480px) {
     .login-container {
-      padding: 1.5rem;
-    }
-    
-    .login-page {
-      background-attachment: scroll;
-      padding: 10px;
+        padding: 1.5rem;
+        margin: 0 15px;
     }
     
     .phone-input .country-code {
-      width: 70px;
+        width: 70px;
     }
-  }
+}

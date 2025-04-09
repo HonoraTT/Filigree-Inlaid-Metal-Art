@@ -14,7 +14,7 @@
   .terms-list {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 40px;
     position: relative;
   }
 
@@ -58,22 +58,23 @@
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* 为文字添加阴影效果 */
   }
   
-  /* 解释内容 */
-  .term-definition {
-    font-family: 'Noto Serif SC', serif;  /* 使用清晰易读的古风字体 */
-    font-size: 16px;
-    color: #555;
-    background-color: rgba(249, 243, 243, 0.5); /* 半透明背景 */
-    padding: 15px;
-    border-radius: 5px;
-    position: absolute; /* 绝对定位，使其浮动在上方 */
-    top: 100%; /* 放置在术语下方 */
-    left: 0;
-    width: 100%;
-    transform: translateY(10px);
-    opacity: 0; /* 初始状态为不可见 */
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
+ /* 术语解释的内容 */
+.term-definition {
+  font-family: 'Noto Serif SC', serif;  /* 使用清晰易读的古风字体 */
+  font-size: 18px;
+  color: #555;
+  background-color: rgba(249, 243, 243, 0.5); /* 半透明背景 */
+  padding: 15px;
+  border-radius: 5px;
+  position: absolute; /* 绝对定位，使其浮动在上方 */
+  top: 100%; /* 放置在术语下方 */
+  left: 0;
+  width: 100%;
+  transform: translateY(10px);
+  opacity: 0; /* 初始状态为不可见 */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-align: center; /* 使解释内容居中 */
+}
   
   /* 当术语项悬停时，解释内容变为可见并滑入 */
   .term-item.hovered .term-definition {

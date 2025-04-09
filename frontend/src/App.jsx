@@ -44,7 +44,7 @@ function App() {
         <HeaderStyled></HeaderStyled>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/visit" element={<Visit />} />
           <Route path="/events" element={<Events />} />

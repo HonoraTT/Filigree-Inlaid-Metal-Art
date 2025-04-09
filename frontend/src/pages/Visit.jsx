@@ -5,22 +5,22 @@ import './Visit.css';
 const sections = [
   {
     title: '工艺介绍',
-    image: '/images/工艺百科首图/工艺首图1.png',
+    image: '/images/工艺百科首图/工艺首图11.png',
     link: '/visit/introduction',
   },
   {
     title: '工艺流程',
-    image: '/images/工艺百科首图/工艺首图2.png',
+    image: '/images/工艺百科首图/工艺首图55.png',
     link: '/visit/process',
   },
   {
     title: '工艺特点',
-    image: '/images/工艺百科首图/工艺首图3.png',
+    image: '/images/工艺百科首图/工艺首图33.png',
     link: '/visit/features',
   },
   {
     title: '术语解释',
-    image: '/images/工艺百科首图/工艺首图4.png',
+    image: '/images/工艺百科首图/工艺首图44.png',
     link: '/visit/terms',
   },
 ];
