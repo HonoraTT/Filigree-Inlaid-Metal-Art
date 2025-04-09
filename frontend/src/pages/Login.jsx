@@ -42,7 +42,7 @@ export default function Login() {
 
       const response = await api.post(endpoint, payload); //  替换为封装后的 api 调用
       localStorage.setItem('token', response.data.token);
-      navigate('/artisan-detail');
+      navigate('/home');
     } catch (err) {
       setError(err.response?.data?.message || (isRegister ? '注册失败，请检查信息' : '登录失败，请重试'));
     }
