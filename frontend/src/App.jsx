@@ -24,6 +24,7 @@ import Terms from './pages/Terms';
 
 import Login from  './pages/Login';
 
+
 // 定义样式组件
 const Container = styled.div`
   padding: 20px;
