@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';  // 核心样式
 import 'swiper/css/navigation';  // 导入导航样式
 import './Features.css';  // 自定义样式
-
+import Particles from 'react-tsparticles';  // 引入 react-tsparticles
 /**
  * 功能组件：Features
  *
@@ -14,6 +14,7 @@ import './Features.css';  // 自定义样式
  */
 const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
+  const [fade, setFade] = useState(false);
   const swiperRef = useRef(null);  // 创建 swiper 引用
 
   const featuresData = [
@@ -64,23 +65,76 @@ const Features = () => {
       ),
     },
   ];
-
-  const handleMouseMove = (e) => {
-    const swiperWidth = swiperRef.current.swiper.width; // 获取 swiper 宽度
-    const mouseX = e.clientX; // 获取鼠标在视口中的水平位置
-
-    // 如果鼠标在左侧，向右滑动
-    if (mouseX < swiperWidth / 2) {
-      swiperRef.current.swiper.slidePrev();
-    } 
-    // 如果鼠标在右侧，向左滑动
-    else {
-      swiperRef.current.swiper.slideNext();
-    }
+  
+  const handleMouseEnter = (index) => {
+    setFade(true); // 开始淡出效果
+    setTimeout(() => {
+      setActiveFeature(index); // 更新文本内容
+      setFade(false); // 结束淡入效果
+    }, 500); // 500ms后切换文本
   };
 
   return (
-    <div className="features-container" onMouseMove={handleMouseMove}>
+    <div className="features-container" >
+       {/* 使用 react-tsparticles 组件 */}
+       <Particles
+        options={{
+          particles: {
+            number: {
+              value: 50,
+              density: {
+                enable: true,
+                value_area: 800,
+              },
+            },
+            color: {
+              value: "#ffffff",
+            },
+            shape: {
+              type: "circle",
+            },
+            opacity: {
+              value: 0.5,
+              random: true,
+              anim: {
+                enable: true,
+                speed: 1,
+                opacity_min: 0.1,
+              },
+            },
+            size: {
+              value: 3,
+              random: true,
+              anim: {
+                enable: true,
+                speed: 5,
+                size_min: 0.1,
+              },
+            },
+            line_linked: {
+              enable: true,
+              distance: 150,
+              color: "#ffffff",
+              opacity: 0.5,
+              width: 1,
+            },
+          },
+          interactivity: {
+            detect_on: "canvas",
+            events: {
+              onhover: {
+                enable: true,
+                mode: "repulse",
+              },
+              onclick: {
+                enable: true,
+                mode: "push",
+              },
+            },
+          },
+          retina_detect: true,
+        }}
+      />
       <div className="features-header">
         <h1>花丝镶嵌工艺特点</h1>
       </div>
