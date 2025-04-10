@@ -33,7 +33,6 @@ const Gallery = () => {
     
     }
   ];
-
   // 卡片数据 - 添加默认图片和悬停图片
   const cards = [
     {
@@ -155,5 +154,6 @@ const Gallery = () => {
     </div>
   );
 };
+
 
 export default Gallery;

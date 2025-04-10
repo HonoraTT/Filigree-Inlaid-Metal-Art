@@ -1,185 +1,193 @@
 /* News.css */
 .news-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: #f8f5f0; /* 古籍纸张底色 */
-  }
-  
-  .main-title {
-    text-align: center;
-    font-size: 2.5rem;
-    color: #704214;
-    font-family: 'FangSong', serif;
-    position: relative;
-  }
-  
-  .subtitle {
-    display: block;
-    font-size: 1.2rem;
-    color: #d4af37;
-    margin-top: 0.5rem;
-  }
-  
-  .news-nav {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    margin: 2rem 0;
-  }
-  
-  .nav-item {
-    padding: 0.8rem 1.5rem;
-    border: 2px solid #704214;
-    border-radius: 30px;
-    background: transparent;
-    color: #704214;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .nav-item.active {
-    background: #704214;
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(112,66,20,0.3);
-  }
-  
-  .news-grid {
-    display: grid;                    /* 启用 CSS Grid 布局 */
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 让列的宽度最小为 300px，最大为 1fr，且自动填充列 */
-    gap: 2rem;                         /* 网格项之间的间距为 2rem (约 32px) */
-    padding: 2rem;                     /* 上下内边距为 2rem，左右无内边距 */
-    width: 100%;                       /* 容器宽度为 100% */
-    max-width: 1200px;                 /* 容器最大宽度固定为 1200px */
-    margin: 0 auto;                    /* 水平居中容器 */
-  }
-  
-  
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f8f5f0; /* 古籍纸张底色 */
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #704214;
+  font-family: 'FangSong', serif;
+  position: relative;
+}
+
+.subtitle {
+  display: block;
+  font-size: 1.2rem;
+  color: #d4af37;
+  margin-top: 0.5rem;
+}
+
+.news-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.nav-item {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #704214;
+  border-radius: 30px;
+  background: transparent;
+  color: #704214;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-item.active {
+  background: #704214;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(112,66,20,0.3);
+}
+
+.news-grid {
+  display: grid;                    /* 启用 CSS Grid 布局 */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 让列的宽度最小为 300px，最大为 1fr，且自动填充列 */
+  gap: 2rem;                         /* 网格项之间的间距为 2rem (约 32px) */
+  padding: 2rem;                     /* 上下内边距为 2rem，左右无内边距 */
+
+  width: 100%;                       /* 容器宽度为 100% */
+  max-width: 1200px;                 /* 容器最大宽度固定为 1200px */
+  margin: 0 auto;                    /* 水平居中容器 */
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column; /* 确保内容按列排列 */
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1); /* 添加阴影：X偏移0 Y偏移8px 模糊24px 颜色黑色10%透明度 */
+  transition: transform 0.3s ease;  /* 定义 transform 属性的过渡动画（悬停效果） */
+  flex: 1 1 calc(33.33% - 1.5rem); /* 每个卡片的宽度，确保一行显示三个 */
+  height: 400px;
+  min-width: 400px; /* 确保最小宽度，避免显示一个卡片时过于狭窄 */
+  max-width: calc(33.33% - 1.5rem); /* 限制最大宽度为一行三个卡片 */
+  margin-bottom: 1.5rem;
+  overflow: hidden; /* 防止内容超出 */
+}
+
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.meta-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255,255,255,0.9);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.card-content {
+  flex: 1;
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.detail-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.detail-btn:hover {
+  transform: scale(1.05);
+}
+
+.timeline-divider {
+  position: relative;
+  height: 4px;
+  margin: 4rem 0;
+  background: linear-gradient(to right, 
+    transparent 20%, 
+    #d4af37 50%, 
+    transparent 80%
+  );
+}
+
+.deco-bead {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #704214;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.deco-bead:nth-child(1) { left: 30%; }
+.deco-bead:nth-child(2) { left: 50%; }
+.deco-bead:nth-child(3) { left: 70%; }
+
+.subscribe-section {
+  text-align: center;
+  padding: 3rem;
+  background: rgba(212,175,55,0.1);
+  border-radius: 15px;
+  margin-top: 3rem;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.subscribe-form input {
+  padding: 0.8rem;
+  border: 2px solid #704214;
+  border-radius: 30px;
+  min-width: 300px;
+}
+
+.subscribe-form button {
+  background: #704214;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  border: none;
+}
+
+@media (max-width: 768px) {
   .news-card {
-    border-radius: 15px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.1); /* 添加阴影：X偏移0 Y偏移8px 模糊24px 颜色黑色10%透明度 */
-    transition: transform 0.3s ease;  /* 定义 transform 属性的过渡动画（悬停效果） */
-    flex: 1 1 calc(33.33% - 1.5rem); /* 每个卡片的宽度，确保一行显示三个 */
-    min-width: 300px; /* 确保最小宽度，避免显示一个卡片时过于狭窄 */
-    max-width: calc(33.33% - 1.5rem); /* 限制最大宽度为一行三个卡片 */
-    margin-bottom: 1.5rem;
-  }
-  
-  .news-card:hover {
-    transform: translateY(-5px);
-  }
-  
-  .card-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-  
-  .meta-tag {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: rgba(255,255,255,0.9);
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-weight: bold;
-  }
-  
-  .card-content {
-    padding: 1.5rem;
-    position: relative;
-  }
-  
-  .info-row {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0.8rem 0;
-  }
-  
-  .icon {
-    width: 20px;
-    height: 20px;
-    fill: currentColor;
-  }
-  
-  .detail-btn {
-    padding: 0.8rem 1.5rem;
-    border: none;
-    border-radius: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-  }
-  
-  .detail-btn:hover {
-    transform: scale(1.05);
-  }
-  
-  .timeline-divider {
-    position: relative;
-    height: 4px;
-    margin: 4rem 0;
-    background: linear-gradient(to right, 
-      transparent 20%, 
-      #d4af37 50%, 
-      transparent 80%
-    );
-  }
-  
-  .deco-bead {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: #704214;
-    border-radius: 50%;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .deco-bead:nth-child(1) { left: 30%; }
-  .deco-bead:nth-child(2) { left: 50%; }
-  .deco-bead:nth-child(3) { left: 70%; }
-  
-  .subscribe-section {
-    text-align: center;
-    padding: 3rem;
-    background: rgba(212,175,55,0.1);
-    border-radius: 15px;
-    margin-top: 3rem;
-  }
-  
-  .subscribe-form {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    margin-top: 1.5rem;
-  }
-  
-  .subscribe-form input {
-    padding: 0.8rem;
-    border: 2px solid #704214;
-    border-radius: 30px;
-    min-width: 300px;
-  }
-  
-  .subscribe-form button {
-    background: #704214;
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 30px;
-    border: none;
-  }
-  @media (max-width: 768px) {
-    .news-card {
       flex: 1 1 calc(50% - 1.5rem); /* 在小屏幕下，每行显示两个卡片 */
-    }
   }
-  
-  @media (max-width: 576px) {
-    .news-card {
+}
+
+@media (max-width: 576px) {
+  .news-card {
       flex: 1 1 calc(100% - 1.5rem); /* 在更小的屏幕下，每行显示一个卡片 */
-    }
   }
+}
