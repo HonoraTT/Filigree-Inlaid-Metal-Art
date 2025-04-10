@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../utils/api'; // 使用封装后的 axios 实例
+import { useUser } from '../contexts/UserContext';
 import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -17,6 +18,7 @@ export default function Login() {
   const [isRegister, setIsRegister] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
+  const { login } = useUser();
 
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value});
@@ -40,9 +42,18 @@ export default function Login() {
         payload.rememberMe = true;
       }
 
-      const response = await api.post(endpoint, payload); //  替换为封装后的 api 调用
-      localStorage.setItem('token', response.data.token);
-      navigate('/home');
+      const response = await api.post(endpoint, payload);
+      
+      // 使用用户上下文保存登录状态
+      login(response.data.user, response.data.token);
+      
+      // 如果是从购物车页面跳转来的，返回购物车页面
+      const from = new URLSearchParams(window.location.search).get('from');
+      if (from === 'cart') {
+        navigate('/shop');
+      } else {
+        navigate('/home');
+      }
     } catch (err) {
       setError(err.response?.data?.message || (isRegister ? '注册失败，请检查信息' : '登录失败，请重试'));
     }
