@@ -1,11 +1,4 @@
 
-@font-face {
-    font-family: 'FangSong';
-    src: url('/fonts/AaGuDianKeBenSong-2.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
 
 .login-page {
     min-height: 100vh;
@@ -43,7 +36,7 @@
     position: relative;
     overflow: hidden;
     z-index: 1;
-    font-family: 'FangSong',serif !important;
+    font-family: inherit !important;
     font-weight: normal !important;
     font-style: normal !important;
     isolation: isolate;
