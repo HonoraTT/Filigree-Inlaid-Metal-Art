@@ -11,6 +11,7 @@ import Navbar from './components/Navbar';
 import Visit from './pages/Visit';
 import Events from './pages/Events';
 import Gallery from './pages/Gallery';
+import ThreeDView from './components/3DView';
 import Cart from './components/Cart/Cart';
 
 import Research from './pages/Research';
@@ -24,6 +25,7 @@ import Features from './pages/Features';
 import Terms from './pages/Terms';
 
 import Login from  './pages/Login';
+
 
 // 定义样式组件
 const Container = styled.div`
@@ -53,6 +55,7 @@ function App() {
             <Route path="/visit" element={<Visit />} />
             <Route path="/events" element={<Events />} />
             <Route path="/gallery" element={<Gallery />} />
+            <Route path="/3d-view" element={<ThreeDView />} />
             <Route path="/research" element={<Research />} />
             <Route path="/store" element={<StoreLanding />} />
             <Route path="/shop" element={<StoreShop />} />
