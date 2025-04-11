@@ -68,10 +68,10 @@ const Navbar = () => {
           <Link to="/">首页</Link>
         </Menu.Item>
         <Menu.Item key="gallery">
-          <Link to="/gallery">作品展示</Link>
+          <a href="/gallery" target="_blank" rel="noopener noreferrer">作品展示</a>
         </Menu.Item>
         <Menu.Item key="visit">
-          <Link to="/visit">工艺百科</Link>
+          <a href="/visit" target="_blank" rel="noopener noreferrer">工艺百科</a>
         </Menu.Item>
         <Menu.Item key="events">
           <Link to="/events">匠人档案</Link>

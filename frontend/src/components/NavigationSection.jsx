@@ -114,8 +114,10 @@ const NavBlock = ({ item, reverse }) => {
           {item.description}
         </p>
         
-        <Link 
-          to={item.linkPath}
+        <a 
+          href={item.linkPath}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             display: "inline-block",
             padding: "0.8rem 1.5rem",
@@ -133,7 +135,7 @@ const NavBlock = ({ item, reverse }) => {
           }}
         >
           了解更多 →
-        </Link>
+        </a>
       </div>
       
       {/* 图片 */}
