@@ -9,6 +9,7 @@ const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const [promoCode, setPromoCode] = useState('');
   const [note, setNote] = useState('');
+  const [showPayment, setShowPayment] = useState(false);
 
   // 从 localStorage 加载购物车数据
   useEffect(() => {
@@ -42,7 +43,7 @@ const Cart = () => {
       const cartKey = `cart_${user.id}`;
       localStorage.setItem(cartKey, JSON.stringify(updatedItems));
     } else {
-      // 未登录用户：临时保存到 sessionStorage，这样在同一个会话中刷新页面不会丢失
+      // 未登录用户：临时保存到 sessionStorage
       sessionStorage.setItem('temp_cart', JSON.stringify(updatedItems));
     }
   };
@@ -70,16 +71,30 @@ const Cart = () => {
   // 处理结账
   const handleCheckout = () => {
     if (!user) {
-      // 如果用户未登录，跳转到登录页面，并传递来源参数
+      // 如果用户未登录，跳转到登录页面
       navigate('/login?from=cart');
       return;
     }
-    // 这里可以添加结账逻辑
-    alert('即将跳转到支付页面...');
+    setShowPayment(true);
   };
+
+  // 支付弹窗组件
+  const PaymentModal = () => (
+    <>
+      <div className="payment-modal-overlay" onClick={() => setShowPayment(false)} />
+      <div className="payment-modal">
+        <button className="close-modal" onClick={() => setShowPayment(false)}>×</button>
+        <h3>微信支付</h3>
+        <img src="/images/wechat-qr.jpg" alt="微信支付二维码" />
+        <p>请使用微信扫码支付</p>
+        <p>总金额: ¥{calculateSubtotal().toFixed(2)}</p>
+      </div>
+    </>
+  );
 
   return (
     <div className="cart-container">
+      {showPayment && <PaymentModal />}
       <div className="cart-content">
         <div className="cart-left">
           <h2>My cart 我的购物车</h2>
@@ -113,7 +128,7 @@ const Cart = () => {
               <i className="fas fa-tag"></i>
               <input
                 type="text"
-                placeholder="Enter a promo code 输入促销代码"
+                placeholder="输入促销代码"
                 value={promoCode}
                 onChange={(e) => setPromoCode(e.target.value)}
               />
@@ -122,7 +137,7 @@ const Cart = () => {
               <i className="fas fa-pencil-alt"></i>
               <input
                 type="text"
-                placeholder="Add a note 添加注释"
+                placeholder="添加备注"
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
               />
@@ -146,11 +161,11 @@ const Cart = () => {
               <span>¥{calculateSubtotal().toFixed(2)}</span>
             </div>
             <button className="checkout-button" onClick={handleCheckout}>
-              {user ? 'Checkout 结账' : 'Login to Checkout 登录后结账'}
+              {user ? '立即支付' : '请登录后结账'}
               <i className="fas fa-lock"></i>
             </button>
             <p className="secure-checkout">
-              <i className="fas fa-lock"></i> Secure Checkout 安全结账
+              <i className="fas fa-lock"></i> 安全支付
             </p>
           </div>
         </div>

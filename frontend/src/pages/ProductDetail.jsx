@@ -38,6 +38,30 @@ const ProductDetail = () => {
       navigate('/login?from=product');
       return;
     }
+
+    // 获取当前用户的购物车
+    const cartKey = `cart_${user.id}`;
+    const savedCart = localStorage.getItem(cartKey);
+    const currentCart = savedCart ? JSON.parse(savedCart) : [];
+
+    // 检查商品是否已在购物车中
+    const existingItem = currentCart.find(item => item.id === product.id);
+    
+    let updatedCart;
+    if (existingItem) {
+      // 如果商品已存在，增加数量
+      updatedCart = currentCart.map(item =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      // 如果商品不存在，添加新商品
+      updatedCart = [...currentCart, { ...product, quantity: 1 }];
+    }
+
+    // 保存更新后的购物车
+    localStorage.setItem(cartKey, JSON.stringify(updatedCart));
     alert(`${product.name} 已加入购物车！`);
   };
 
