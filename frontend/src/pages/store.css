@@ -330,3 +330,16 @@
     width: 100%;
   }
 }
+
+/* 未登录状态下的按钮样式 */
+.login-required {
+  background-color: #f5f5f5 !important;
+  color: #666 !important;
+  cursor: pointer;
+  border: 1px solid #ddd !important;
+}
+
+.login-required:hover {
+  background-color: #e8e8e8 !important;
+  color: #333 !important;
+}
