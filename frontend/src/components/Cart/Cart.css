@@ -1,7 +1,7 @@
 .cart-container {
+  padding: 20px;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
 }
 
 .cart-content {
@@ -111,10 +111,12 @@
 
 .promo-code input,
 .add-note input {
-  border: none;
-  outline: none;
+  background: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
   width: 100%;
-  font-size: 14px;
+  color: #333;
 }
 
 .order-summary {
@@ -193,4 +195,62 @@
     top: 10px;
     right: 10px;
   }
+}
+
+/* 支付弹窗样式 */
+.payment-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(135deg, rgba(183, 50, 50, 0.95), rgba(216, 121, 26, 0.95));
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  width: 300px;
+  text-align: center;
+  color: white;
+}
+
+.payment-modal h3 {
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.payment-modal img {
+  width: 200px;
+  height: 200px;
+  margin: 10px auto;
+  display: block;
+  background: white;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.payment-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.close-modal:hover {
+  color: #ffd700;
 } 

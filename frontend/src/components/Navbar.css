@@ -127,3 +127,114 @@ body {
 .ant-layout-content {
   padding-top: 64px !important;
 }
+
+/* 用户下拉菜单样式 */
+.user-dropdown-menu {
+  background: linear-gradient(135deg, rgba(183, 50, 50, 0.95), rgba(216, 121, 26, 0.95));
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 16px;
+  width: 300px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.user-info {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 16px;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.logout-button {
+  margin-top: 12px;
+  padding: 12px 0;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.3s;
+  border-radius: 4px;
+}
+
+.logout-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffd700;
+}
+
+/* 确保下拉菜单在暗色导航栏上方 */
+.user-dropdown {
+  z-index: 1001;
+}
+
+/* 用户菜单触发器样式 */
+.user-menu-trigger {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: white;
+  transition: color 0.3s;
+}
+
+.user-menu-trigger:hover {
+  color: #ffd700;
+}
+
+/* 导航菜单项样式 */
+.custom-menu .ant-menu-item {
+  color: white !important;
+  font-size: 16px;
+}
+
+.custom-menu .ant-menu-item:hover {
+  color: #1890ff !important;
+}
+
+.custom-menu .ant-menu-item a {
+  color: white !important;
+}
+
+.custom-menu .ant-menu-item a:hover {
+  color: #1890ff !important;
+}
+
+.menu-actions {
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.menu-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item .anticon {
+  font-size: 16px;
+}
+
+.logout-button {
+  margin-top: 8px;
+}

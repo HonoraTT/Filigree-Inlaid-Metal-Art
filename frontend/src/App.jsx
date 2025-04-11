@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
+import { UserProvider } from './contexts/UserContext';
 import Home from './pages/Home';
 import DetailPage from './pages/DetailPage';
 import Header from './components/Header';
@@ -10,6 +11,7 @@ import Navbar from './components/Navbar';
 import Visit from './pages/Visit';
 import Events from './pages/Events';
 import Gallery from './pages/Gallery';
+import ThreeDView from './components/3DView';
 import Cart from './components/Cart/Cart';
 
 import Research from './pages/Research';
@@ -36,35 +38,164 @@ const HeaderStyled = styled.h1`
   color: #343a40;
 `;
 
+// 无导航栏布局组件
+const NoNavbarLayout = ({ children }) => {
+  return (
+    <>
+      {children}
+      <Footer />
+    </>
+  );
+};
 
-// 主应用组�
+// 主应用组件
 function App() {
   return (
-    <Router>
-      <Header />
-      <Container>
-        <HeaderStyled></HeaderStyled>
+    <UserProvider>
+      <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/visit" element={<Visit />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/research" element={<Research />} />
-          <Route path="/store" element={<StoreLanding />} />
-          <Route path="/shop" element={<StoreShop />} />
-          <Route path="/shop/:id" element={<ProductDetail />} />  {/* 商品详情页面 */}
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/artisan-detail/:name" element={<ArtisanDetail />} /> {/* 匠人详情页面，使用名字动态路由 */}
-          <Route path="/visit/introduction" element={<Introduction />} />
-          <Route path="/visit/process" element={<Process />} />
-          <Route path="/visit/features" element={<Features />} />
-          <Route path="/visit/terms" element={<Terms />} />
+          <Route path="/" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <Home />
+              </Container>
+              <Footer />
+            </>
+          } />
+          <Route path="/home" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <Home />
+              </Container>
+              <Footer />
+            </>
+          } />
+          <Route path="/about" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <About />
+              </Container>
+              <Footer />
+            </>
+          } />
+          <Route path="/events" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <Events />
+              </Container>
+              <Footer />
+            </>
+          } />
+          <Route path="/research" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <Research />
+              </Container>
+              <Footer />
+            </>
+          } />
+          <Route path="/store" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <StoreLanding />
+              </Container>
+              <Footer />
+            </>
+          } />
+          <Route path="/shop" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <StoreShop />
+              </Container>
+              <Footer />
+            </>
+          } />
+          <Route path="/shop/:id" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <ProductDetail />
+              </Container>
+              <Footer />
+            </>
+          } />
+          <Route path="/cart" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <Cart />
+              </Container>
+              <Footer />
+            </>
+          } />
+          <Route path="/artisan-detail/:name" element={
+            <>
+              <Header />
+              <Container>
+                <HeaderStyled></HeaderStyled>
+                <ArtisanDetail />
+              </Container>
+              <Footer />
+            </>
+          } />
+          
+          {/* 无导航栏的路由 */}
+          <Route path="/gallery" element={
+            <>
+              <Gallery />
+              <Footer />
+            </>
+          } />
+          <Route path="/visit" element={
+            <>
+              <Visit />
+              <Footer />
+            </>
+          } />
+          <Route path="/visit/introduction" element={
+            <>
+              <Introduction />
+              <Footer />
+            </>
+          } />
+          <Route path="/visit/process" element={
+            <>
+              <Process />
+              <Footer />
+            </>
+          } />
+          <Route path="/visit/features" element={
+            <>
+              <Features />
+              <Footer />
+            </>
+          } />
+          <Route path="/visit/terms" element={
+            <>
+              <Terms />
+              <Footer />
+            </>
+          } />
         </Routes>
-      </Container>
-      <Footer />
-    </Router>
+      </Router>
+    </UserProvider>
   );
 }
 

@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'FangSong';
-  src: url('/fonts/AaGuDianKeBenSong-2.ttf') format('truetype');
+  src: url('/fonts/AaGuDianKeBenSong-2.ttf') format('truetype'),local('FangSong');
   font-weight: normal;
   font-style: normal;
   font-display: swap; /* 避免文字闪烁 */
@@ -42,7 +42,7 @@ a:hover {
 /* 设置页面基本字体、背景 */
 body {
   margin: 0;
-  font-family: 'KaiTi', serif;  /* 使用楷体或者其他合适的中文字体 */
+  font-family: 'FangSong','KaiTi', serif;  /* 使用楷体或者其他合适的中文字体 */
   background-color:transparent  !important;  
   color: #4B2F22;  /* 深咖色字体 */
 }

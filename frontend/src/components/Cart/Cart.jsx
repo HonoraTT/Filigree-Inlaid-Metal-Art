@@ -1,20 +1,33 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../../contexts/UserContext';
 import './Cart.css';
 
 const Cart = () => {
   const navigate = useNavigate();
+  const { user } = useUser();
   const [cartItems, setCartItems] = useState([]);
   const [promoCode, setPromoCode] = useState('');
   const [note, setNote] = useState('');
+  const [showPayment, setShowPayment] = useState(false);
 
   // 从 localStorage 加载购物车数据
   useEffect(() => {
-    const savedCart = localStorage.getItem('cart');
-    if (savedCart) {
-      setCartItems(JSON.parse(savedCart));
+    if (user) {
+      // 已登录用户：从用户特定的购物车加载数据
+      const cartKey = `cart_${user.id}`;
+      const savedCart = localStorage.getItem(cartKey);
+      if (savedCart) {
+        setCartItems(JSON.parse(savedCart));
+      } else {
+        setCartItems([]);
+      }
+    } else {
+      // 未登录用户：每次刷新页面时清空购物车
+      setCartItems([]);
+      localStorage.removeItem('cart');
     }
-  }, []);
+  }, [user]);
 
   // 更新商品数量
   const updateQuantity = (itemId, newQuantity) => {
@@ -24,14 +37,30 @@ const Cart = () => {
       item.id === itemId ? { ...item, quantity: newQuantity } : item
     );
     setCartItems(updatedItems);
-    localStorage.setItem('cart', JSON.stringify(updatedItems));
+    
+    // 根据登录状态保存购物车数据
+    if (user) {
+      const cartKey = `cart_${user.id}`;
+      localStorage.setItem(cartKey, JSON.stringify(updatedItems));
+    } else {
+      // 未登录用户：临时保存到 sessionStorage
+      sessionStorage.setItem('temp_cart', JSON.stringify(updatedItems));
+    }
   };
 
   // 删除商品
   const removeItem = (itemId) => {
     const updatedItems = cartItems.filter(item => item.id !== itemId);
     setCartItems(updatedItems);
-    localStorage.setItem('cart', JSON.stringify(updatedItems));
+    
+    // 根据登录状态保存购物车数据
+    if (user) {
+      const cartKey = `cart_${user.id}`;
+      localStorage.setItem(cartKey, JSON.stringify(updatedItems));
+    } else {
+      // 未登录用户：临时保存到 sessionStorage
+      sessionStorage.setItem('temp_cart', JSON.stringify(updatedItems));
+    }
   };
 
   // 计算小计
@@ -41,15 +70,40 @@ const Cart = () => {
 
   // 处理结账
   const handleCheckout = () => {
-    // 这里可以添加结账逻辑
-    alert('即将跳转到支付页面...');
+    if (!user) {
+      // 如果用户未登录，跳转到登录页面
+      navigate('/login?from=cart');
+      return;
+    }
+    setShowPayment(true);
   };
+
+  // 支付弹窗组件
+  const PaymentModal = () => (
+    <>
+      <div className="payment-modal-overlay" onClick={() => setShowPayment(false)} />
+      <div className="payment-modal">
+        <button className="close-modal" onClick={() => setShowPayment(false)}>×</button>
+        <h3>微信支付</h3>
+        <img src="/images/wechat-qr.jpg" alt="微信支付二维码" />
+        <p>请使用微信扫码支付</p>
+        <p>总金额: ¥{calculateSubtotal().toFixed(2)}</p>
+      </div>
+    </>
+  );
 
   return (
     <div className="cart-container">
+      {showPayment && <PaymentModal />}
       <div className="cart-content">
         <div className="cart-left">
           <h2>My cart 我的购物车</h2>
+          {!user && (
+            <div className="login-notice">
+              <p>您当前未登录，购物车数据将在刷新页面后清除</p>
+              <button onClick={() => navigate('/login?from=cart')}>去登录</button>
+            </div>
+          )}
           <div className="cart-items">
             {cartItems.map((item) => (
               <div key={item.id} className="cart-item">
@@ -74,7 +128,7 @@ const Cart = () => {
               <i className="fas fa-tag"></i>
               <input
                 type="text"
-                placeholder="Enter a promo code 输入促销代码"
+                placeholder="输入促销代码"
                 value={promoCode}
                 onChange={(e) => setPromoCode(e.target.value)}
               />
@@ -83,7 +137,7 @@ const Cart = () => {
               <i className="fas fa-pencil-alt"></i>
               <input
                 type="text"
-                placeholder="Add a note 添加注释"
+                placeholder="添加备注"
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
               />
@@ -107,11 +161,11 @@ const Cart = () => {
               <span>¥{calculateSubtotal().toFixed(2)}</span>
             </div>
             <button className="checkout-button" onClick={handleCheckout}>
-              Checkout 结账
+              {user ? '立即支付' : '请登录后结账'}
               <i className="fas fa-lock"></i>
             </button>
             <p className="secure-checkout">
-              <i className="fas fa-lock"></i> Secure Checkout 安全结账
+              <i className="fas fa-lock"></i> 安全支付
             </p>
           </div>
         </div>

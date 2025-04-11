@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
 import './store.css';
 
 const products = [
@@ -16,23 +17,37 @@ const products = [
 
 const StoreShop = () => {
   const navigate = useNavigate();
+  const { user } = useUser();
   const [selectedCategory, setSelectedCategory] = useState('所有');
   const [priceRange, setPriceRange] = useState([18, 130]);
   const [searchQuery, setSearchQuery] = useState("");
   
   // 从 localStorage 获取购物车数据
   const [cart, setCart] = useState(() => {
-    const savedCart = localStorage.getItem('cart');
-    return savedCart ? JSON.parse(savedCart) : [];
+    if (user) {
+      const cartKey = `cart_${user.id}`;
+      const savedCart = localStorage.getItem(cartKey);
+      return savedCart ? JSON.parse(savedCart) : [];
+    }
+    return [];
   });
 
   // 当购物车数据改变时，保存到 localStorage
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }, [cart]);
+    if (user) {
+      const cartKey = `cart_${user.id}`;
+      localStorage.setItem(cartKey, JSON.stringify(cart));
+    }
+  }, [cart, user]);
 
   // 处理加入购物车
   const handleAddToCart = (product) => {
+    if (!user) {
+      // 如果用户未登录，跳转到登录页面
+      navigate('/login?from=shop');
+      return;
+    }
+
     // 检查商品是否已在购物车中
     const existingItem = cart.find(item => item.id === product.id);
     
@@ -124,7 +139,12 @@ const StoreShop = () => {
                 <img src={item.image} alt={item.name} />
                 <h4>{item.name}</h4>
                 <p>¥{item.price}</p>
-                <button onClick={() => handleAddToCart(item)}>加入购物车</button>
+                <button 
+                  onClick={() => handleAddToCart(item)}
+                  className={!user ? 'login-required' : ''}
+                >
+                  {user ? '加入购物车' : '请登录后添加购物车'}
+                </button>
               </div>
             ))}
           </div>

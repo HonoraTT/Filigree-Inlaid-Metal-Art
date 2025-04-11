@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
 import './store.css';
 
 // 假设这是静态数据
@@ -18,13 +19,51 @@ const productsData = [
 ];
 
 const ProductDetail = () => {
-  const { id } = useParams(); // 获取路由中的商品ID
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { user } = useUser();
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
+    // 页面加载时滚动到顶部
+    window.scrollTo(0, 0);
+    
     const foundProduct = productsData.find((item) => item.id === parseInt(id));
     setProduct(foundProduct);
   }, [id]);
+
+  const handleAddToCart = () => {
+    if (!user) {
+      // 如果用户未登录，跳转到登录页面
+      navigate('/login?from=product');
+      return;
+    }
+
+    // 获取当前用户的购物车
+    const cartKey = `cart_${user.id}`;
+    const savedCart = localStorage.getItem(cartKey);
+    const currentCart = savedCart ? JSON.parse(savedCart) : [];
+
+    // 检查商品是否已在购物车中
+    const existingItem = currentCart.find(item => item.id === product.id);
+    
+    let updatedCart;
+    if (existingItem) {
+      // 如果商品已存在，增加数量
+      updatedCart = currentCart.map(item =>
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    } else {
+      // 如果商品不存在，添加新商品
+      updatedCart = [...currentCart, { ...product, quantity: 1 }];
+    }
+
+    // 保存更新后的购物车
+    localStorage.setItem(cartKey, JSON.stringify(updatedCart));
+    alert(`${product.name} 已加入购物车！`);
+  };
 
   if (!product) {
     return <div>加载中...</div>;
@@ -40,8 +79,11 @@ const ProductDetail = () => {
           <h1>{product.name}</h1>
           <p className="price">¥{product.price}</p>
           <p className="description">{product.description}</p>
-          <button className="add-to-cart" onClick={() => alert(`${product.name} 已加入购物车！`)}>
-            加入购物车
+          <button 
+            className={`add-to-cart ${!user ? 'login-required' : ''}`}
+            onClick={handleAddToCart}
+          >
+            {user ? '加入购物车' : '请登录后添加购物车'}
           </button>
         </div>
       </div>

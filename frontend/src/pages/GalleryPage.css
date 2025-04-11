@@ -22,7 +22,7 @@
   position: relative;
 }
 
-.slide .item {
+.slide .item1 {
   width: 200px;
   height: 300px;
   position: absolute;
@@ -36,8 +36,8 @@
 }
 
 /* 动态位置控制 */
-.slide .item:nth-child(1),
-.slide .item:nth-child(2) {
+.slide .item1:nth-child(1),
+.slide .item1:nth-child(2) {
   top: 0;
   left: 0;
   transform: translate(0, 0);
@@ -46,15 +46,15 @@
   height: 100%;
 }
 
-.slide .item:nth-child(3) { right: 430px; }
-.slide .item:nth-child(4) { right: 220px; }
-.slide .item:nth-child(5) { right: 10px; }
-.slide .item:nth-child(n + 6) { 
+.slide .item1:nth-child(3) { right: 430px; }
+.slide .item1:nth-child(4) { right: 220px; }
+.slide .item1:nth-child(5) { right: 10px; }
+.slide .item1:nth-child(n + 6) { 
   right: 0px;
   opacity: 0;
 }
 
-.item .content {
+.item1 .content {
   position: absolute;
   top: 50%;
   left: 10%;
@@ -68,18 +68,18 @@
   backdrop-filter: blur(5px);
 }
 
-.item .content .name {
+.item1 .content .name {
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 15px;
 }
 
-.item .content .des {
+.item1 .content .des {
   font-size: 1.2rem;
   margin-bottom: 25px;
 }
 
-.item .content button {
+.item1 .content button {
   padding: 12px 25px;
   border: none;
   background: #e8e2e1;
@@ -90,13 +90,13 @@
   transition: all 0.3s;
 }
 
-.item .content button:hover {
+.item1 .content button:hover {
   background: #c0392b;
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.slide .item:nth-child(2) .content {
+.slide .item1:nth-child(2) .content {
   display: block;
 }
 
@@ -303,6 +303,57 @@
 .cards-row .card:nth-child(3) { animation-delay: 0.3s; }
 .cards-row .card:nth-child(4) { animation-delay: 0.4s; }
 
+/* 3D模型展示部分 */
+.three-d-model-container {
+  display: flex;               /* 使用flex布局 */
+  justify-content: space-between; /* 左右两部分分布 */
+  align-items: center;         /* 垂直居中对齐 */
+  padding: 40px 20px;
+  background: #f3c1c1;
+  margin-top: 60px; /* 与卡片区隔开 */
+}
+
+/* 左侧模型展示区域 */
+.model-viewer-container {
+  flex: 1; /* 让模型展示区域占据可用空间 */
+  padding-right: 20px;  /* 给右侧留出空隙 */
+  height: 400px;  /* 设定高度 */
+}
+
+/* 右侧文本区域 */
+.model-text-container {
+  flex: 1; /* 右侧文本占据剩余空间 */
+  padding-left: 20px;  /* 左侧留出空隙 */
+  text-align: left; /* 确保文本在左侧显示 */
+}
+
+/* 标题样式 */
+.model-text-container .section-title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* 副标题样式 */
+.model-text-container .section-subtitle {
+  font-size: 1.2rem;
+  color: #7f8c8d;
+  margin-bottom: 20px;
+}
+
+/* 3D模型样式 */
+model-viewer {
+  background: #f3c1c1;
+  border-radius: 12px;  /* 给模型添加圆角 */
+ 
+  width: 100%;
+  height: 100%;
+  transform-origin: center center; /* 使模型围绕其中心点旋转 */
+}
+
+
+
 /* 响应式设计 */
 @media (max-width: 1200px) {
   .card {
@@ -316,14 +367,14 @@
     height: 60vh;
   }
   
-  .item .content {
+  .item1 .content {
     width: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
   }
   
-  .item .content .name {
+  .item1 .content .name {
     font-size: 1.8rem;
   }
   

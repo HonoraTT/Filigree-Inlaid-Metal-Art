@@ -85,16 +85,21 @@ const DunhuangParallaxHeader = ({ scrollProgress = { get: () => 0 } }) => {
           zIndex: 10,
           textAlign: "center",
           opacity: elementsOpacity,
-          pointerEvents: "none"
+          pointerEvents: "none",
+          width: "auto",        // 允许容器根据内容扩展
+          minWidth: "100%",     // 至少占满一行
+          padding: "0 20px"     // 防止边缘贴合
         }}
       >
         <h1 style={{
-          fontSize: "clamp(11rem, 10vw, 6rem)",
+           fontSize: "max(11rem, 12vmin)",
           fontFamily: "'HuaSiFont', serif",
           color:"rgba(244, 241, 237, 0.95)",
           letterSpacing: "0.5rem",
           margin: 0,
-          textShadow: "0 0 10px rgba(101, 64, 10, 0.7)"
+          whiteSpace: "nowrap", // 禁止换行
+          textShadow: "0 0 10px rgba(101, 64, 10, 0.7)",
+          lineHeight: 1.2       // 避免字母被裁剪
         }}>
           花丝镶嵌
         </h1>
@@ -104,7 +109,8 @@ const DunhuangParallaxHeader = ({ scrollProgress = { get: () => 0 } }) => {
             fontFamily: "'HuaSiFont', serif",
             color: "rgba(244, 241, 237, 0.95)",
             letterSpacing: "0.3rem",
-            marginTop: "1rem"
+            marginTop: "1rem",
+            whiteSpace: "nowrap" // 副标题也禁止换行
           }}
         >
           The Art of Filigree Inlay
