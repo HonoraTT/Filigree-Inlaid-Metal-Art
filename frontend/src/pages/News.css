@@ -47,10 +47,10 @@
 
 .news-grid {
   display: grid;                    /* 启用 CSS Grid 布局 */
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* 让列的宽度最小为 300px，最大为 1fr，且自动填充列 */
-  gap: 2rem;                         /* 网格项之间的间距为 2rem (约 32px) */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 让列的宽度最小为 300px，最大为 1fr，且自动填充列 */
+  gap: 8rem ;                         /* 网格项之间的间距为 2rem (约 32px) */
   padding: 2rem;                     /* 上下内边距为 2rem，左右无内边距 */
-
+  
   width: 100%;                       /* 容器宽度为 100% */
   max-width: 1200px;                 /* 容器最大宽度固定为 1200px */
   margin: 0 auto;                    /* 水平居中容器 */
@@ -191,3 +191,28 @@
       flex: 1 1 calc(100% - 1.5rem); /* 在更小的屏幕下，每行显示一个卡片 */
   }
 }
+/* News.css */
+.collect-btn, .book-btn {
+  padding: 0.8rem 1.5rem;
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.collect-btn {
+  background-color: #d4af37;
+  color: white;
+}
+
+.book-btn {
+  background-color: #704214;
+  color: white;
+}
+
+.collect-btn:hover, .book-btn:hover {
+  transform: scale(1.05);
+}
+

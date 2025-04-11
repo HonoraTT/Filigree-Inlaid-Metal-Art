@@ -1,4 +1,3 @@
-
 // src/pages/News.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
@@ -11,7 +10,7 @@ const newsData = [
     date: '2024/03/15-06/20',
     location: '故宫博物院·珍宝馆',
     highlight: '展出明清宫廷花丝文物40余件',
-    image: '/news/exhibition1.jpg',
+    image: '/images/exhibition1.jpg',
     style: { 
       background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
       fontColor: '#4b2e1c'
@@ -37,23 +36,64 @@ const newsData = [
     highlight: '3D打印技术在花丝镶嵌中的应用',
     image: '/news/tech1.jpg',
     style: {
-      background: 'linear-gradient(160deg, #704214, #2c1a0d)',
+      background: 'linear-gradient(160deg,rgb(139, 86, 32),rgb(104, 63, 33))',
       fontColor: '#d4af37'
     }
   },
+  // 新增展览活动 1
+  {
+    type: 'exhibition',
+    title: '国宝遗珍——中国古代青铜器展',
+    date: '2024/05/01-06/30',
+    location: '上海博物馆',
+    highlight: '展示上千年历史的青铜器文物，重现古代工艺美术',
+    image: '/news/exhibition2.jpg',
+    style: { 
+      background: 'linear-gradient(45deg, #5d4037, #b39d6a)',
+      fontColor: '#f5f5f5'
+    }
+  },
+  // 新增展览活动 2
+  {
+    type: 'workshop',
+    title: '陶瓷工艺体验工坊',
+    date: '2024/06/10-06/24',
+    location: '北京艺术中心',
+    highlight: '体验传统陶瓷工艺，亲手制作独特的陶艺作品',
+    image: '/news/workshop2.jpg',
+    style: {
+      background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
+      fontColor: '#2c3e50'
+    }
+  },
+  // 新增展览活动 3
   {
     type: 'research',
-    title: '与现代科技融合研讨会',
-    date: '2024/04/20 09:00',
-    location: '清华大学美术学院',
-    highlight: '3D打印技术在花丝镶嵌中的应用',
-    image: '/news/tech1.jpg',
+    title: '数字艺术与传统文化结合研讨会',
+    date: '2024/07/15 10:00',
+    location: '中央美术学院',
+    highlight: '讨论数字艺术在传统文化中的创新应用',
+    image: '/news/tech2.jpg',
     style: {
-      background: 'linear-gradient(160deg, #704214, #2c1a0d)',
+      background: 'linear-gradient(135deg,rgb(139, 134, 96), #cfd8dc)',
+      fontColor: '#ffffff'
+    }
+  },
+  // 新增展览活动 4
+  {
+    type: 'exhibition',
+    title: '古代丝绸之路艺术珍品展',
+    date: '2024/08/01-09/15',
+    location: '陕西历史博物馆',
+    highlight: '展示丝绸之路沿线的艺术珍品，跨文化交流的见证',
+    image: '/news/exhibition3.jpg',
+    style: { 
+      background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
       fontColor: '#d4af37'
     }
   }
 ];
+
 
 const News = () => {
   const [activeType, setActiveType] = useState('all');
@@ -88,7 +128,6 @@ const News = () => {
         ))}
       </nav>
 
-      {/* 动态卡片网格 */}
       <div className="news-grid">
         {newsData
           .filter(item => activeType === 'all' || item.type === activeType)
@@ -102,35 +141,29 @@ const News = () => {
               style={{ background: item.style.background }}
             >
               <div className="card-image" style={{ backgroundImage: `url(${item.image})` }} />
-              
               <div className="card-content" style={{ color: item.style.fontColor }}>
                 <div className="meta-tag">{item.type === 'exhibition' ? '🔥 热门特展' : '📅 即将开始'}</div>
                 <h3>{item.title}</h3>
                 <div className="info-row">
-                  <svg className="icon"><use xlinkHref="#icon-calendar"/></svg>
                   <span>{item.date}</span>
                 </div>
                 <div className="info-row">
-                  <svg className="icon"><use xlinkHref="#icon-location"/></svg>
                   <span>{item.location}</span>
                 </div>
                 <p className="highlight">{item.highlight}</p>
-                <button 
-                  className="detail-btn"
-                  style={{ 
-                    backgroundColor: item.style.fontColor,
-                    color: item.style.background
-                  }}
-                >
-                  查看详情 →
+                {/* 添加收藏和预约按钮 */}
+                <button className="collect-btn" onClick={() => alert(`${item.title} 已收藏！`)}>
+                  收藏活动
+                </button>
+                <button className="book-btn" onClick={() => alert(`${item.title} 已预约！`)}>
+                  预约
                 </button>
               </div>
             </motion.article>
           ))}
       </div>
-
-      {/* 时间线分隔符 */}
-      <div className="timeline-divider">
+       {/* 时间线分隔符 */}
+       <div className="timeline-divider">
         <div className="timeline-line" />
         <div className="deco-bead" />
         <div className="deco-bead" />

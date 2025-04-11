@@ -31,7 +31,7 @@
   }
   
   .timeline-item.left {
-    left: 4%;
+    left: 0%;
     transform: translateX(-30px);
   }
   
