@@ -25,7 +25,6 @@ import Introduction from './pages/Introduction';
 import Process from './pages/Process';
 import Features from './pages/Features';
 import Terms from './pages/Terms';
-
 import Login from  './pages/Login';
 
 
@@ -157,6 +156,11 @@ function App() {
               <Footer />
             </>
           } />
+           <Route path="/3d-view" element={<ThreeDView />} />
+           <Route path="/model-detail" element={<ModelDetail />} />
+           <Route path="/model-detail/:modelId" element={<ModelViewPage />} />  {/* 动态路径 */}
+  
+
           
           {/* 无导航栏的路由 */}
           <Route path="/gallery" element={
@@ -165,6 +169,7 @@ function App() {
               <Footer />
             </>
           } />
+
           <Route path="/visit" element={
             <>
               <Visit />
