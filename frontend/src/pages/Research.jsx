@@ -1,6 +1,5 @@
 // src/pages/News.jsx
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import './News.css';
 
@@ -37,79 +36,71 @@ const newsData = [
     highlight: '3D打印技术在花丝镶嵌中的应用',
     image: '/news/tech1.jpg',
     style: {
-      background: 'linear-gradient(160deg, #704214, #2c1a0d)',
+      background: 'linear-gradient(160deg,rgb(139, 86, 32),rgb(104, 63, 33))',
       fontColor: '#d4af37'
     }
   },
-// 新增展览活动 1
-{
-  type: 'exhibition',
-  title: '国宝遗珍——中国古代青铜器展',
-  date: '2024/05/01-06/30',
-  location: '上海博物馆',
-  highlight: '展示上千年历史的青铜器文物，重现古代工艺美术',
-  image: '/news/exhibition2.jpg',
-  style: { 
-    background: 'linear-gradient(45deg, #5d4037, #b39d6a)',
-    fontColor: '#f5f5f5'
+  // 新增展览活动 1
+  {
+    type: 'exhibition',
+    title: '国宝遗珍——中国古代青铜器展',
+    date: '2024/05/01-06/30',
+    location: '上海博物馆',
+    highlight: '展示上千年历史的青铜器文物，重现古代工艺美术',
+    image: '/news/exhibition2.jpg',
+    style: { 
+      background: 'linear-gradient(45deg, #5d4037, #b39d6a)',
+      fontColor: '#f5f5f5'
+    }
+  },
+  // 新增展览活动 2
+  {
+    type: 'workshop',
+    title: '陶瓷工艺体验工坊',
+    date: '2024/06/10-06/24',
+    location: '北京艺术中心',
+    highlight: '体验传统陶瓷工艺，亲手制作独特的陶艺作品',
+    image: '/news/workshop2.jpg',
+    style: {
+      background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
+      fontColor: '#2c3e50'
+    }
+  },
+  // 新增展览活动 3
+  {
+    type: 'research',
+    title: '数字艺术与传统文化结合研讨会',
+    date: '2024/07/15 10:00',
+    location: '中央美术学院',
+    highlight: '讨论数字艺术在传统文化中的创新应用',
+    image: '/news/tech2.jpg',
+    style: {
+      background: 'linear-gradient(135deg,rgb(139, 134, 96), #cfd8dc)',
+      fontColor: '#ffffff'
+    }
+  },
+  // 新增展览活动 4
+  {
+    type: 'exhibition',
+    title: '古代丝绸之路艺术珍品展',
+    date: '2024/08/01-09/15',
+    location: '陕西历史博物馆',
+    highlight: '展示丝绸之路沿线的艺术珍品，跨文化交流的见证',
+    image: '/news/exhibition3.jpg',
+    style: { 
+      background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
+      fontColor: '#d4af37'
+    }
   }
-},
-// 新增展览活动 2
-{
-  type: 'workshop',
-  title: '陶瓷工艺体验工坊',
-  date: '2024/06/10-06/24',
-  location: '北京艺术中心',
-  highlight: '体验传统陶瓷工艺，亲手制作独特的陶艺作品',
-  image: '/news/workshop2.jpg',
-  style: {
-    background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
-    fontColor: '#2c3e50'
-  }
-},
-// 新增展览活动 3
-{
-  type: 'research',
-  title: '数字艺术与传统文化结合研讨会',
-  date: '2024/07/15 10:00',
-  location: '中央美术学院',
-  highlight: '讨论数字艺术在传统文化中的创新应用',
-  image: '/news/tech2.jpg',
-  style: {
-    background: 'linear-gradient(135deg,rgb(139, 134, 96), #cfd8dc)',
-    fontColor: '#ffffff'
-  }
-},
-// 新增展览活动 4
-{
-  type: 'exhibition',
-  title: '古代丝绸之路艺术珍品展',
-  date: '2024/08/01-09/15',
-  location: '陕西历史博物馆',
-  highlight: '展示丝绸之路沿线的艺术珍品，跨文化交流的见证',
-  image: '/news/exhibition3.jpg',
-  style: { 
-    background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
-    fontColor: '#d4af37'
-  }
-}
 ];
+
 
 const News = () => {
   const [activeType, setActiveType] = useState('all');
 
-  const handleCollect = (type) => {
-    // 这里可以将收藏的活动存入本地存储或数据库
-    alert(`${type} 已添加到收藏！`);
-  };
-
-  const handleBook = (type) => {
-    // 这里可以将预约请求提交或跳转到预约页面
-    alert(`${type} 已预约！`);
-  };
-
   return (
     <div className="news-container">
+      {/* 动态标题 */}
       <motion.h1 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -119,6 +110,7 @@ const News = () => {
         <span className="subtitle">花丝镶嵌最新动态</span>
       </motion.h1>
 
+      {/* 交互式导航 */}
       <nav className="news-nav">
         {['all', 'exhibition', 'workshop', 'research'].map((type) => (
           <button
@@ -126,7 +118,12 @@ const News = () => {
             className={`nav-item ${activeType === type ? 'active' : ''}`}
             onClick={() => setActiveType(type)}
           >
-            {type === 'all' ? '全部' : type}
+            {{
+              all: '全部',
+              exhibition: '特展预告',
+              workshop: '体验工坊',
+              research: '学术动态'
+            }[type]}
           </button>
         ))}
       </nav>
@@ -155,10 +152,10 @@ const News = () => {
                 </div>
                 <p className="highlight">{item.highlight}</p>
                 {/* 添加收藏和预约按钮 */}
-                <button className="collect-btn" onClick={() => handleCollect(item.title)}>
+                <button className="collect-btn" onClick={() => alert(`${item.title} 已收藏！`)}>
                   收藏活动
                 </button>
-                <button className="book-btn" onClick={() => handleBook(item.title)}>
+                <button className="book-btn" onClick={() => alert(`${item.title} 已预约！`)}>
                   预约
                 </button>
               </div>
