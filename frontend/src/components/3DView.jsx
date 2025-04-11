@@ -13,9 +13,7 @@ const ThreeDView = () => {
 
   return (
     <div className="three-d-container">
-      <button className="back-button" onClick={handleBack}>
-        返回画廊
-      </button>
+     
       
       <div className="shell">
         <div className="content">
