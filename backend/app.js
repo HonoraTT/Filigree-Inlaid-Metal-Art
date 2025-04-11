@@ -9,7 +9,13 @@ const cartRoutes = require('./routes/cartRoutes');
 const app = express();
 
 // 中间件
-app.use(cors()); // 允许跨域请求
+app.use(cors({
+  origin: 'http://localhost:5173', // 前端开发服务器地址
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
+  credentials: false
+}));
+
 app.use(bodyParser.json()); // 解析 JSON 请求体
 app.use(express.json());
 

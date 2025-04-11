@@ -26,36 +26,65 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(''); // 清除之前的错误信息
     try {
       const endpoint = isRegister ? '/api/auth/register' : '/api/auth/login';
-      let payload;
+      let payload = { password: formData.password };
 
-      if (loginType === 'username') {
-        payload = { username: formData.username, password: formData.password };
-      } else if (loginType === 'phone') {
-        payload = { phone: formData.phone, password: formData.password };
-      } else {
-        payload = { email: formData.email, password: formData.password };
+      // 根据登录类型添加对应的字段
+      switch (loginType) {
+        case 'username':
+          payload.username = formData.username;
+          break;
+        case 'phone':
+          payload.phone = formData.phone;
+          break;
+        case 'email':
+          payload.email = formData.email;
+          break;
       }
 
       if (rememberMe) {
         payload.rememberMe = true;
       }
 
+      console.log('发送请求:', endpoint, payload);
+
       const response = await api.post(endpoint, payload);
       
+      console.log('收到响应:', response.data);
+      
+      if (!response.data.token || !response.data.user) {
+        throw new Error('服务器响应格式错误');
+      }
+
       // 使用用户上下文保存登录状态
       login(response.data.user, response.data.token);
       
-      // 如果是从购物车页面跳转来的，返回购物车页面
+      // 显示成功消息
+      alert(isRegister ? '注册成功！' : '登录成功！');
+      
+      // 根据来源进行跳转
       const from = new URLSearchParams(window.location.search).get('from');
       if (from === 'cart') {
+        navigate('/cart');
+      } else if (from === 'product') {
+        navigate(-1); // 返回商品详情页
+      } else if (from === 'shop') {
         navigate('/shop');
       } else {
-        navigate('/home');
+        navigate('/');  // 默认跳转到首页
       }
-    } catch (err) {
-      setError(err.response?.data?.message || (isRegister ? '注册失败，请检查信息' : '登录失败，请重试'));
+    } catch (error) {
+      console.error('注册/登录错误:', error);
+      console.error('错误详情:', error.response?.data);
+      if (error.response?.data?.error) {
+        setError(error.response.data.error);
+      } else if (error.response?.data?.message) {
+        setError(error.response.data.message);
+      } else {
+        setError(isRegister ? '注册失败，请检查信息' : '登录失败，请重试');
+      }
     }
   };
 

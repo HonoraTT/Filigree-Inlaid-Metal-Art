@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Menu } from 'antd';
-import { Link } from 'react-router-dom';
+import { Menu, Dropdown } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css'; // 确保路径正确
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
+import { useUser } from '../contexts/UserContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const navigate = useNavigate();
+  const { user, logout } = useUser();
 
   useEffect(() => {
     let ticking = false;
@@ -23,6 +26,29 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
+  // 用户下拉菜单
+  const userMenu = (
+    <div className="user-dropdown-menu">
+      <div className="user-info">
+        <span>{user?.username || user?.phone || user?.email}</span>
+      </div>
+      <div className="contact-info">
+        <p>联系我们：</p>
+        <p>用户反馈QQ群：723298609</p>
+        <p>手机号：18972796498</p>
+        <p>邮箱：1291288422@qq.com</p>
+      </div>
+      <div className="logout-button" onClick={handleLogout}>
+        <LogoutOutlined /> 退出登录
+      </div>
+    </div>
+  );
 
   return (
     <div className={`navbar-container ${scrolled ? 'scrolled' : ''}`}>
@@ -52,16 +78,29 @@ const Navbar = () => {
           <Link to="/research">有关动态</Link>
         </Menu.Item>
         
-        <Menu.Item 
-          key="login" 
-          style={{ marginLeft: 'auto' }} // 关键：让登录项靠右
-        >
-          <Link to="/login">
-            <UserOutlined style={{ fontSize: '16px' }} />
-            <span style={{ marginLeft: '8px' }}>登录</span>
-          </Link>
-        </Menu.Item>
-
+        {user ? (
+          <Menu.Item key="user" style={{ marginLeft: 'auto' }}>
+            <Dropdown 
+              overlay={userMenu} 
+              trigger={['click']}
+              overlayClassName="user-dropdown"
+            >
+              <span className="user-menu-trigger">
+                <UserOutlined style={{ fontSize: '16px' }} />
+                <span style={{ marginLeft: '8px' }}>
+                  {user.username || user.phone || user.email}
+                </span>
+              </span>
+            </Dropdown>
+          </Menu.Item>
+        ) : (
+          <Menu.Item key="login" style={{ marginLeft: 'auto' }}>
+            <Link to="/login">
+              <UserOutlined style={{ fontSize: '16px' }} />
+              <span style={{ marginLeft: '8px' }}>登录</span>
+            </Link>
+          </Menu.Item>
+        )}
       </Menu>
     </div>
   );
