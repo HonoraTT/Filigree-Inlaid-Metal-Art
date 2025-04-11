@@ -7,29 +7,57 @@ export const UserProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // 从 localStorage 检查用户登录状态
-    const token = localStorage.getItem('token');
-    const userData = localStorage.getItem('userData');
-    
-    if (token && userData) {
-      setUser(JSON.parse(userData));
-    }
-    setIsLoading(false);
+    const initializeAuth = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const userData = localStorage.getItem('userData');
+        
+        // 安全解析userData
+        if (token && userData) {
+          try {
+            const parsedData = JSON.parse(userData);
+            if (parsedData && typeof parsedData === 'object') {
+              setUser(parsedData);
+            }
+          } catch (e) {
+            console.error('解析用户数据失败:', e);
+            localStorage.removeItem('userData'); // 自动清理损坏数据
+          }
+        }
+      } catch (error) {
+        console.error('认证初始化失败:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    initializeAuth();
   }, []);
 
   const login = (userData, token) => {
-    setUser(userData);
-    localStorage.setItem('token', token);
-    localStorage.setItem('userData', JSON.stringify(userData));
+    try {
+      if (!userData || !token) {
+        throw new Error('登录参数不完整');
+      }
+      setUser(userData);
+      localStorage.setItem('token', token);
+      localStorage.setItem('userData', JSON.stringify(userData));
+    } catch (error) {
+      console.error('登录失败:', error);
+      throw error; // 允许调用处捕获
+    }
   };
 
   const logout = () => {
-    setUser(null);
-    localStorage.removeItem('token');
-    localStorage.removeItem('userData');
-    // 清除未登录用户的购物车数据
-    if (!user) {
-      localStorage.removeItem('cart');
+    try {
+      setUser(null);
+      localStorage.removeItem('token');
+      localStorage.removeItem('userData');
+      if (!user) {
+        localStorage.removeItem('cart');
+      }
+    } catch (error) {
+      console.error('登出失败:', error);
     }
   };
 
@@ -46,4 +74,4 @@ export const useUser = () => {
     throw new Error('useUser must be used within a UserProvider');
   }
   return context;
-}; 
+};
