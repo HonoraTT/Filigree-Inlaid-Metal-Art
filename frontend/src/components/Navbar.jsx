@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, Dropdown } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css'; // 确保路径正确
-import { UserOutlined, LogoutOutlined } from '@ant-design/icons';
+import { UserOutlined, LogoutOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import { useUser } from '../contexts/UserContext';
 
 const Navbar = () => {
@@ -37,6 +37,11 @@ const Navbar = () => {
     <div className="user-dropdown-menu">
       <div className="user-info">
         <span>{user?.username || user?.phone || user?.email}</span>
+      </div>
+      <div className="menu-actions">
+        <div className="menu-item" onClick={() => navigate('/cart')}>
+          <ShoppingCartOutlined /> 我的购物车
+        </div>
       </div>
       <div className="contact-info">
         <p>联系我们：</p>

@@ -55,7 +55,6 @@
     transform-origin: center;
     transform-style: preserve-3d;
     transform: translateZ(-30vw) rotateY(0);
-    animation: carousel 9s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
   }
   
   .item {
@@ -71,8 +70,6 @@
     -webkit-box-reflect: below 25px -webkit-linear-gradient(transparent 50%, rgba(255, 255, 255, 0.3));
   }
   
-  
-  
   .item:nth-child(1) {
     transform: rotateY(0) translateZ(35vw);
   }
@@ -83,13 +80,6 @@
   
   .item:nth-child(3) {
     transform: rotateY(240deg) translateZ(35vw);
-  }
-  
-  @keyframes carousel {
-    0%, 17.5% { transform: translateZ(-35vw) rotateY(0); }
-    27.5%, 45% { transform: translateZ(-35vw) rotateY(-120deg); }
-    55%, 72.5% { transform: translateZ(-35vw) rotateY(-240deg); }
-    82.5%, 100% { transform: translateZ(-35vw) rotateY(-360deg); }
   }
   
   .card-info {

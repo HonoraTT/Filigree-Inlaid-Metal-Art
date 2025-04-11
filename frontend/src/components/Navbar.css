@@ -210,3 +210,31 @@ body {
 .custom-menu .ant-menu-item a:hover {
   color: #1890ff !important;
 }
+
+.menu-actions {
+  margin-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 10px;
+}
+
+.menu-item {
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.9);
+  transition: background-color 0.3s;
+}
+
+.menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item .anticon {
+  font-size: 16px;
+}
+
+.logout-button {
+  margin-top: 8px;
+}
