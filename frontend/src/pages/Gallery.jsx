@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './GalleryPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import '@google/model-viewer';  // 引入 model-viewer
 
 const Gallery = () => {
   const slideRef = useRef(null);
@@ -141,6 +142,25 @@ const Gallery = () => {
           </div>
         </div>
       </div>
+
+      {/* 3D模型展示部分，位于卡片下方并与卡片隔离 */}
+      <div className="three-d-model-container">
+  <div className="model-viewer-container">
+    <model-viewer
+      src="/images/3Dmodels/3D花丝凤冠.glb"  // 这里是3D模型的路径
+      alt="3D展示"
+      camera-controls
+      camera-orbit="0deg 90deg 500px"  /* 调整视角，使模型更好地显示 */
+      style={{ width: '100%', height: '400px' }}
+    />
+  </div>
+  <div className="model-text-container">
+    <h2 className="section-title">3D展示</h2>
+    <p className="section-subtitle">请使用鼠标拖拽旋转模型</p>
+  </div>
+</div>
+
+
     </div>
   );
 };
