@@ -11,6 +11,10 @@ const Gallery = () => {
   const [active3DView, setActive3DView] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
 
+  const handleClick = (modelPath) => {
+    navigate(`/model-detail`); 
+  };
+
   // 轮播图数据
   const slides = [
     { image: '/images/作品展示/轮播1.png' },
@@ -85,6 +89,8 @@ const Gallery = () => {
     navigate('/3d-view', { state: { card } });
   };
 
+  
+
   return (
     <div className="gallery-container">
       {/* 轮播图部分 */}
@@ -154,7 +160,7 @@ const Gallery = () => {
       style={{ width: '100%', height: '400px' }}
     />
   </div>
-  <div className="model-text-container">
+  <div className="model-text-container" onClick={handleClick}>
     <h2 className="section-title">3D展示</h2>
     <p className="section-subtitle">请使用鼠标拖拽旋转模型</p>
   </div>

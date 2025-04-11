@@ -12,6 +12,8 @@ import Visit from './pages/Visit';
 import Events from './pages/Events';
 import Gallery from './pages/Gallery';
 import ThreeDView from './components/3DView';
+import ModelDetail from './components/ModelDetail';
+import ModelViewPage from './components/ModelViewPage';  // 新展示页面
 import Cart from './components/Cart/Cart';
 
 import Research from './pages/Research';

@@ -1,0 +1,84 @@
+.model-detail1-container1 {
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+
+.model-detail1-container1 h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: #c18d68;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #9b4e25;
+}
+
+/* 网格容器样式 */
+.model-grid1 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 每行显示3个图片 */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* 单个网格项 */
+.model-grid1-item1 {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 250px; /* 增加高度，确保图片显示更加美观 */
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; /* 添加缩放效果 */
+}
+
+/* 图片 hover 效果 */
+.model-grid1-item1:hover {
+    transform: scale(1.05); /* 图片在 hover 时放大 */
+}
+
+/* 覆盖层 */
+.model-overlay1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.model-grid-item:hover .model-overlay {
+    opacity: 1;
+}
+
+/* 适应不同屏幕的响应式设置 */
+@media (max-width: 1024px) {
+    .model-grid {
+        grid-template-columns: repeat(2, 1fr); /* 中等屏幕上每行2个图片 */
+    }
+}
+
+@media (max-width: 768px) {
+    .model-grid {
+        grid-template-columns: repeat(1, 1fr); /* 小屏幕上每行1个图片 */
+    }
+}
