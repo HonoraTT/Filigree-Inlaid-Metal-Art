@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './GalleryPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import '@google/model-viewer';
+import '@google/model-viewer';  // 引入 model-viewer
 
 const Gallery = () => {
   const slideRef = useRef(null);
@@ -30,7 +30,7 @@ const Gallery = () => {
     {
       title: '首饰',
       description: '展示花丝镶嵌的传统制作工艺',
-      defaultImage: '/images/作品展示/卡片底1.png',
+      defaultImage: '/images/作品展示/轮播1.png',
       hoverImage: '/images/作品展示/轮播2.png',
       bgColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
       hoverColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
@@ -39,7 +39,7 @@ const Gallery = () => {
     {
       title: '服饰',
       description: '融合现代设计理念的创新作品',
-      defaultImage: '/images/作品展示/卡片底2.png',
+      defaultImage: '/images/作品展示/轮播3.png',
       hoverImage: '/images/作品展示/轮播4.png',
       bgColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
       hoverColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
@@ -48,7 +48,7 @@ const Gallery = () => {
     {
       title: '器皿',
       description: '国家级工艺美术大师的代表作',
-      defaultImage: '/images/作品展示/卡片底3.png',
+      defaultImage: '/images/作品展示/轮播5.png',
       hoverImage: '/images/作品展示/轮播6.png',
       bgColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
       hoverColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
@@ -57,7 +57,7 @@ const Gallery = () => {
     {
       title: '摆件',
       description: '个性化定制花丝镶嵌艺术品',
-      defaultImage: '/images/作品展示/卡片底4.png',
+      defaultImage: '/images/作品展示/轮播1.png',
       hoverImage: '/images/作品展示/轮播3.png',
       bgColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
       hoverColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
@@ -89,6 +89,8 @@ const Gallery = () => {
     navigate('/3d-view', { state: { card } });
   };
 
+  
+
   return (
     <div className="gallery-container">
       {/* 轮播图部分 */}
@@ -103,12 +105,13 @@ const Gallery = () => {
           ))}
         </div>
         
-        {/* 修改后的按钮容器 - 分开显示 */}
-        <div className="carousel-button-prev" onClick={handlePrev}>
-          <FontAwesomeIcon icon={faArrowLeft} />
-        </div>
-        <div className="carousel-button-next" onClick={handleNext}>
-          <FontAwesomeIcon icon={faArrowRight} />
+        <div className="carousel-buttons">
+          <button className="prev" onClick={handlePrev}>
+            <FontAwesomeIcon icon={faArrowLeft} />
+          </button>
+          <button className="next" onClick={handleNext}>
+            <FontAwesomeIcon icon={faArrowRight} />
+          </button>
         </div>
       </div>
 
@@ -146,27 +149,24 @@ const Gallery = () => {
         </div>
       </div>
 
-      {/* 3D模型展示部分 */}
+      {/* 3D模型展示部分，位于卡片下方并与卡片隔离 */}
       <div className="three-d-model-container">
-      <div className="model-viewer-container">
-  <model-viewer
-    src="/images/3Dmodels/3D花丝凤冠.glb"
-    alt="3D展示"
-    camera-controls
-    camera-orbit="0deg 90deg 500px"
-    style={{ width: '100%', height: '400px' }}
-    max-field-of-view="30deg"  /* 最大视角 */
-    min-field-of-view="10deg"  /* 最小视角 */
-    max-camera-orbit="Infinity auto 1000px"  /* 最大相机轨道距离 */
-    min-camera-orbit="-Infinity auto 200px"  /* 最小相机轨道距离 */
-    bounds="tight"  /* 限制模型在视图范围内 */
-  />
+  <div className="model-viewer-container">
+    <model-viewer
+      src="/images/3Dmodels/3D花丝凤冠.glb"  // 这里是3D模型的路径
+      alt="3D展示"
+      camera-controls
+      camera-orbit="0deg 90deg 500px"  /* 调整视角，使模型更好地显示 */
+      style={{ width: '100%', height: '400px' }}
+    />
+  </div>
+  <div className="model-text-container" onClick={handleClick}>
+    <h2 className="section-title">3D展示</h2>
+    <p className="section-subtitle">请使用鼠标拖拽旋转模型</p>
+  </div>
 </div>
-        <div className="model-text-container" onClick={handleClick}>
-          <h2 className="section-title">3D展示</h2>
-          <p className="section-subtitle">请使用鼠标拖拽旋转模型</p>
-        </div>
-      </div>
+
+
     </div>
   );
 };
