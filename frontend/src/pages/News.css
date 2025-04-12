@@ -58,28 +58,23 @@
 
 .news-card {
   display: flex;
-  flex-direction: column; /* 确保内容按列排列 */
+  flex-direction: column;
   border-radius: 15px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.1); /* 添加阴影：X偏移0 Y偏移8px 模糊24px 颜色黑色10%透明度 */
-  transition: transform 0.3s ease;  /* 定义 transform 属性的过渡动画（悬停效果） */
-  flex: 1 1 calc(33.33% - 1.5rem); /* 每个卡片的宽度，确保一行显示三个 */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  flex: 1 1 calc(33.33% - 1.5rem);
   height: 400px;
-  min-width: 400px; /* 确保最小宽度，避免显示一个卡片时过于狭窄 */
-  max-width: calc(33.33% - 1.5rem); /* 限制最大宽度为一行三个卡片 */
+  min-width: 400px;
+  max-width: calc(33.33% - 1.5rem);
   margin-bottom: 1.5rem;
-  overflow: hidden; /* 防止内容超出 */
+  overflow: hidden;
+  position: relative;
 }
-
 .news-card:hover {
   transform: translateY(-5px);
 }
 
-.card-image {
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
+
 
 .meta-tag {
   position: absolute;
@@ -97,6 +92,15 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  background-image: url(${item.image}); /* 设置背景图为图片 */
+  background-size: cover;
+  background-position: center center;
+  height: 100%; /* 设置容器高度为100% */
+  filter: opacity(0.88); /* 设置背景图透明度 */
+  border-radius: 15px;
+  color: #fff; /* 设置文本为白色，增加可读性 */
+  z-index: 1;
+ /* 使内容均匀分布，避免按钮重叠 */
 }
 
 .info-row {
@@ -112,18 +116,6 @@
   fill: currentColor;
 }
 
-.detail-btn {
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.detail-btn:hover {
-  transform: scale(1.05);
-}
 
 .timeline-divider {
   position: relative;
@@ -202,17 +194,38 @@
   transition: transform 0.2s ease;
 }
 
+/* 收藏按钮 */
 .collect-btn {
-  background-color: #d4af37;
+  padding: 0.8rem 1.5rem;
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  background-color: rgba(212, 175, 55, 0.7); /* 使用柔和的淡金色 */
   color: white;
 }
 
+/* 预约按钮 */
 .book-btn {
-  background-color: #704214;
+  padding: 0.8rem 1.5rem;
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  background-color: rgba(112, 66, 20, 0.7); /* 使用柔和的棕色 */
   color: white;
 }
 
-.collect-btn:hover, .book-btn:hover {
-  transform: scale(1.05);
+.card-content .collect-btn, .card-content .book-btn {
+  margin-top: 20px;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
-
