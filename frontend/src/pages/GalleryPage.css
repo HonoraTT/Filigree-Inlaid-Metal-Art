@@ -1,3 +1,4 @@
+
 /* 主容器 */
 .gallery-container {
   width: 100%;
@@ -7,7 +8,7 @@
   overflow-x: hidden;
 }
 
-/* 轮播图部分 */
+/* 轮播图部分 - 保持原样 */
 .carousel-section {
   position: relative;
   height: 100vh;
@@ -53,46 +54,84 @@
   opacity: 0;
 }
 
-/* 修改后的轮播按钮样式 - 分开显示 */
-.carousel-button-prev,
-.carousel-button-next {
-  position: absolute; /* 改为absolute定位 */
-  top: 90%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
-  color: #2c3e50;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.item1 .content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  width: 40%;
+  color: #fff;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  transform: translate(0, -50%);
+  display: none;
+  border-radius: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.item1 .content .name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.item1 .content .des {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.item1 .content button {
+  padding: 12px 25px;
+  border: none;
+  background: #e8e2e1;
+  color: white;
+  border-radius: 30px;
   cursor: pointer;
+  font-size: 1rem;
   transition: all 0.3s;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.item1 .content button:hover {
+  background: #c0392b;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.slide .item1:nth-child(2) .content {
+  display: block;
+}
+
+.carousel-buttons {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 50px;
   z-index: 10;
 }
 
-.carousel-button-prev {
-  left: 46%;
-  
+.carousel-buttons button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  margin: 0 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: rgba(255, 255, 255, 0.8);
+  color: #2c3e50;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-button-next {
-  right: 46%;
-}
-
-.carousel-button-prev:hover,
-.carousel-button-next:hover {
-  background: #ffee51;
+.carousel-buttons button:hover {
+  background: #e74c3c;
   color: white;
-  transform: translateY(-50%) scale(1.1);
+  transform: scale(1.1);
 }
 
-/* 卡片部分 */
+/* 卡片部分 - 四个一排不换行 */
 .cards-section {
-  padding: 80px 0px;
-  background: rgb(216, 164, 164);
+  padding: 80px 20px;
+  background: white;
   text-align: center;
 }
 
@@ -131,19 +170,19 @@
 .cards-row {
   display: flex;
   justify-content: center;
-  gap: 0px;
+  gap: 30px;
   min-width: fit-content;
   padding: 0 20px;
 }
 
-/* 卡片样式 */
+/* 卡片样式 - 修改后的效果 */
 .card {
   position: relative;
-  border-radius: 0px;
+  border-radius: 15px;
   min-width: 280px;
   height: 350px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.5s ease;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-align: center;
   cursor: pointer;
   overflow: hidden;
@@ -151,7 +190,6 @@
   flex-shrink: 0;
   background-size: cover;
   background-position: center;
-  margin-right: -1px; /* 负边距消除间隙 */
 }
 
 .card-content {
@@ -161,6 +199,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  
   transition: all 0.5s ease;
   z-index: 2;
 }
@@ -190,11 +229,18 @@
 }
 
 .card:hover {
+  transform: translateY(-15px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 .card:hover .card-hover-image {
   bottom: 0;
+}
+
+
+
+.card:hover::before {
+  opacity: 0;
 }
 
 .card:hover .card-hover-effect {
@@ -209,7 +255,7 @@
 }
 
 .card:hover .card-icon {
-  transform: none;
+  transform: scale(1.2) rotate(5deg);
 }
 
 .card-title {
@@ -235,35 +281,53 @@
   color: #34495e;
 }
 
-.card:hover .card-content {
-  opacity: 0; /* 悬停时隐藏文字内容 */
-  transition: opacity 0.3s ease; /* 添加过渡效果 */
+/* 动画效果 */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
+
+.cards-row .card {
+  animation: slideIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.cards-row .card:nth-child(1) { animation-delay: 0.1s; }
+.cards-row .card:nth-child(2) { animation-delay: 0.2s; }
+.cards-row .card:nth-child(3) { animation-delay: 0.3s; }
+.cards-row .card:nth-child(4) { animation-delay: 0.4s; }
 
 /* 3D模型展示部分 */
 .three-d-model-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex;               /* 使用flex布局 */
+  justify-content: space-between; /* 左右两部分分布 */
+  align-items: center;         /* 垂直居中对齐 */
   padding: 40px 20px;
   background: #f3c1c1;
-  margin-top: 60px;
-  overflow: hidden;  
+  margin-top: 60px; /* 与卡片区隔开 */
 }
 
+/* 左侧模型展示区域 */
 .model-viewer-container {
-  flex: 1;
-  padding-right: 20px;
-  height: 400px;
-  overflow: hidden;  /* 防止模型超出容器 */
+  flex: 1; /* 让模型展示区域占据可用空间 */
+  padding-right: 20px;  /* 给右侧留出空隙 */
+  height: 400px;  /* 设定高度 */
 }
 
+/* 右侧文本区域 */
 .model-text-container {
-  flex: 1;
-  padding-left: 20px;
-  text-align: left;
+  flex: 1; /* 右侧文本占据剩余空间 */
+  padding-left: 20px;  /* 左侧留出空隙 */
+  text-align: left; /* 确保文本在左侧显示 */
 }
 
+/* 标题样式 */
 .model-text-container .section-title {
   font-size: 2.5rem;
   color: #2c3e50;
@@ -271,20 +335,24 @@
   margin-bottom: 10px;
 }
 
+/* 副标题样式 */
 .model-text-container .section-subtitle {
   font-size: 1.2rem;
   color: #7f8c8d;
   margin-bottom: 20px;
 }
 
+/* 3D模型样式 */
 model-viewer {
   background: #f3c1c1;
-  border-radius: 12px;
+  border-radius: 12px;  /* 给模型添加圆角 */
+ 
   width: 100%;
   height: 100%;
-  transform-origin: center center;
-  touch-action: none;  /* 防止移动端默认手势干扰 */
+  transform-origin: center center; /* 使模型围绕其中心点旋转 */
 }
+
+
 
 /* 响应式设计 */
 @media (max-width: 1200px) {
@@ -299,18 +367,15 @@ model-viewer {
     height: 60vh;
   }
   
-  .carousel-button-prev,
-  .carousel-button-next {
-    width: 40px;
-    height: 40px;
+  .item1 .content {
+    width: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
   }
   
-  .carousel-button-prev {
-    left: 15px;
-  }
-  
-  .carousel-button-next {
-    right: 15px;
+  .item1 .content .name {
+    font-size: 1.8rem;
   }
   
   .cards-section {
@@ -324,6 +389,7 @@ model-viewer {
   .card {
     min-width: 220px;
     height: 300px;
+    padding: 30px 20px;
   }
 }
 
@@ -332,15 +398,16 @@ model-viewer {
     height: 50vh;
   }
   
-  .carousel-button-prev,
-  .carousel-button-next {
-    width: 35px;
-    height: 35px;
-    font-size: 0.9rem;
+  .carousel-buttons button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
   
   .card {
     min-width: 200px;
     height: 280px;
+    padding: 25px 15px;
   }
 }
+
