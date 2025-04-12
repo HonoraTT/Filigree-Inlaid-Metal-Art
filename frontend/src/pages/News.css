@@ -63,7 +63,7 @@
   box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
   flex: 1 1 calc(33.33% - 1.5rem);
-  height: 375px;
+  height: 400px;
   min-width: 400px;
   max-width: calc(33.33% - 1.5rem);
   margin-bottom: 1.5rem;
@@ -74,12 +74,7 @@
   transform: translateY(-5px);
 }
 
-.card-image {
-  height: 200px;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-}
+
 
 .meta-tag {
   position: absolute;
@@ -100,10 +95,12 @@
   background-image: url(${item.image}); /* 设置背景图为图片 */
   background-size: cover;
   background-position: center center;
+  height: 100%; /* 设置容器高度为100% */
   filter: opacity(0.88); /* 设置背景图透明度 */
   border-radius: 15px;
   color: #fff; /* 设置文本为白色，增加可读性 */
   z-index: 1;
+ /* 使内容均匀分布，避免按钮重叠 */
 }
 
 .info-row {
@@ -119,18 +116,6 @@
   fill: currentColor;
 }
 
-.detail-btn {
-  padding: 0.8rem 1.5rem;
-  border: none;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.detail-btn:hover {
-  transform: scale(1.05);
-}
 
 .timeline-divider {
   position: relative;
@@ -234,7 +219,13 @@
   background-color: rgba(112, 66, 20, 0.7); /* 使用柔和的棕色 */
   color: white;
 }
-.collect-btn:hover, .book-btn:hover {
-  transform: scale(1.05);
-}
 
+.card-content .collect-btn, .card-content .book-btn {
+  margin-top: 20px;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}

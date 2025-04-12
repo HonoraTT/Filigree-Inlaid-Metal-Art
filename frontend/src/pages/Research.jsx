@@ -181,60 +181,7 @@ const News = () => {
     预约
   </button>
 </div>
-<div className="card-content" style={{ backgroundImage: `url(${item.image})`, color: item.style.fontColor }}>
-  <div className="meta-tag">{item.type === 'exhibition' ? '🔥 热门特展' : '📅 即将开始'}</div>
-  <h3>{item.title}</h3>
-  <div className="info-row">
-    <span>{item.date}</span>
-  </div>
-  <div className="info-row">
-    <span>{item.location}</span>
-  </div>
-  <p className="highlight">{item.highlight}</p>
-  {/* 添加收藏和预约按钮 */}
-  <button className="collect-btn" onClick={() => alert(`${item.title} 已收藏！`)}>
-    收藏活动
-  </button>
-  <button className="book-btn" onClick={() => alert(`${item.title} 已预约！`)}>
-    预约
-  </button>
-</div>
-<div className="card-content" style={{ backgroundImage: `url(${item.image})`, color: item.style.fontColor }}>
-  <div className="meta-tag">{item.type === 'exhibition' ? '🔥 热门特展' : '📅 即将开始'}</div>
-  <h3>{item.title}</h3>
-  <div className="info-row">
-    <span>{item.date}</span>
-  </div>
-  <div className="info-row">
-    <span>{item.location}</span>
-  </div>
-  <p className="highlight">{item.highlight}</p>
-  {/* 添加收藏和预约按钮 */}
-  <button className="collect-btn" onClick={() => alert(`${item.title} 已收藏！`)}>
-    收藏活动
-  </button>
-  <button className="book-btn" onClick={() => alert(`${item.title} 已预约！`)}>
-    预约
-  </button>
-</div>
-<div className="card-content" style={{ backgroundImage: `url(${item.image})`, color: item.style.fontColor }}>
-  <div className="meta-tag">{item.type === 'exhibition' ? '🔥 热门特展' : '📅 即将开始'}</div>
-  <h3>{item.title}</h3>
-  <div className="info-row">
-    <span>{item.date}</span>
-  </div>
-  <div className="info-row">
-    <span>{item.location}</span>
-  </div>
-  <p className="highlight">{item.highlight}</p>
-  {/* 添加收藏和预约按钮 */}
-  <button className="collect-btn" onClick={() => alert(`${item.title} 已收藏！`)}>
-    收藏活动
-  </button>
-  <button className="book-btn" onClick={() => alert(`${item.title} 已预约！`)}>
-    预约
-  </button>
-</div>
+
 
             </motion.article>
           ))}
