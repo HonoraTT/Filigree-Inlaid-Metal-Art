@@ -17,7 +17,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
+
 }
+
 
 button:hover {
     background-color: #9b4e25;
@@ -36,7 +38,7 @@ button:hover {
     position: relative;
     background-size: cover;
     background-position: center;
-    height: 250px; /* 增加高度，确保图片显示更加美观 */
+    height: 300px; /* 增加高度，确保图片显示更加美观 */
     border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
@@ -66,19 +68,19 @@ button:hover {
     transition: opacity 0.3s;
 }
 
-.model-grid-item:hover .model-overlay {
+.model-grid1-item1:hover .model-overlay1 {
     opacity: 1;
 }
 
 /* 适应不同屏幕的响应式设置 */
 @media (max-width: 1024px) {
-    .model-grid {
+    .model-grid1 {
         grid-template-columns: repeat(2, 1fr); /* 中等屏幕上每行2个图片 */
     }
 }
 
 @media (max-width: 768px) {
-    .model-grid {
+    .model-grid1 {
         grid-template-columns: repeat(1, 1fr); /* 小屏幕上每行1个图片 */
     }
 }

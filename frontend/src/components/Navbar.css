@@ -238,3 +238,35 @@ body {
 .logout-button {
   margin-top: 8px;
 }
+
+.menu-section {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.menu-section h4 {
+  color: #fff;
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  opacity: 0.9;
+  padding: 0 16px;
+}
+
+.menu-section .menu-item {
+  padding: 8px 16px;
+  margin: 2px 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.menu-section .menu-item.empty {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+}
+
+.menu-section .menu-item .anticon {
+  font-size: 14px;
+  opacity: 0.8;
+}

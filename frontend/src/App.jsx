@@ -2,6 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import { UserProvider } from './contexts/UserContext';
+import { UserFavoritesProvider } from './contexts/UserFavoritesContext';
 import Home from './pages/Home';
 import DetailPage from './pages/DetailPage';
 import Header from './components/Header';
@@ -53,155 +54,157 @@ const NoNavbarLayout = ({ children }) => {
 function App() {
   return (
     <UserProvider>
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <Home />
-              </Container>
-              <Footer />
-            </>
-          } />
-          <Route path="/home" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <Home />
-              </Container>
-              <Footer />
-            </>
-          } />
-          <Route path="/about" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <About />
-              </Container>
-              <Footer />
-            </>
-          } />
-          <Route path="/events" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <Events />
-              </Container>
-              <Footer />
-            </>
-          } />
-          <Route path="/research" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <Research />
-              </Container>
-              <Footer />
-            </>
-          } />
-          <Route path="/store" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <StoreLanding />
-              </Container>
-              <Footer />
-            </>
-          } />
-          <Route path="/shop" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <StoreShop />
-              </Container>
-              <Footer />
-            </>
-          } />
-          <Route path="/shop/:id" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <ProductDetail />
-              </Container>
-              <Footer />
-            </>
-          } />
-          <Route path="/cart" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <Cart />
-              </Container>
-              <Footer />
-            </>
-          } />
-          <Route path="/artisan-detail/:name" element={
-            <>
-              <Header />
-              <Container>
-                <HeaderStyled></HeaderStyled>
-                <ArtisanDetail />
-              </Container>
-              <Footer />
-            </>
-          } />
-           <Route path="/3d-view" element={<ThreeDView />} />
-           <Route path="/model-detail" element={<ModelDetail />} />
-           <Route path="/model-detail/:modelId" element={<ModelViewPage />} />  {/* 动态路径 */}
-  
+      <UserFavoritesProvider>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <Home />
+                </Container>
+                <Footer />
+              </>
+            } />
+            <Route path="/home" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <Home />
+                </Container>
+                <Footer />
+              </>
+            } />
+            <Route path="/about" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <About />
+                </Container>
+                <Footer />
+              </>
+            } />
+            <Route path="/events" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <Events />
+                </Container>
+                <Footer />
+              </>
+            } />
+            <Route path="/research" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <Research />
+                </Container>
+                <Footer />
+              </>
+            } />
+            <Route path="/store" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <StoreLanding />
+                </Container>
+                <Footer />
+              </>
+            } />
+            <Route path="/shop" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <StoreShop />
+                </Container>
+                <Footer />
+              </>
+            } />
+            <Route path="/shop/:id" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <ProductDetail />
+                </Container>
+                <Footer />
+              </>
+            } />
+            <Route path="/cart" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <Cart />
+                </Container>
+                <Footer />
+              </>
+            } />
+            <Route path="/artisan-detail/:name" element={
+              <>
+                <Header />
+                <Container>
+                  <HeaderStyled></HeaderStyled>
+                  <ArtisanDetail />
+                </Container>
+                <Footer />
+              </>
+            } />
+             <Route path="/3d-view" element={<ThreeDView />} />
+             <Route path="/model-detail" element={<ModelDetail />} />
+             <Route path="/model-detail/:modelId" element={<ModelViewPage />} />  {/* 动态路径 */}
+    
 
-          
-          {/* 无导航栏的路由 */}
-          <Route path="/gallery" element={
-            <>
-              <Gallery />
-              <Footer />
-            </>
-          } />
+            
+            {/* 无导航栏的路由 */}
+            <Route path="/gallery" element={
+              <>
+                <Gallery />
+                <Footer />
+              </>
+            } />
 
-          <Route path="/visit" element={
-            <>
-              <Visit />
-              <Footer />
-            </>
-          } />
-          <Route path="/visit/introduction" element={
-            <>
-              <Introduction />
-              <Footer />
-            </>
-          } />
-          <Route path="/visit/process" element={
-            <>
-              <Process />
-              <Footer />
-            </>
-          } />
-          <Route path="/visit/features" element={
-            <>
-              <Features />
-              <Footer />
-            </>
-          } />
-          <Route path="/visit/terms" element={
-            <>
-              <Terms />
-              <Footer />
-            </>
-          } />
-        </Routes>
-      </Router>
+            <Route path="/visit" element={
+              <>
+                <Visit />
+                <Footer />
+              </>
+            } />
+            <Route path="/visit/introduction" element={
+              <>
+                <Introduction />
+                <Footer />
+              </>
+            } />
+            <Route path="/visit/process" element={
+              <>
+                <Process />
+                <Footer />
+              </>
+            } />
+            <Route path="/visit/features" element={
+              <>
+                <Features />
+                <Footer />
+              </>
+            } />
+            <Route path="/visit/terms" element={
+              <>
+                <Terms />
+                <Footer />
+              </>
+            } />
+          </Routes>
+        </Router>
+      </UserFavoritesProvider>
     </UserProvider>
   );
 }
