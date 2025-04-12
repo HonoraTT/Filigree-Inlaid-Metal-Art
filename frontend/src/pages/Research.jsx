@@ -10,10 +10,13 @@ const newsData = [
     date: '2024/03/15-06/20',
     location: '故宫博物院·珍宝馆',
     highlight: '展出明清宫廷花丝文物40余件',
-    image: '/images/exhibition1.jpg',
+    image: '/images/有关动态背景图/故宫1.png',
     style: { 
-      background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
-      fontColor: '#4b2e1c'
+      backgroundImage: 'url(/images/有关动态背景图/故宫1.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',  // 设置背景颜色的透明度
+      fontColor: '#fff'
     }
   },
   {
@@ -22,10 +25,13 @@ const newsData = [
     date: '每周六 14:00-16:00',
     location: '国家工艺美术馆',
     highlight: '国家级传承人现场指导',
-    image: '/news/workshop1.jpg',
+    image: '/images/有关动态背景图/国家工艺美术馆1.png',
     style: {
-      background: 'linear-gradient(45deg, #f0e6d3, #c9b79c)',
-      fontColor: '#4b2e1c'
+      backgroundImage: 'url(/images/有关动态背景图/故宫1.png)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',  // 设置背景颜色的透明度
+      fontColor: '#fff'
     }
   },
   {
@@ -34,65 +40,81 @@ const newsData = [
     date: '2024/04/20 09:00',
     location: '清华大学美术学院',
     highlight: '3D打印技术在花丝镶嵌中的应用',
-    image: '/news/tech1.jpg',
+    image: '/images/有关动态背景图/清华美院1.png',
     style: {
-      background: 'linear-gradient(160deg,rgb(139, 86, 32),rgb(104, 63, 33))',
-      fontColor: '#d4af37'
+      backgroundImage: 'url(/images/tech1.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',  // 设置背景颜色的透明度
+      fontColor: '#fff'
     }
   },
   // 新增展览活动 1
   {
     type: 'exhibition',
-    title: '国宝遗珍——中国古代青铜器展',
+    title: '国宝遗珍——中国古代花丝镶嵌展',
     date: '2024/05/01-06/30',
     location: '上海博物馆',
-    highlight: '展示上千年历史的青铜器文物，重现古代工艺美术',
-    image: '/news/exhibition2.jpg',
+    highlight: '展示上千年历史的花丝镶嵌，重现古代工艺美术',
+    image: '/images/有关动态背景图/上海博物馆2.png',
     style: { 
-      background: 'linear-gradient(45deg, #5d4037, #b39d6a)',
-      fontColor: '#f5f5f5'
+      backgroundImage: 'url(/images/exhibition2.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',  // 设置背景颜色的透明度
+      fontColor: '#fff'
     }
   },
   // 新增展览活动 2
   {
     type: 'workshop',
-    title: '陶瓷工艺体验工坊',
+    title: '花丝镶嵌工艺体验工坊',
     date: '2024/06/10-06/24',
     location: '北京艺术中心',
-    highlight: '体验传统陶瓷工艺，亲手制作独特的陶艺作品',
-    image: '/news/workshop2.jpg',
+    highlight: '体验传统花丝镶嵌工艺，亲手制作独特的花丝镶嵌作品',
+    image: '/images/有关动态背景图/工艺美术馆2.png',
     style: {
-      background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
-      fontColor: '#2c3e50'
+      backgroundImage: 'url(/images/workshop2.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',  // 设置背景颜色的透明度
+      fontColor: '#fff'
     }
   },
   // 新增展览活动 3
   {
     type: 'research',
-    title: '数字艺术与传统文化结合研讨会',
+    title: '数字艺术与花丝镶嵌结合研讨会',
     date: '2024/07/15 10:00',
     location: '中央美术学院',
-    highlight: '讨论数字艺术在传统文化中的创新应用',
-    image: '/news/tech2.jpg',
+    highlight: '讨论数字艺术在花丝镶嵌中的创新应用',
+    image: '/images/有关动态背景图/央美1.png',
     style: {
-      background: 'linear-gradient(135deg,rgb(139, 134, 96), #cfd8dc)',
-      fontColor: '#ffffff'
+      backgroundImage: 'url(/images/tech2.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',  // 设置背景颜色的透明度
+      fontColor: '#fff'
     }
   },
   // 新增展览活动 4
   {
     type: 'exhibition',
-    title: '古代丝绸之路艺术珍品展',
+    title: '古代花丝镶嵌艺术珍品展',
     date: '2024/08/01-09/15',
     location: '陕西历史博物馆',
-    highlight: '展示丝绸之路沿线的艺术珍品，跨文化交流的见证',
-    image: '/news/exhibition3.jpg',
+    highlight: '展示花丝镶嵌沿线的艺术珍品，跨文化交流的见证',
+    image: '/images/有关动态背景图/陕西历史博物馆.png',
     style: { 
-      background: 'linear-gradient(135deg, #d4af37aa,rgba(201, 185, 170, 0.87))',
-      fontColor: '#d4af37'
+      backgroundImage: 'url(/images/exhibition3.jpg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center center',
+      backgroundColor: 'rgba(0, 0, 0, 0.5)',  // 设置背景颜色的透明度
+      fontColor: '#fff'
     }
   }
 ];
+
 
 
 const News = () => {
@@ -107,7 +129,7 @@ const News = () => {
         className="main-title"
       >
         金丝银缕·匠心传承
-        <span className="subtitle">花丝镶嵌最新动态</span>
+        <span className="subtitle">花丝镶嵌有关动态</span>
       </motion.h1>
 
       {/* 交互式导航 */}
@@ -141,24 +163,26 @@ const News = () => {
               style={{ background: item.style.background }}
             >
               <div className="card-image" style={{ backgroundImage: `url(${item.image})` }} />
-              <div className="card-content" style={{ color: item.style.fontColor }}>
-                <div className="meta-tag">{item.type === 'exhibition' ? '🔥 热门特展' : '📅 即将开始'}</div>
-                <h3>{item.title}</h3>
-                <div className="info-row">
-                  <span>{item.date}</span>
-                </div>
-                <div className="info-row">
-                  <span>{item.location}</span>
-                </div>
-                <p className="highlight">{item.highlight}</p>
-                {/* 添加收藏和预约按钮 */}
-                <button className="collect-btn" onClick={() => alert(`${item.title} 已收藏！`)}>
-                  收藏活动
-                </button>
-                <button className="book-btn" onClick={() => alert(`${item.title} 已预约！`)}>
-                  预约
-                </button>
-              </div>
+              <div className="card-content" style={{ backgroundImage: `url(${item.image})`, color: item.style.fontColor }}>
+  <div className="meta-tag">{item.type === 'exhibition' ? '🔥 热门特展' : '📅 即将开始'}</div>
+  <h3>{item.title}</h3>
+  <div className="info-row">
+    <span>{item.date}</span>
+  </div>
+  <div className="info-row">
+    <span>{item.location}</span>
+  </div>
+  <p className="highlight">{item.highlight}</p>
+  {/* 添加收藏和预约按钮 */}
+  <button className="collect-btn" onClick={() => alert(`${item.title} 已收藏！`)}>
+    收藏活动
+  </button>
+  <button className="book-btn" onClick={() => alert(`${item.title} 已预约！`)}>
+    预约
+  </button>
+</div>
+
+
             </motion.article>
           ))}
       </div>
