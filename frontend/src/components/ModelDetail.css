@@ -29,7 +29,7 @@ button:hover {
 .model-grid1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 每行显示3个图片 */
-    gap: 20px;
+    gap: 0px;
     margin-top: 20px;
 }
 
@@ -39,7 +39,7 @@ button:hover {
     background-size: cover;
     background-position: center;
     height: 300px; /* 增加高度，确保图片显示更加美观 */
-    border-radius: 10px;
+    border-radius: 0px;
     cursor: pointer;
     overflow: hidden;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);

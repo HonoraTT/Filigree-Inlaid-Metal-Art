@@ -11,18 +11,17 @@ const ModelDetail = () => {
 
   // 模拟图片路径和模型名称
   const images = [
-    { src: '/images/文创商店/花丝头饰.png', alt: 'Model 1', path: 'model1' },
-    { src: '/images/文创商店/花丝头饰.png', alt: 'Model 2', path: 'model2' },
-    { src: '/images/文创商店/花丝头饰.png', alt: 'Model 3', path: 'model3' },
-    { src: '/images/文创商店/花丝头饰.png', alt: 'Model 4', path: 'model4' },
-    { src: '/images/文创商店/花丝头饰.png', alt: 'Model 5', path: 'model5' },
-    { src: '/images/文创商店/花丝头饰.png', alt: 'Model 6', path: 'model6' },
+    { src: '/images/作品展示/dragon.png', alt: 'Model 1', path: 'model1' },
+    { src: '/images/作品展示/红宝石项链.png', alt: 'Model 2', path: 'model2' },
+    { src: '/images/作品展示/戒指.png', alt: 'Model 3', path: 'model3' },
+    { src: '/images/作品展示/饰品.png', alt: 'Model 4', path: 'model4' },
+    { src: '/images/作品展示/图.png', alt: 'Model 5', path: 'model5' },
+    { src: '/images/作品展示/项链.png', alt: 'Model 6', path: 'model6' },
   ];
 
   return (
     <div className="model-detail1-container1">
-      <button onClick={() => navigate(-1)}>返回</button>  {/* 返回上一页 */}
-      <h2>3D 模型网格展示</h2>
+      
 
       {/* 网格展示 */}
       <div className="model-grid1">

@@ -2,7 +2,7 @@
 .gallery-container {
   width: 100%;
   min-height: 100vh;
-  background: #f8f9fa;
+  background: #f3c1c1;
   position: relative;
   overflow-x: hidden;
 }
@@ -45,10 +45,9 @@
   height: 100%;
 }
 
-.slide .item1:nth-child(3) { right: 430px; }
-.slide .item1:nth-child(4) { right: 220px; }
-.slide .item1:nth-child(5) { right: 10px; }
-.slide .item1:nth-child(n + 6) { 
+.slide .item1:nth-child(3) { right: 220px; }
+.slide .item1:nth-child(4) { right: 15px; }
+.slide .item1:nth-child(n + 5) { 
   right: 0px;
   opacity: 0;
 }
@@ -84,7 +83,7 @@
 
 .carousel-button-prev:hover,
 .carousel-button-next:hover {
-  background: #ffee51;
+  background: #f7f6f1;
   color: white;
   transform: translateY(-50%) scale(1.1);
 }
@@ -92,13 +91,13 @@
 /* 卡片部分 */
 .cards-section {
   padding: 80px 0px;
-  background: rgb(216, 164, 164);
+  background: rgb(191, 178, 178);
   text-align: center;
 }
 
 .section-title {
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: #000000;
   margin-bottom: 15px;
   position: relative;
   display: inline-block;
@@ -112,13 +111,13 @@
   transform: translateX(-50%);
   width: 80px;
   height: 4px;
-  background: #e74c3c;
+  background: hsl(0, 0%, 100%);
   border-radius: 2px;
 }
 
 .section-subtitle {
   font-size: 1.2rem;
-  color: #7f8c8d;
+  color: #1c2020;
   margin-bottom: 60px;
 }
 
@@ -142,7 +141,7 @@
   border-radius: 0px;
   min-width: 280px;
   height: 350px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(168, 53, 53, 0.08);
   transition: all 0.5s ease;
   text-align: center;
   cursor: pointer;
@@ -215,7 +214,7 @@
 .card-title {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #2c3e50;
+  color: #000000;
   font-weight: 600;
   transition: all 0.3s ease;
 }
@@ -225,7 +224,7 @@
 }
 
 .card-description {
-  color: #7f8c8d;
+  color: #212b2b;
   line-height: 1.7;
   font-size: 1rem;
   transition: all 0.3s ease;
