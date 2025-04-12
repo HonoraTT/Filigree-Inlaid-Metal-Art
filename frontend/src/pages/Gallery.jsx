@@ -31,37 +31,37 @@ const Gallery = () => {
       title: '首饰',
       description: '展示花丝镶嵌的传统制作工艺',
       defaultImage: '/images/作品展示/卡片底1.png',
-      hoverImage: '/images/作品展示/轮播2.png',
+      hoverImage: '/images/作品展示/首饰1.png',
       bgColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
       hoverColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
-      images: ['/images/作品展示/轮播1.png', '/images/作品展示/轮播2.png', '/images/作品展示/轮播3.png']
+      images: ['/images/作品展示/首饰1.png', '/images/作品展示/首饰2.png', '/images/作品展示/首饰3.png']
     },
     {
       title: '服饰',
       description: '融合现代设计理念的创新作品',
       defaultImage: '/images/作品展示/卡片底2.png',
-      hoverImage: '/images/作品展示/轮播4.png',
+      hoverImage: '/images/作品展示/服饰1.png',
       bgColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
       hoverColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
-      images: ['/images/作品展示/轮播3.png', '/images/作品展示/轮播4.png', '/images/作品展示/轮播5.png']
+      images: ['/images/作品展示/服饰1.png', '/images/作品展示/服饰2.png', '/images/作品展示/服饰3.png']
     },
     {
       title: '器皿',
       description: '国家级工艺美术大师的代表作',
       defaultImage: '/images/作品展示/卡片底3.png',
-      hoverImage: '/images/作品展示/轮播6.png',
+      hoverImage: '/images/作品展示/器皿1.png',
       bgColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
       hoverColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
-      images: ['/images/作品展示/轮播5.png', '/images/作品展示/轮播6.png', '/images/作品展示/轮播1.png']
+      images: ['/images/作品展示/器皿1.png', '/images/作品展示/器皿2.png', '/images/作品展示/器皿3.png']
     },
     {
       title: '摆件',
       description: '个性化定制花丝镶嵌艺术品',
       defaultImage: '/images/作品展示/卡片底4.png',
-      hoverImage: '/images/作品展示/轮播3.png',
+      hoverImage: '/images/作品展示/摆件1.png',
       bgColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
       hoverColor: 'linear-gradient(135deg, rgba(248, 238, 94, 0.8) 0%, rgba(248, 238, 94, 0.8) 100%)',
-      images: ['/images/作品展示/轮播1.png', '/images/作品展示/轮播3.png', '/images/作品展示/轮播5.png']
+      images: ['/images/作品展示/摆件1.png', '/images/作品展示/摆件2.png', '/images/作品展示/摆件3.png']
     }
   ];
 
@@ -150,7 +150,7 @@ const Gallery = () => {
       <div className="three-d-model-container">
       <div className="model-viewer-container">
   <model-viewer
-    src="/images/3Dmodels/3D花丝凤冠.glb"
+    src="/images/3Dmodels/蝴蝶胸针.glb"
     alt="3D展示"
     camera-controls
     camera-orbit="0deg 90deg 500px"
