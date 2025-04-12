@@ -1,6 +1,9 @@
 // src/pages/News.jsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
+import { useUser } from '../contexts/UserContext';
+import { useFavorites } from '../contexts/UserFavoritesContext';
 import './News.css';
 
 const newsData = [
@@ -115,10 +118,43 @@ const newsData = [
   }
 ];
 
-
-
 const News = () => {
   const [activeType, setActiveType] = useState('all');
+  const navigate = useNavigate();
+  const { user } = useUser();
+  const { addToCollections, addToAppointments } = useFavorites();
+
+  const handleCollect = (item) => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+    const collectionItem = {
+      id: item.title,
+      name: item.title,
+      type: item.type,
+      date: item.date,
+      location: item.location
+    };
+    addToCollections(collectionItem);
+    alert('收藏成功！');
+  };
+
+  const handleAppointment = (item) => {
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+    const appointmentItem = {
+      id: item.title,
+      name: item.title,
+      type: item.type,
+      date: item.date,
+      location: item.location
+    };
+    addToAppointments(appointmentItem);
+    alert('预约成功！');
+  };
 
   return (
     <div className="news-container">
@@ -164,25 +200,28 @@ const News = () => {
             >
               <div className="card-image" style={{ backgroundImage: `url(${item.image})` }} />
               <div className="card-content" style={{ backgroundImage: `url(${item.image})`, color: item.style.fontColor }}>
-  <div className="meta-tag">{item.type === 'exhibition' ? '🔥 热门特展' : '📅 即将开始'}</div>
-  <h3>{item.title}</h3>
-  <div className="info-row">
-    <span>{item.date}</span>
-  </div>
-  <div className="info-row">
-    <span>{item.location}</span>
-  </div>
-  <p className="highlight">{item.highlight}</p>
-  {/* 添加收藏和预约按钮 */}
-  <button className="collect-btn" onClick={() => alert(`${item.title} 已收藏！`)}>
-    收藏活动
-  </button>
-  <button className="book-btn" onClick={() => alert(`${item.title} 已预约！`)}>
-    预约
-  </button>
-</div>
-
-
+                <div className="meta-tag">{item.type === 'exhibition' ? '🔥 热门特展' : '📅 即将开始'}</div>
+                <h3>{item.title}</h3>
+                <div className="info-row">
+                  <span>{item.date}</span>
+                </div>
+                <div className="info-row">
+                  <span>{item.location}</span>
+                </div>
+                <p className="highlight">{item.highlight}</p>
+                <button 
+                  className="collect-btn" 
+                  onClick={() => handleCollect(item)}
+                >
+                  收藏活动
+                </button>
+                <button 
+                  className="book-btn" 
+                  onClick={() => handleAppointment(item)}
+                >
+                  预约
+                </button>
+              </div>
             </motion.article>
           ))}
       </div>

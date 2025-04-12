@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Menu, Dropdown } from 'antd';
 import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css'; // 确保路径正确
-import { UserOutlined, LogoutOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { UserOutlined, LogoutOutlined, ShoppingCartOutlined, HeartOutlined, CalendarOutlined } from '@ant-design/icons';
 import { useUser } from '../contexts/UserContext';
+import { useFavorites } from '../contexts/UserFavoritesContext';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const navigate = useNavigate();
   const { user, logout } = useUser();
+  const { favorites } = useFavorites();
 
   useEffect(() => {
     let ticking = false;
@@ -36,19 +38,51 @@ const Navbar = () => {
   const userMenu = (
     <div className="user-dropdown-menu">
       <div className="user-info">
+        <UserOutlined />
         <span>{user?.username || user?.phone || user?.email}</span>
       </div>
+
+      <div className="menu-section">
+        <h4>我的收藏</h4>
+        {favorites?.collections?.length > 0 ? (
+          favorites.collections.map((item, index) => (
+            <div key={index} className="menu-item">
+              <HeartOutlined />
+              <span>{item.name}</span>
+            </div>
+          ))
+        ) : (
+          <div className="menu-item empty">暂无收藏</div>
+        )}
+      </div>
+
+      <div className="menu-section">
+        <h4>我的预约</h4>
+        {favorites?.appointments?.length > 0 ? (
+          favorites.appointments.map((item, index) => (
+            <div key={index} className="menu-item">
+              <CalendarOutlined />
+              <span>{item.name}</span>
+            </div>
+          ))
+        ) : (
+          <div className="menu-item empty">暂无预约</div>
+        )}
+      </div>
+
       <div className="menu-actions">
         <div className="menu-item" onClick={() => navigate('/cart')}>
           <ShoppingCartOutlined /> 我的购物车
         </div>
       </div>
+
       <div className="contact-info">
         <p>联系我们：</p>
         <p>用户反馈QQ群：723298609</p>
         <p>手机号：18972796498</p>
         <p>邮箱：1291288422@qq.com</p>
       </div>
+
       <div className="logout-button" onClick={handleLogout}>
         <LogoutOutlined /> 退出登录
       </div>
