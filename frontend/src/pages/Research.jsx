@@ -122,7 +122,7 @@ const News = () => {
   const [activeType, setActiveType] = useState('all');
   const navigate = useNavigate();
   const { user } = useUser();
-  const { addToCollections, addToAppointments } = useFavorites();
+  const { addToCollections, addToAppointments, isInCollections, isInAppointments } = useFavorites();
 
   const handleCollect = (item) => {
     if (!user) {
@@ -136,8 +136,12 @@ const News = () => {
       date: item.date,
       location: item.location
     };
-    addToCollections(collectionItem);
-    alert('收藏成功！');
+    const isAdded = addToCollections(collectionItem);
+    if (isAdded) {
+      alert('收藏成功！');
+    } else {
+      alert('已取消收藏！');
+    }
   };
 
   const handleAppointment = (item) => {
@@ -152,8 +156,12 @@ const News = () => {
       date: item.date,
       location: item.location
     };
-    addToAppointments(appointmentItem);
-    alert('预约成功！');
+    const isAdded = addToAppointments(appointmentItem);
+    if (isAdded) {
+      alert('预约成功！');
+    } else {
+      alert('已取消预约！');
+    }
   };
 
   return (
@@ -213,13 +221,13 @@ const News = () => {
                   className="collect-btn" 
                   onClick={() => handleCollect(item)}
                 >
-                  收藏活动
+                  {isInCollections(item.title) ? '已收藏' : '收藏活动'}
                 </button>
                 <button 
                   className="book-btn" 
                   onClick={() => handleAppointment(item)}
                 >
-                  预约
+                  {isInAppointments(item.title) ? '已预约' : '预约'}
                 </button>
               </div>
             </motion.article>
