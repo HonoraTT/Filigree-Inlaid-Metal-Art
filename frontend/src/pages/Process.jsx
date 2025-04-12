@@ -32,7 +32,7 @@ const Process = () => {
 
   return (
     <div className="process-page">
-      <h1 className="animated-title"></h1>
+      <h1 className="process-title">花丝镶嵌传统工艺流程</h1>
 
       <Swiper
        className="swiper" // 添加这一行！

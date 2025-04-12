@@ -1,4 +1,14 @@
 
+/* 这是新增的样式，用于标题的美化 */
+.process-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #704214;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  font-family: 'FangSong', serif;
+}
 
 /* 删除 footer */
 footer {
@@ -11,7 +21,7 @@ footer {
     background-size: cover; /* 让背景图覆盖整个容器 */
     background-position: center center; /* 背景图居中 */
     background-attachment: fixed; /* 背景图固定，滚动时不随内容滚动 */
-    padding: 20px;
+    padding: 120px;
     color: #fff; /* 如果背景较深，文字颜色改为白色 */
     background-image: url('/images/工艺流程背景图.png'); /* 这里是你的背景图路径 */
   }
