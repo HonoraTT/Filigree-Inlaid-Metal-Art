@@ -1,5 +1,3 @@
-
-
 /* 删除 footer */
 footer {
     display: none;
@@ -14,6 +12,7 @@ footer {
     padding: 20px;
     color: #fff; /* 如果背景较深，文字颜色改为白色 */
     background-image: url('/images/工艺流程背景图.png'); /* 这里是你的背景图路径 */
+    min-height: 100vh;  /* 添加最小高度为视口高度 */
   }
   
   /* 项目标题 */
@@ -64,6 +63,7 @@ footer {
   
   /* Swiper 样式 */
   .swiper-container {
+    min-height: 500px;  /* 添加最小高度 */
     margin-bottom: 50px;
   }
   
@@ -75,6 +75,7 @@ footer {
   }
   
   .step {
+    min-height: 400px;  /* 添加最小高度 */
     width: 80%;
     max-width: 900px;
     background-color: #fff;
