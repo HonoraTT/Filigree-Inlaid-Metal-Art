@@ -17,10 +17,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
-    position: fixed;   /* 固定在页面底部 */
-    bottom: 20px;      /* 距离底部20px */
-    left: 50%;         /* 水平居中 */
-    transform: translateX(-50%); /* 调整位置，使按钮在水平居中 */
+
 }
 
 
