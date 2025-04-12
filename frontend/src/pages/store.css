@@ -239,17 +239,21 @@
   gap: 2rem;
   justify-content: flex-start;
 }
-
 /* 侧边栏样式 */
 .sidebar {
-  flex: 1 1 15%;  /* 左侧分类占15%的宽度 */
-  border-right: 1px solid #ccc;
-  padding-right: 1rem;
+  flex: 1 1 20%;  /* 左侧分类占20%的宽度 */
+  border-right: 2px solid #ddd;  /* 改为更柔和的边框颜色 */
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;  /* 添加背景颜色，使其更加柔和 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* 添加阴影，增加层次感 */
+  border-radius: 10px;  /* 圆角效果 */
 }
 
 .sidebar h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #5b3611;  /* 更加明显的标题颜色 */
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .sidebar ul {
@@ -258,9 +262,35 @@
 }
 
 .sidebar li {
-  font-size: 1rem;
-  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  margin: 0.8rem 0;
   cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-bottom: 1px solid #ddd;  /* 每个选项之间添加间隔线 */
+}
+
+.sidebar li:hover {
+  background-color: #704214;  /* 悬浮时背景颜色 */
+  color: white;  /* 悬浮时文字颜色 */
+}
+
+.sidebar li:last-child {
+  border-bottom: none;  /* 最后一项没有底部边框 */
+}
+
+.sidebar li.active {
+  background-color: #d4af37;  /* 当前选中项的背景颜色 */
+  color: white;
+}
+
+.sidebar li:focus {
+  outline: none;
+}
+
+.sidebar li:first-child {
+  margin-top: 0;
 }
 
 /* 商品展示区域 */
