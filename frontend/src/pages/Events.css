@@ -1,101 +1,257 @@
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-.artisan-profile-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 0;
-  margin: 0;
-  background-color: #fff;
-  margin: 0 auto;
-  width: 100vw;
-  min-height: 100vh; /* 让容器至少占满整个视窗 */
+.home6 {
+  background: url(../image/temp/img8.jpg) center no-repeat;
+  background-size: cover;
 }
 
-.left-image {
-  flex: 0 0 50%;
-  width: 50%;
-  height: 100vh;
+.home6 .widget-area-edit {
+  border: 0 !important;
+}
+
+.home6 .tab-cont {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 100%;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility .3s, opacity .3s, right .8s;
+  -moz-transition: visibility .3s, opacity .3s, right .8s;
+  transition: visibility .3s, opacity .3s, right .8s;
+}
+
+.home6.fp-completely .tab-cont {
+  right: 50%;
+  visibility: visible;
+  opacity: 1;
+}
+
+.home6 .tab-item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: center no-repeat;
+  background-size: cover;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility .3s, opacity .3s;
+  -moz-transition: visibility .3s, opacity .3s;
+  transition: visibility .3s, opacity .3s;
+}
+
+.home6 .tab-item.act {
+  opacity: 1;
+  visibility: visible;
+}
+
+.home6 .title {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 13%;
+}
+
+.home6 .title-txt {
   position: relative;
-  
-  border-radius: 10px;
-  overflow: hidden;
+  padding: 45px 2px;
+  width: 1em;
+  font-size: 30px;
+  line-height: 1;
 }
 
-.left-image img {
-  width: 100%;
+.home6 .title-txt:before,
+.home6 .title-txt:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 34px;
+  height: 24px;
+  background: url('/image/Artisantemp/png11.png') no-repeat;
+}
+
+.home6 .title-txt:before {
+  top: 0;
+  background-position: left;
+}
+
+.home6 .title-txt:after {
+  bottom: 0;
+  background-position: right;
+}
+
+.home6 .tab-bar {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  color: #333;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility .3s, opacity .3s;
+  -moz-transition: visibility .3s, opacity .3s;
+  transition: visibility .3s, opacity .3s;
+}
+
+.home6.fp-completely .tab-bar {
+  visibility: visible;
+  opacity: 1;
+}
+
+.home6 .tab-track {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 26%;
+  width: 42%;
+}
+
+.home6 .tab-term {
+  position: relative;
+  display: inline-block;
+  width: 22px;
   height: 100%;
-  display: block; /* 消除 inline 元素的底部间隙 */
-  object-fit:cover;
+  vertical-align: top;
   cursor: pointer;
-  margin: 0;      /* 清除默认 margin */
-  padding: 0;     /* 清除默认 padding */
-  transition: transform 0.3s ease;
 }
 
-.left-image img:hover {
-  transform: scale(1.05);
+.home6 .tab-term a {
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  writing-mode: tb-rl;
 }
 
-.right-content {
-  flex: 1;
-  width: 50%;
-  height: 100vh;
+.home6 .tab-term:before {
+  content: '';
+  position: absolute;
+  right: 50%;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #ccc;
+}
+
+.home6 .tab-term .h16 {
   position: relative;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.bio {
+  padding: 25px 0 30px;
+  background: url('/image/Artisantemp/png14.png');
+  font-family: "FangSong",serif;
   font-size: 16px;
-  line-height: 1.6;
-  color: #333;
+  line-height: 1.375;
+  white-space: nowrap;
 }
 
-.artisan-list {
-  margin-top: 20px;
+.home6 .tab-term .h16:before,
+.home6 .tab-term .h16:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 22px;
+  height: 12px;
+  background: url('/image/Artisantemp/png12.png') no-repeat;
 }
 
-.artisan-item {
-  padding: 10px;
-  background-color: #f0f0f0;
-  margin-bottom: 10px;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+.home6 .tab-term .h16:before {
+  top: 0;
+  background-position: left top;
 }
 
-.artisan-item:hover {
-  background-color: #ddd;
+.home6 .tab-term .h16:after {
+  bottom: 0;
+  background-position: right top;
 }
 
-.artisan-item h3 {
-  font-size: 18px;
-  margin: 0;
-  color: #333;
+.home6 .tab-term.t1 .h16 {
+  top: 40%;
 }
 
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .artisan-profile-container {
-    flex-direction: column;
-    align-items: center;
-  }
+.home6 .tab-term.t2 .h16 {
+  top: 27%;
+}
 
-  .left-image {
-    margin-right: 0;
-    margin-bottom: 20px;
-  }
+.home6 .tab-term.t3 .h16 {
+  top: 42%;
+}
 
+.home6 .tab-term.t4 .h16 {
+  top: 36%;
+}
+
+.home6 .tab-term.t5 .h16 {
+  top: 48%;
+}
+
+.home6 .tab-term.t6 .h16 {
+  top: 34%;
+}
+
+.home6 .tab-term.cur,
+.home6 .tab-term:hover {
+  color: #9a2929;
+}
+
+.home6 .tab-term.cur:before,
+.home6 .tab-term:hover:before {
+  border-color: #9a2929;
+}
+
+.home6 .tab-term.cur .h16:before,
+.home6 .tab-term:hover .h16:before {
+  background-position: left bottom;
+}
+
+.home6 .tab-term.cur .h16:after,
+.home6 .tab-term:hover .h16:after {
+  background-position: right bottom;
+}
+
+.home6 .p-more {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 75%;
+}
+
+.home6 .p-more:before {
+  content: '';
+  position: absolute;
+  right: 50%;
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #ccc;
+}
+
+.home6 .link {
+  position: relative;
+  padding: 35px 4px;
+  width: 1em;
+  background: url('/image/Artisantemp/png14.png');
+  border: 1px solid red;
+  font-family: "微软雅黑";
+  font-size: 16px;
+  line-height: 1;
+}
+
+.home6 .link:before,
+.home6 .link:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('/image/Artisantemp/png13.png') no-repeat;
+}
+
+.home6 .link:before {
+  left: 0;
+  top: 0;
+  background-position: left;
+}
+
+.home6 .link:after {
+  right: 0;
+  bottom: 0;
+  background-position: right;
 }
