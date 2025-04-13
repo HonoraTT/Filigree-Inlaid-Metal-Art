@@ -11,29 +11,9 @@
   overflow: hidden;
 }
 
-.back-button {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  padding: 12px 25px;
-  background: rgba(255, 255, 255, 0.8);
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  z-index: 100;
-  transition: all 0.3s;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.back-button:hover {
-  background: white;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
 
 /* 3D轮播样式 */
-.shell {
+.shell1 {
   position: relative;
   width: 60vw;
   height: 40vw;
@@ -45,7 +25,7 @@
   transform-origin: center;
 }
 
-.content {
+.content1 {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,7 +38,7 @@
   animation: carousel 9s infinite cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
 
-.item {
+.item2 {
   position: absolute;
   width: 60vw;
   height: 40vw;
@@ -71,15 +51,15 @@
   -webkit-box-reflect: below 25px -webkit-linear-gradient(transparent 50%, rgba(255, 255, 255, 0.3));
 }
 
-.item:nth-child(1) {
+.item2:nth-child(1) {
   transform: rotateY(0) translateZ(35vw);
 }
 
-.item:nth-child(2) {
+.item2:nth-child(2) {
   transform: rotateY(120deg) translateZ(35vw);
 }
 
-.item:nth-child(3) {
+.item2:nth-child(3) {
   transform: rotateY(240deg) translateZ(35vw);
 }
 
@@ -99,7 +79,7 @@
   }
 }
 
-.card-info {
+.card1-info {
   margin-top: 50px;
   text-align: center;
   top: 90%;
@@ -110,39 +90,39 @@
   max-width: 500px;
 }
 
-.card-info h2 {
+.card1-info h2 {
   font-size: 2rem;
   margin-bottom: 15px;
 }
 
-.card-info p {
+.card1-info p {
   font-size: 1.2rem;
   line-height: 1.6;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .shell {
+  .shell1 {
     width: 80vw;
     height: 60vw;
   }
   
-  .item {
+  .item2 {
     width: 80vw;
     height: 60vw;
   }
   
-  .card-info {
+  .card1-info {
     margin-top: 30px;
     padding: 15px 25px;
     max-width: 80%;
   }
   
-  .card-info h2 {
+  .card1-info h2 {
     font-size: 1.5rem;
   }
   
-  .card-info p {
+  .card1-info p {
     font-size: 1rem;
   }
 }

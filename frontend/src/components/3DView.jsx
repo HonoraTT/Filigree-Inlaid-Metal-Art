@@ -15,19 +15,19 @@ const ThreeDView = () => {
     <div className="three-d-container">
      
       
-      <div className="shell">
-        <div className="content">
+      <div className="shell1">
+        <div className="content1">
           {card?.images?.map((image, index) => (
             <div 
               key={index}
-              className="item"
+              className="item2"
               style={{ backgroundImage: `url(${image})` }}
             ></div>
           ))}
         </div>
       </div>
       
-      <div className="card-info">
+      <div className="card1-info">
         <h2>{card?.title}</h2>
         <p>{card?.description}</p>
       </div>
