@@ -31,12 +31,12 @@
   }
   
   .timeline-item.left {
-    left: 0%;
+    left: 3%;
     transform: translateX(-30px);
   }
   
   .timeline-item.right {
-    left: 51%;
+    left: 52%;
     transform: translateX(30px);
   }
   
