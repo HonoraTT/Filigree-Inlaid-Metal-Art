@@ -1,8 +1,10 @@
 .introduction-container {
     font-family: 'Noto Serif SC', serif;
-    background: linear-gradient(to bottom, #f5efe0, #fff8ee);
     padding: 2rem;
     min-height: 200vh;
+    position: relative;
+    overflow: hidden;
+    /* background-color: rgba(255, 253, 253, 0); */
   }
   
   .timeline-container {
@@ -11,21 +13,33 @@
     margin: 0 auto;
     background-color: transparent !important; /* 让容器完全透明 */
     padding: 40px 0 100px; /* 增加底部留白 */
+    z-index: 1;
   }
   
   .center-line {
     position: absolute;
     left: 50%;
     width: 2px;
-    background: #856954;
+    background: linear-gradient(to bottom, #8B4513, #A0522D);
     transform: translateX(-50%);
     transition: height 1s ease; /* 添加高度过渡动画 */
+    box-shadow: 0 0 10px rgba(139, 69, 19, 0.3);
+    animation: lineGlow 2s infinite alternate;
+  }
+  
+  @keyframes lineGlow {
+    0% {
+      box-shadow: 0 0 10px rgba(179, 96, 36, 0.3);
+    }
+    100% {
+      box-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+    }
   }
   
   .timeline-item {
     width: 45%;
     opacity: 0;
-    transition: all 5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     margin: 30px 0; /* 统一间距 */
   }
@@ -46,20 +60,200 @@
   }
   
   .content {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 253, 253, 0.85);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     position: relative;
     margin: 2rem 0;
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
   }
+
+  .content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: rgba(139, 69, 19, 0.4);
+  }
+
+  .content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8B4513, #A0522D);
+    border-radius: 4px 4px 0 0;
+    opacity: 0.8;
+    margin-top: -1px;
+  }
+
+  .content h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #8B4513;
+    border-radius: 1px;
+  }
+
+  .content p {
+    color: #34495e;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
   /* 传承意义部分样式 */
 .meaning-section {
     max-width: 2000px; /* 最大宽度限制 */
     margin: 6rem auto; /* 上下留出更多的间距，并使其居中 */
     padding: 3rem; /* 内边距，给内容一定的空间 */
-    background: rgba(255, 255, 255, 0.1); /* 背景色稍微透明 */
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 16px; /* 圆角效果 */
-    
+    position: relative;
+    border: 1px solid rgba(139, 69, 19, 0.2);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
   }
   
+.meaning-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #8B4513, #A0522D);
+  border-radius: 4px 4px 0 0;
+  opacity: 0.8;
+}
+
+.meaning-section h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.meaning-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: #8B4513;
+  border-radius: 1px;
+}
+
+.meaning-section p {
+  color: #34495e;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+.decorative-corner {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid #8B4513;
+  opacity: 0.5;
+}
+
+.decorative-corner.top-left {
+  top: 10px;
+  left: 10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.decorative-corner.top-right {
+  top: 10px;
+  right: 10px;
+  border-left: none;
+  border-bottom: none;
+}
+
+.decorative-corner.bottom-left {
+  bottom: 10px;
+  left: 10px;
+  border-right: none;
+  border-top: none;
+}
+
+.decorative-corner.bottom-right {
+  bottom: 10px;
+  right: 10px;
+  border-left: none;
+  border-top: none;
+}
+
+.introduction-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('/images/敦煌2.png') center/cover no-repeat;
+  opacity: 1;
+  z-index: 0;
+  animation: backgroundMove 20s infinite alternate;
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-item {
+    width: 90%;
+    left: 5%;
+  }
+  
+  .timeline-item.left, .timeline-item.right {
+    transform: none;
+  }
+  
+  .timeline-item.visible {
+    transform: none;
+  }
+  
+  .center-line {
+    display: none;
+  }
+  
+  .content {
+    padding: 1.5rem;
+  }
+  
+  .meaning-section {
+    padding: 2rem;
+    margin: 3rem auto;
+  }
+}
