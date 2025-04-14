@@ -123,6 +123,8 @@ const News = () => {
   const navigate = useNavigate();
   const { user } = useUser();
   const { addToCollections, addToAppointments, isInCollections, isInAppointments } = useFavorites();
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
 
   const handleCollect = (item) => {
     if (!user) {
@@ -161,6 +163,38 @@ const News = () => {
       alert('预约成功！');
     } else {
       alert('已取消预约！');
+    }
+  };
+
+  const handleSubscribe = async () => {
+    if (!email) {
+      alert('请输入邮箱地址');
+      return;
+    }
+
+    setIsSubscribing(true);
+    try {
+      const response = await fetch('http://localhost:3000/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email })
+      });
+
+      const data = await response.json();
+      
+      if (response.ok) {
+        alert(data.message);
+        setEmail(''); // 清空输入框
+      } else {
+        alert(data.message);
+      }
+    } catch (error) {
+      console.error('订阅失败:', error);
+      alert('订阅失败，请稍后重试');
+    } finally {
+      setIsSubscribing(false);
     }
   };
 
@@ -241,13 +275,23 @@ const News = () => {
         <div className="deco-bead" />
       </div>
 
-      {/* 附加功能模块 */}
+      {/* 订阅部分 */}
       <section className="subscribe-section">
         <h2>订阅工艺动态</h2>
         <p>第一时间获取展览资讯、工坊开放信息</p>
         <div className="subscribe-form">
-          <input type="email" placeholder="输入您的电子邮箱" />
-          <button>订阅更新</button>
+          <input 
+            type="email" 
+            placeholder="输入您的电子邮箱" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button 
+            onClick={handleSubscribe}
+            disabled={isSubscribing}
+          >
+            {isSubscribing ? '订阅中...' : '订阅更新'}
+          </button>
         </div>
       </section>
     </div>
