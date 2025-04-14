@@ -89,9 +89,9 @@ export default function Login() {
   };
 
   const handleThirdPartyLogin = (provider) => {
-    window.location.href = `http://localhost:3000/api/auth/${provider}`;
+      window.location.href = `http://localhost:5000/api/auth/${provider}`;
   };
-
+    
   return (
     <div className="login-page">
       <div className="login-container">
