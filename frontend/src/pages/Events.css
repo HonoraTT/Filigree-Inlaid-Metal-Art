@@ -1,6 +1,14 @@
-.home6 {
-  background: url(../image/temp/img8.jpg) center no-repeat;
-  background-size: cover;
+/* 在 Events.css 中修改 */
+body .home6 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  
+  background: url('/images/Artisantemp/background.jpg') center no-repeat !important;
+  background-size: cover !important;
+
 }
 
 .home6 .widget-area-edit {
@@ -48,7 +56,7 @@
 
 .home6 .title {
   position: absolute;
-  top: 0;
+  top: 40%; 
   bottom: 0;
   left: 13%;
 }
@@ -70,7 +78,7 @@
   margin: auto;
   width: 34px;
   height: 24px;
-  background: url('/image/Artisantemp/png11.png') no-repeat;
+  background: url('/images/Artisantemp/png11.png') no-repeat;
 }
 
 .home6 .title-txt:before {
@@ -137,11 +145,19 @@
 .home6 .tab-term .h16 {
   position: relative;
   padding: 25px 0 30px;
-  background: url('/image/Artisantemp/png14.png');
+  background: url('/images/Artisantemp/png14.png');
   font-family: "FangSong",serif;
   font-size: 16px;
   line-height: 1.375;
   white-space: nowrap;
+}
+
+/* 修改链接颜色 */
+.home6 .tab-term .h16 a {
+  color: #0c0505; 
+  font-size: 17px;
+  text-decoration: none; /* 移除下划线 */
+  transition: color 0.3s; /* 可选：添加颜色过渡效果 */
 }
 
 .home6 .tab-term .h16:before,
@@ -151,7 +167,7 @@
   left: 0;
   width: 22px;
   height: 12px;
-  background: url('/image/Artisantemp/png12.png') no-repeat;
+  background: url('/images/Artisantemp/png12.png') no-repeat;
 }
 
 .home6 .tab-term .h16:before {
@@ -165,11 +181,11 @@
 }
 
 .home6 .tab-term.t1 .h16 {
-  top: 40%;
+  top: 50%;
 }
 
 .home6 .tab-term.t2 .h16 {
-  top: 27%;
+  top: 32%;
 }
 
 .home6 .tab-term.t3 .h16 {
@@ -177,15 +193,15 @@
 }
 
 .home6 .tab-term.t4 .h16 {
-  top: 36%;
+  top: 28%;
 }
 
 .home6 .tab-term.t5 .h16 {
-  top: 48%;
+  top: 53%;
 }
 
 .home6 .tab-term.t6 .h16 {
-  top: 34%;
+  top: 40%;
 }
 
 .home6 .tab-term.cur,
@@ -228,7 +244,7 @@
   position: relative;
   padding: 35px 4px;
   width: 1em;
-  background: url('/image/Artisantemp/png14.png');
+  background: url('/images/Artisantemp/png14.png');
   border: 1px solid red;
   font-family: "微软雅黑";
   font-size: 16px;
@@ -241,7 +257,7 @@
   position: absolute;
   width: 20px;
   height: 20px;
-  background: url('/image/Artisantemp/png13.png') no-repeat;
+  background: url('/images/Artisantemp/png13.png') no-repeat;
 }
 
 .home6 .link:before {

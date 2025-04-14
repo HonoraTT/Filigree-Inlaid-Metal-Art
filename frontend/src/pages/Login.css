@@ -253,7 +253,7 @@
 
 .btn {
     padding: 0.75rem 1.5rem;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(235, 178, 117, 0.721);
     color: #5d4037;
     border: none;
     border-radius: 6px;
@@ -264,7 +264,7 @@
 }
 
 .btn:hover {
-    background-color: rgba(255, 255, 255, 1);
+    background-color: rgba(246, 154, 62, 0.614);
 }
 
 .toggle-auth {
