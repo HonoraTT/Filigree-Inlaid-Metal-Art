@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './GalleryPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -10,6 +11,19 @@ const Gallery = () => {
   const navigate = useNavigate();
   const [active3DView, setActive3DView] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+
+  // 创建三个部分的ref
+  const carouselRef = useRef(null);
+  const cardsRef = useRef(null);
+  const modelRef = useRef(null);
+
+  // 设置滚动动画
+  const { scrollYProgress } = useScroll();
+  
+  // 为每个部分创建不同的动画效果
+  const carouselY = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
+  const cardsY = useTransform(scrollYProgress, [0.3, 0.6], [0, -100]);
+  const modelY = useTransform(scrollYProgress, [0.6, 0.9], [0, -100]);
 
   const handleClick = (modelPath) => {
     navigate(`/model-detail`); 
@@ -91,8 +105,15 @@ const Gallery = () => {
 
   return (
     <div className="gallery-container">
-      {/* 轮播图部分 */}
-      <div className="carousel-section">
+      {/* 轮播图部分 - 添加动画效果 */}
+      <motion.div 
+        className="carousel-section"
+        ref={carouselRef}
+        style={{ y: carouselY }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="slide" ref={slideRef}>
           {slides.map((slide, index) => (
             <div
@@ -103,17 +124,23 @@ const Gallery = () => {
           ))}
         </div>
         
-        {/* 修改后的按钮容器 - 分开显示 */}
         <div className="carousel-button-prev" onClick={handlePrev}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </div>
         <div className="carousel-button-next" onClick={handleNext}>
           <FontAwesomeIcon icon={faArrowRight} />
         </div>
-      </div>
+      </motion.div>
 
-      {/* 卡片部分 */}
-      <div className="cards-section">
+      {/* 卡片部分 - 添加动画效果 */}
+      <motion.div 
+        className="cards-section"
+        ref={cardsRef}
+        style={{ y: cardsY }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <h2 className="section-title">花丝镶嵌作品分类</h2>
         <p className="section-subtitle">传承千年工艺，演绎现代美学</p>
         
@@ -144,29 +171,36 @@ const Gallery = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* 3D模型展示部分 */}
-      <div className="three-d-model-container">
-      <div className="model-viewer-container">
-  <model-viewer
-    src="/images/3Dmodels/蝴蝶胸针.glb"
-    alt="3D展示"
-    camera-controls
-    camera-orbit="0deg 90deg 500px"
-    style={{ width: '100%', height: '400px' }}
-    max-field-of-view="30deg"  /* 最大视角 */
-    min-field-of-view="10deg"  /* 最小视角 */
-    max-camera-orbit="Infinity auto 1000px"  /* 最大相机轨道距离 */
-    min-camera-orbit="-Infinity auto 200px"  /* 最小相机轨道距离 */
-    bounds="tight"  /* 限制模型在视图范围内 */
-  />
-</div>
+      {/* 3D模型展示部分 - 添加动画效果 */}
+      <motion.div 
+        className="three-d-model-container"
+        ref={modelRef}
+        style={{ y: modelY }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <div className="model-viewer-container">
+          <model-viewer
+            src="/images/3Dmodels/蝴蝶胸针.glb"
+            alt="3D展示"
+            camera-controls
+            camera-orbit="0deg 90deg 500px"
+            style={{ width: '100%', height: '400px' }}
+            max-field-of-view="30deg"
+            min-field-of-view="10deg"
+            max-camera-orbit="Infinity auto 1000px"
+            min-camera-orbit="-Infinity auto 200px"
+            bounds="tight"
+          />
+        </div>
         <div className="model-text-container" onClick={handleClick}>
           <h2 className="section-title">3D展示</h2>
           <p className="section-subtitle">请使用鼠标拖拽旋转模型</p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
