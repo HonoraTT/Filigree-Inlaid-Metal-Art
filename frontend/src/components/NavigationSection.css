@@ -7,7 +7,7 @@
   border-radius: 4px;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease
 }
 
 .nav-link:hover {
@@ -22,3 +22,4 @@
 .nav-image:hover {
   transform: scale(1.05);
 } 
+

@@ -115,15 +115,17 @@ body .home6 {
   top: 0;
   bottom: 0;
   left: 26%;
-  width: 42%;
+  width: 70%;
 }
 
 .home6 .tab-term {
   position: relative;
   display: inline-block;
-  width: 22px;
+  width: 38px;
+  padding: 0px 3px; /* 增加垂直方向的间隔 */
   height: 100%;
   vertical-align: top;
+  text-align: center;
   cursor: pointer;
 }
 
@@ -131,6 +133,7 @@ body .home6 {
   -webkit-writing-mode: vertical-rl;
   writing-mode: vertical-rl;
   writing-mode: tb-rl;
+ 
 }
 
 .home6 .tab-term:before {
@@ -144,12 +147,15 @@ body .home6 {
 
 .home6 .tab-term .h16 {
   position: relative;
-  padding: 25px 0 30px;
+  padding: 25px 5px 30px;
   background: url('/images/Artisantemp/png14.png');
   font-family: "FangSong",serif;
   font-size: 16px;
   line-height: 1.375;
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* 修改链接颜色 */
@@ -165,8 +171,9 @@ body .home6 {
   content: '';
   position: absolute;
   left: 0;
-  width: 22px;
+  width: 20px;
   height: 12px;
+  left: 8px; /* Adjusted from 0px to 10px */
   background: url('/images/Artisantemp/png12.png') no-repeat;
 }
 
@@ -224,21 +231,7 @@ body .home6 {
   background-position: right bottom;
 }
 
-.home6 .p-more {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 75%;
-}
 
-.home6 .p-more:before {
-  content: '';
-  position: absolute;
-  right: 50%;
-  top: 0;
-  bottom: 0;
-  border-left: 1px solid #ccc;
-}
 
 .home6 .link {
   position: relative;
