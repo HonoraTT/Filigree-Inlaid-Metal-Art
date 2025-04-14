@@ -1,97 +1,140 @@
-/* 给页面的空白部分添加背景图 */
+/* 基础样式 */
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background-image: url('/images/匠人详情背景图.png'); /* 这里设置页面背景图路径 */
-  background-size: cover; /* 背景图覆盖整个页面 */
-  background-position: center center; /* 背景图居中 */
-  background-repeat: no-repeat; /* 防止背景图重复 */
+  background-image: url('/images/匠人详情背景图.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
-/* 匠人详情容器的样式 */
+/* 主容器 */
 .artisan-detail-container {
   max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #ffffff; /* 保证内容区有白色背景 */
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  border-radius: 10px; /* 设置容器圆角 */
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  font-family: "Microsoft YaHei", Arial, sans-serif;
+  line-height: 1.8;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* 标题 */
-.header h1 {
-  font-size: 2.0rem;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
+/* 首图容器 */
+.main-image-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* 元数据部分 */
-.header .meta {
-  font-size: 1rem;
-  color: #777;
-  margin-bottom: 20px;
-}
-
-.header .meta span {
-  margin-right: 15px;
-}
-
-/* 图片部分 */
-.image img {
+.main-image {
   width: 100%;
   height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
 }
 
-/* 正文内容部分 */
+/* 内容区域 */
 .content {
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
-/* 文字部分 */
-.content .text {
-  font-size: 1.05rem;
-  color: #555;
-  background-color: rgba(255, 255, 255, 0.8); /* 半透明背景确保文字清晰 */
-  padding: 15px;
-  border-radius: 10px; /* 圆角 */
+.text-content {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.8;
+  text-align: justify;
 }
 
-/* 文本区域 */
-.story-content {
-  margin-top: 20px;
-  font-size: 1.05rem;
+/* 故事图片 */
+.story-image-container {
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.story-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 标题和元信息 */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
   color: #333;
-  white-space: pre-wrap;
+  margin-bottom: 1rem;
 }
 
-/* 插图和注释样式 */
-.image-container {
-  text-align: center;
-  margin: 30px 0;
-}
-
-
-.caption {
-  margin-top: 10px;
+.meta {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  color: #666;
   font-size: 1rem;
-  color: #555;
-  text-align: center;
-  font-style: italic;
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
   .artisan-detail-container {
-    padding: 15px;
+    margin: 1rem;
+    padding: 1.5rem;
   }
-
+  
   .header h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
+  
+  .main-image {
+    max-height: 400px;
+  }
+  
+  .story-img {
+    max-height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-image {
+    max-height: 300px;
+  }
+  
+  .story-img {
+    max-height: 250px;
+  }
+  
+  .meta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
+/* 辅助类 */
+.loading, .not-found {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+}
+
+.caption {
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  color: #666;
+  text-align: center;
+  font-style: italic;
 }
