@@ -14,4 +14,8 @@ export default defineConfig({
       '@context': '/src/context',
     },
   },
+  server: {
+    port: 5173,
+    strictPort: true,
+  },
 });
