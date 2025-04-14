@@ -98,6 +98,31 @@ const Navbar = () => {
         selectable={false}  // 如果不需要选中状态
         style={{transition: 'none'}}  // 禁用动画
       >
+        {/* 网站名称和图标 */}
+        <Menu.Item key="home" style={{ marginLeft: '0' }}>
+        <Link to="/" style={{ display: 'flex', alignItems: 'center', fontWeight: 'bold' }}>
+        {/* 自定义图标 */}
+        <img 
+        src="/images/网站图标.png" 
+        alt="Logo" 
+        style={{ 
+          width: '50px',  // 将图标变大
+          height: '40px', // 图标高度也调整
+          marginLeft: '-180px'  // 向左移动图标
+      }} 
+    />
+    <span style={{ marginLeft: '8px', fontSize: '17px' }} 
+    onMouseOver={(e) => {
+    e.target.style.color = '#fff'; // 禁止悬停时变色
+  }}
+  onMouseOut={(e) => {
+    e.target.style.color = '#fff'; // 悬停移开后保持颜色不变
+  }}>
+      花丝镶嵌
+    </span>
+  </Link>
+</Menu.Item>
+
         <Menu.Item key="home">
           <Link to="/">首页</Link>
         </Menu.Item>
