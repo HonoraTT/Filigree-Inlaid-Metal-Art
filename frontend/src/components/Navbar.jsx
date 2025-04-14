@@ -108,7 +108,7 @@ const Navbar = () => {
           <a href="/visit" target="_blank" rel="noopener noreferrer">工艺百科</a>
         </Menu.Item>
         <Menu.Item key="events">
-          <Link to="/events">匠人档案</Link>
+          <Link to="/events" target="_blank">匠人档案</Link>
         </Menu.Item>
         <Menu.Item key="storelanding">
           <Link to="/store">文创商店</Link>
