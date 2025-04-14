@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Events.css';
 
@@ -37,43 +37,89 @@ const artisans = [
 
 const Events = () => {
   const [hoveredArtisan, setHoveredArtisan] = useState(artisans[0]);
+  const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
 
-  // 更新悬停匠人信息
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleHover = (artisan) => {
     setHoveredArtisan(artisan);
   };
 
-  // 点击匠人名称跳转至详情页
   const handleClick = (artisanName) => {
-    navigate(`/artisan-detail/${artisanName}`);
+    navigate(`/artisan-detail/${encodeURIComponent(artisanName)}`);
+  };
+
+  const handleMoreClick = (e) => {
+    e.preventDefault();
+    navigate('/character');
   };
 
   return (
-    <div className="artisan-profile-container">
-      {/* 左侧匠人图片区域 */}
-      <div className="left-image">
-        <img 
-          src={hoveredArtisan.image} 
-          alt={hoveredArtisan.name} 
-          className="artisan-img" 
-          onClick={() => handleClick(hoveredArtisan.name)}  // 点击跳转到匠人详情页面
-        />
+    <div className={`section home6 tab-mod fp-section active ${isVisible ? 'fp-completely' : ''}`} data-anchor="page6">
+      <style>
+        {`.home6 .widget-area-edit {
+          left: 100px;
+          top: 100px !important;
+        }`}
+      </style>
+      
+      {/* 图片内容区域 - 只显示当前悬停的匠人 */}
+      <div className="tab-cont">
+        <div 
+          className="tab-item act"
+          style={{ backgroundImage: `url(${hoveredArtisan.image})` }}
+        ></div>
       </div>
-
-      <div className="right-content">
-        <h2>匠人档案</h2>
-        <div className="artisan-list">
-          {artisans.map((artisan) => (
-            <div
-              key={artisan.name}
-              className="artisan-item"
-              onMouseEnter={() => handleHover(artisan)}
-              onClick={() => handleClick(artisan.name)}
-            >
-              <h3>{artisan.name}</h3>
+      
+      {/* 标签导航区域 */}
+      <div>
+        <div className="tab-bar">
+          {/* 标题 */}
+          <div className="title middle">
+            <div className="title-txt middle-cont">
+              <div>匠人</div>
             </div>
-          ))}
+          </div>
+
+          {/* 匠人列表 */}
+          <div className="tab-track justify">
+            {artisans.map((artisan, index) => (
+              <React.Fragment key={artisan.name}>
+                <div 
+                  className={`tab-term t${index + 1} ${hoveredArtisan.name === artisan.name ? 'cur' : ''}`}
+                  onMouseEnter={() => handleHover(artisan)}
+                  onClick={() => handleClick(artisan.name)}
+                >
+                  <div className="h16">
+                    <a 
+                      href={`/artisan-detail/${encodeURIComponent(artisan.name)}`}
+                      title={artisan.name}
+                    >
+                      {artisan.name}
+                    </a>
+                  </div>
+                </div>
+                {index < artisans.length - 1 && <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>}
+              </React.Fragment>
+            ))}
+          </div>
+
+          {/* 查看更多链接 */}
+          <div className="p-more middle">
+            <a 
+              href="/character.html" 
+              className="link middle-cont"
+              onClick={handleMoreClick}
+            >
+              查看更多
+            </a>
+          </div>
         </div>
       </div>
     </div>

@@ -1,10 +1,7 @@
-// src/artisan-detail/ArtisanDetail.jsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './ArtisanDetail.css';
 
-
-// 假设匠人的详细信息都存储在一个数组中
 const artisans = [
   {
     name: '辜国强',
@@ -58,12 +55,11 @@ const artisans = [
 
 
 const ArtisanDetail = () => {
-  const { name } = useParams(); // 获取 URL 中的匠人名字参数
-  const [storyContent, setStoryContent] = useState(''); // 存储匠人故事内容
-  const [loading, setLoading] = useState(true); // 控制加载状态
+  const { name } = useParams();
+  const [storyContent, setStoryContent] = useState('');
+  const [loading, setLoading] = useState(true);
   const artisan = artisans.find((a) => a.name === name);
 
-  // 解析文本内容，将图片和注释转为 React 组件
   const parseStoryContent = (text) => {
     const parts = text.split('\n');
     const parsedContent = [];
@@ -72,16 +68,16 @@ const ArtisanDetail = () => {
       const part = parts[i].trim();
   
       if (part.startsWith('![image]')) {
-        const imagePath = part.match(/\((.*?)\)/)?.[1]; // 提取路径
+        const imagePath = part.match(/\((.*?)\)/)?.[1];
         const captionLine = parts[i + 1]?.trim();
         const caption = captionLine?.startsWith('#') ? captionLine.replace(/^#\s*/, '') : '';
         parsedContent.push(
-          <div key={i} className="image-container">
-            <img src={imagePath} alt="匠人作品" className="artisan-img" />
+          <div key={i} className="story-image-container">
+            <img src={imagePath} alt="匠人作品" className="story-img" />
             {caption && <p className="caption">{caption}</p>}
           </div>
         );
-        i++; // 跳过注释那一行
+        i++;
       } else if (part) {
         parsedContent.push(<p key={i}>{part}</p>);
       }
@@ -89,13 +85,14 @@ const ArtisanDetail = () => {
   
     return parsedContent;
   };
+
   useEffect(() => {
     const loadStory = async () => {
       try {
-        const response = await fetch(`/texts/${name}.txt`); // 根据匠人名称加载对应的文本文件
+        const response = await fetch(`/texts/${name}.txt`);
         if (response.ok) {
           const text = await response.text();
-          setStoryContent(parseStoryContent(text)); // 设置故事内容
+          setStoryContent(parseStoryContent(text));
         } else {
           setStoryContent(['该匠人的详细故事尚未加载。']);
         }
@@ -110,29 +107,35 @@ const ArtisanDetail = () => {
   }, [name]);
 
   if (loading) {
-    return <div>加载中...</div>;
+    return <div className="loading">加载中...</div>;
   }
 
-  if (!artisan) return <div>匠人未找到</div>;
+  if (!artisan) return <div className="not-found">匠人未找到</div>;
 
   return (
     <div className="artisan-detail-container">
       <div className="header">
-      <h1>{artisan.title}</h1>
-
+        <h1>{artisan.title}</h1>
         <div className="meta">
           <span>{artisan.date}</span> | <span>{artisan.source}</span>
         </div>
       </div>
 
       <div className="content">
-        <div className="image">
-          <img src={artisan.image} alt={artisan.name} />
+        <div className="main-image-container">
+          <img 
+            src={artisan.image} 
+            alt={artisan.name} 
+            className="main-image"
+            onError={(e) => {
+              e.target.onerror = null; 
+              e.target.src = '/images/default-artisan.png'
+            }}
+          />
         </div>
-        <div className="text">
-          <p>{artisan.bio}</p>
+        <div className="text-content">
+          <p className="bio">{artisan.bio}</p>
           <div className="story-content">
-            {/* 这里展示匠人加载的文本文件内容，其中包括图片和注释 */}
             {storyContent}
           </div>
         </div>
