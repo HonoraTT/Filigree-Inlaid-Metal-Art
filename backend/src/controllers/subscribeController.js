@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
 const validator = require('validator');
+const dns = require('dns');
+const { promisify } = require('util');
 
 // 创建邮件传输器
 const transporter = nodemailer.createTransport({
@@ -12,6 +14,18 @@ const transporter = nodemailer.createTransport({
   }
 });
 
+// 验证邮箱域名是否存在
+const verifyEmailDomain = async (email) => {
+  try {
+    const domain = email.split('@')[1];
+    const resolveMx = promisify(dns.resolveMx);
+    const mxRecords = await resolveMx(domain);
+    return mxRecords && mxRecords.length > 0;
+  } catch (error) {
+    return false;
+  }
+};
+
 const subscribe = async (req, res) => {
   try {
     const { email } = req.body;
@@ -22,7 +36,7 @@ const subscribe = async (req, res) => {
       console.log('邮箱格式无效:', email);
       return res.status(400).json({
         success: false,
-        message: '请输入有效的邮箱地址'
+        message: '该邮箱不存在，请检查邮箱地址'
       });
     }
 
@@ -33,7 +47,17 @@ const subscribe = async (req, res) => {
       console.log('邮箱域名无效:', domain);
       return res.status(400).json({
         success: false,
-        message: '请使用常用邮箱服务商的邮箱地址'
+        message: '该邮箱不存在，请检查邮箱地址'
+      });
+    }
+
+    // 验证邮箱域名是否存在
+    const isValidDomain = await verifyEmailDomain(email);
+    if (!isValidDomain) {
+      console.log('邮箱域名不存在:', email);
+      return res.status(400).json({
+        success: false,
+        message: '该邮箱不存在，请检查邮箱地址'
       });
     }
 
@@ -69,16 +93,16 @@ const subscribe = async (req, res) => {
       });
     } catch (emailError) {
       console.error('邮件发送失败:', emailError);
-      res.status(500).json({
+      res.status(400).json({
         success: false,
-        message: '发送确认邮件失败，请稍后重试'
+        message: '该邮箱不存在，请检查邮箱地址'
       });
     }
   } catch (error) {
     console.error('订阅处理失败:', error);
     res.status(500).json({
       success: false,
-      message: '订阅失败，请稍后重试'
+      message: '该邮箱不存在，请检查邮箱地址'
     });
   }
 };

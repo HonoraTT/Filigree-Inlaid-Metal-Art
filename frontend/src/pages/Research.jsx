@@ -178,6 +178,7 @@ const News = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
         body: JSON.stringify({ email })
       });
@@ -188,11 +189,12 @@ const News = () => {
         alert(data.message);
         setEmail(''); // 清空输入框
       } else {
-        alert(data.message);
+        // 显示后端返回的具体错误信息
+        alert(data.message || '该邮箱不存在，请检查邮箱地址');
       }
     } catch (error) {
       console.error('订阅失败:', error);
-      alert('订阅失败，请稍后重试');
+      alert('该邮箱不存在，请检查邮箱地址');
     } finally {
       setIsSubscribing(false);
     }

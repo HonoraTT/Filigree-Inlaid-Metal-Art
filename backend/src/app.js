@@ -5,7 +5,12 @@ const subscribeRouter = require('./routes/subscribe');
 const app = express();
 
 // 中间件
-app.use(cors()); // 允许所有来源
+app.use(cors({
+  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
 app.use(express.json());
 
 // 测试路由
