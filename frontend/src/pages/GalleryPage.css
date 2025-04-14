@@ -2,7 +2,8 @@
 .gallery-container {
   width: 100%;
   min-height: 100vh;
-  background: #f3c1c1;
+  background: url('/images/作品展示/背景2.png') no-repeat center center;
+  background-size: cover;
   position: relative;
   overflow-x: hidden;
 }
@@ -12,12 +13,13 @@
   position: relative;
   height: 100vh;
   overflow: hidden;
-  background: #2c3e50;
+  margin-bottom: 20px; /* 增加间距 */
 }
 
 .slide {
   width: 100%;
   height: 100%;
+  border-radius: 30px;
   position: relative;
 }
 
@@ -55,7 +57,7 @@
 /* 修改后的轮播按钮样式 - 分开显示 */
 .carousel-button-prev,
 .carousel-button-next {
-  position: absolute; /* 改为absolute定位 */
+  position: absolute;
   top: 90%;
   transform: translateY(-50%);
   width: 50px;
@@ -74,7 +76,6 @@
 
 .carousel-button-prev {
   left: 46%;
-  
 }
 
 .carousel-button-next {
@@ -91,8 +92,8 @@
 /* 卡片部分 */
 .cards-section {
   padding: 80px 0px;
-  background: rgb(191, 178, 178);
   text-align: center;
+  margin-bottom: 20px; /* 增加间距 */
 }
 
 .section-title {
@@ -138,10 +139,10 @@
 /* 卡片样式 */
 .card {
   position: relative;
-  border-radius: 0px;
+  border-radius: 5px;
   min-width: 280px;
-  height: 350px;
-  box-shadow: 0 10px 30px rgba(168, 53, 53, 0.08);
+  height: 420px;
+  box-shadow: 0 10px 30px rgb(233, 233, 233);
   transition: all 0.5s ease;
   text-align: center;
   cursor: pointer;
@@ -150,7 +151,8 @@
   flex-shrink: 0;
   background-size: cover;
   background-position: center;
-  margin-right: -1px; /* 负边距消除间隙 */
+  margin-right: -1px;
+  
 }
 
 .card-content {
@@ -189,7 +191,7 @@
 }
 
 .card:hover {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 40px rgba(254, 254, 254, 0.15);
 }
 
 .card:hover .card-hover-image {
@@ -214,7 +216,11 @@
 .card-title {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #000000;
+  color: #ffffff;
+  text-shadow: 2px 2px 0px black, 
+  -2px -2px 0px black,  
+  2px -2px 0px black,
+  -2px 2px 0px black; /* 四个方向的阴影形成边框 */
   font-weight: 600;
   transition: all 0.3s ease;
 }
@@ -224,7 +230,7 @@
 }
 
 .card-description {
-  color: #212b2b;
+  color: #ffffff;
   line-height: 1.7;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -235,18 +241,20 @@
 }
 
 .card:hover .card-content {
-  opacity: 0; /* 悬停时隐藏文字内容 */
-  transition: opacity 0.3s ease; /* 添加过渡效果 */
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 /* 3D模型展示部分 */
 .three-d-model-container {
   display: flex;
+  background: url('/images/作品展示/背景3.png') no-repeat center center;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 20px;
-  background: #f3c1c1;
+  padding: 100px 30px;
   margin-top: 60px;
+  min-width: 280px;
+  height: 600px;
   overflow: hidden;  
 }
 
@@ -254,7 +262,7 @@
   flex: 1;
   padding-right: 20px;
   height: 400px;
-  overflow: hidden;  /* 防止模型超出容器 */
+  overflow: hidden;
 }
 
 .model-text-container {
@@ -277,12 +285,11 @@
 }
 
 model-viewer {
-  background: #f3c1c1;
   border-radius: 12px;
   width: 100%;
   height: 100%;
   transform-origin: center center;
-  touch-action: none;  /* 防止移动端默认手势干扰 */
+  touch-action: none;
 }
 
 /* 响应式设计 */
@@ -324,6 +331,18 @@ model-viewer {
     min-width: 220px;
     height: 300px;
   }
+  
+  .three-d-model-container {
+    flex-direction: column;
+    height: auto;
+    padding: 60px 20px;
+  }
+  
+  .model-viewer-container,
+  .model-text-container {
+    width: 100%;
+    padding: 20px 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -342,5 +361,12 @@ model-viewer {
     min-width: 200px;
     height: 280px;
   }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
 }
-

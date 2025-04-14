@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@google/model-viewer": "^4.1.0"
+    "@google/model-viewer": "^4.1.0",
+    "framer-motion": "^12.6.5"
   }
 }
