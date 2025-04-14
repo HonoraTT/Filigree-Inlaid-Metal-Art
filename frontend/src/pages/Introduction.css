@@ -1,5 +1,6 @@
 .introduction-container {
     font-family: 'Noto Serif SC', serif;
+    font-size: 4.0rem;
     padding: 2rem;
     min-height: 200vh;
     position: relative;
@@ -60,10 +61,11 @@
   }
   
   .content {
-    background: rgba(255, 253, 253, 0.85);
+    background: rgba(255, 253, 253, 0.7);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+
     position: relative;
     margin: 2rem 0;
     border: 1px solid rgba(139, 69, 19, 0.2);
@@ -215,7 +217,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('/images/敦煌2.png') center/cover no-repeat;
+  background: url('/images/敦煌5.png') center/cover no-repeat;
   opacity: 1;
   z-index: 0;
   animation: backgroundMove 20s infinite alternate;
@@ -256,4 +258,13 @@
     padding: 2rem;
     margin: 3rem auto;
   }
+}
+
+.main-title {
+    font-size: 4.5rem;  /* 从 3.5rem 改为 4.5rem */
+    text-align: center;
+    color: #A0522D;
+    margin-bottom: 3rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
