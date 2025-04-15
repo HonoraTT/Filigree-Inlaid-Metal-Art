@@ -35,22 +35,27 @@
     transform: scale(1.05);
   }
   
-  /* 覆盖层 */
-  .model-overlay1 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 1.2rem;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
+ /* 覆盖层 */
+.model-overlay1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  padding: 10px; /* 给文字添加一些内边距 */
+  text-align: center; /* 居中文本 */
+  white-space: normal; /* 允许文本换行 */
+  overflow: hidden; /* 超出部分隐藏 */
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+}
   
   .model-grid1-item1:hover .model-overlay1 {
     opacity: 1;

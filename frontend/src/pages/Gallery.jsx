@@ -31,12 +31,24 @@ const Gallery = () => {
 
   // 轮播图数据
   const slides = [
-    { image: '/images/作品展示/轮播1.png' },
-    { image: '/images/作品展示/轮播2.png' },
-    { image: '/images/作品展示/轮播3.png' },
-    { image: '/images/作品展示/轮播4.png' },
-    { image: '/images/作品展示/轮播5.png' },
-    { image: '/images/作品展示/轮播6.png' }
+    { image: '/images/作品展示/轮播1.png',
+      des1:'每一根金丝都是匠心的诠释，花丝镶嵌，让传统工艺焕发现代光彩。'
+     },
+    { image: '/images/作品展示/轮播2.png',
+      des1:'精致的花丝镶嵌，犹如艺术的繁花，完美呈现每一个细节，闪耀不凡。'
+     },
+    { image: '/images/作品展示/轮播3.png',
+      des1:'花丝镶嵌工艺，巧夺天工的设计，成就你独一无二的奢华魅力。'
+     },
+    { image: '/images/作品展示/轮播4.png',
+      des1:'跨越千年，花丝镶嵌技艺将古老的文化与现代的优雅相融合，尽显匠心之美。'
+     },
+    { image: '/images/作品展示/轮播5.png',
+      des1:'每一件花丝镶嵌的作品，都在讲述一个独特的故事，装点你的生活，点亮你的心情。'
+     },
+    { image: '/images/作品展示/轮播6.png' ,
+      des1:'花丝镶嵌，将传统与创新完美结合，让每一件作品都闪耀出不同凡响的光芒。'
+    }
   ];
 
   // 卡片数据
@@ -112,7 +124,7 @@ const Gallery = () => {
         style={{ y: carouselY }}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 1.5 }}
       >
         <div className="slide" ref={slideRef}>
           {slides.map((slide, index) => (
@@ -120,7 +132,12 @@ const Gallery = () => {
               key={index}
               className="item1"
               style={{ backgroundImage: `url(${slide.image})` }}
-            ></div>
+            >
+               <div className="content2">
+              <div className="name1">{slide.name1}</div>
+              <div className="des1">{slide.des1}</div>
+            </div>
+            </div>
           ))}
         </div>
         

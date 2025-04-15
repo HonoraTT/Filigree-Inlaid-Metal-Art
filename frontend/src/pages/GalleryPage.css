@@ -54,6 +54,28 @@
   opacity: 0;
 }
 
+/* 内容动画 */
+.item1 .content2 {
+  position: absolute;
+  top: 10%;
+  left: 7%;
+  width: 30%;
+  color: #fbfbfb;
+  text-shadow: 2px 2px 0px black, 
+  -2px -2px 0px black,  
+  2px -2px 0px black,
+  -2px 2px 0px black; /* 四个方向的阴影形成边框 */
+  padding: 30px;
+  transform: translate(0, -50%);
+  font-family: system-ui;
+  display: none;
+  border-radius: 10px;
+}
+.slide .item1:nth-child(2) .content2 {
+  display: block;
+}
+
+
 /* 修改后的轮播按钮样式 - 分开显示 */
 .carousel-button-prev,
 .carousel-button-next {
@@ -248,19 +270,21 @@
 /* 3D模型展示部分 */
 .three-d-model-container {
   display: flex;
-  background: url('/images/作品展示/背景3.png') no-repeat center center;
+  background: url('/images/作品展示/背景.png') no-repeat center center;
   justify-content: space-between;
   align-items: center;
-  padding: 100px 30px;
+  padding: 100px 200px;
   margin-top: 60px;
   min-width: 280px;
-  height: 600px;
+  height: 400px;
   overflow: hidden;  
+  border-radius: 10px;
 }
 
 .model-viewer-container {
   flex: 1;
   padding-right: 20px;
+  border-radius: 10px;
   height: 400px;
   overflow: hidden;
 }
@@ -369,4 +393,9 @@ model-viewer {
   .section-subtitle {
     font-size: 1rem;
   }
+}
+.des1 { 
+   animation: animate 1s ease-in-out 0.3s 1 forwards;
+   font-size: 1.6rem; 
+   font-family:"FangSong",serif;
 }
