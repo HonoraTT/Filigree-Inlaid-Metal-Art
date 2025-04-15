@@ -80,16 +80,7 @@
   }
 
   .content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, #8B4513, #A0522D);
-    border-radius: 4px 4px 0 0;
-    opacity: 0.8;
-    margin-top: -1px;
+    display: none;
   }
 
   .content h3 {
@@ -133,15 +124,7 @@
   }
   
 .meaning-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #8B4513, #A0522D);
-  border-radius: 4px 4px 0 0;
-  opacity: 0.8;
+  display: none;
 }
 
 .meaning-section h2 {
@@ -258,13 +241,4 @@
     padding: 2rem;
     margin: 3rem auto;
   }
-}
-
-.main-title {
-    font-size: 4.5rem;  /* 从 3.5rem 改为 4.5rem */
-    text-align: center;
-    color: #A0522D;
-    margin-bottom: 3rem;
-    font-weight: 600;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }

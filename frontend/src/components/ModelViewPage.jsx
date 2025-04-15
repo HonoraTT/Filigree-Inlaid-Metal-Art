@@ -8,9 +8,9 @@ const ModelViewPage = () => {
     model1: '/images/3Dmodels/dragon.glb',
     model2: '/images/3Dmodels/红宝石项链.glb',
     model3: '/images/3Dmodels/戒指.glb',
-    model4: '/images/3Dmodels/饰品.glb',
+    model4: '/images/3Dmodels/项链.glb',
     model5: '/images/3Dmodels/图.glb',
-    model6: '/images/3Dmodels/项链.glb',
+    model6: '/images/3Dmodels/扇形项链.glb',
   };
 
   return (

@@ -2,24 +2,26 @@
 .three-d-container {
   width: 100%;
   min-height: 100vh;
-  background-image: linear-gradient(to top, #d697e9 0%, #fbc8d4 100%);
+  background: url('/images/作品展示/背景4.png') no-repeat center center;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* 改为从顶部开始排列 */
+  padding-top: 30px; /* 增加顶部内边距 */
   position: relative;
   overflow: hidden;
 }
 
-
 /* 3D轮播样式 */
 .shell1 {
   position: relative;
-  width: 60vw;
-  height: 40vw;
-  max-width: 380px;
-  max-height: 250px;
-  margin: 0;
+  width: 70vw; /* 从60vw增大到70vw */
+  height: 50vw; /* 从60vw调整为50vw保持比例 */
+  top: 80px;
+  max-width: 450px; /* 从380px增大到450px */
+  max-height: 300px; /* 从250px增大到300px */
+  margin: 20px 0; /* 增加与文字的间距 */
   color: white;
   perspective: 1000px;
   transform-origin: center;
@@ -40,10 +42,10 @@
 
 .item2 {
   position: absolute;
-  width: 60vw;
-  height: 40vw;
-  max-width: 380px;
-  max-height: 250px;
+  width: 70vw; /* 同步增大 */
+  height: 50vw; /* 调整高度比例 */
+  max-width: 450px; /* 同步增大 */
+  max-height: 300px; /* 同步增大 */
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
   border-radius: 6px;
   background-size: cover;
@@ -52,42 +54,47 @@
 }
 
 .item2:nth-child(1) {
-  transform: rotateY(0) translateZ(35vw);
+  transform: rotateY(0) translateZ(40vw);
 }
 
 .item2:nth-child(2) {
-  transform: rotateY(120deg) translateZ(35vw);
+  transform: rotateY(120deg) translateZ(40vw);
 }
 
 .item2:nth-child(3) {
-  transform: rotateY(240deg) translateZ(35vw);
+  transform: rotateY(240deg) translateZ(40vw);
 }
 
 /* 关键动画定义 */
 @keyframes carousel {
   0%, 17.5% {
-    transform: translateZ(-35vw) rotateY(0);
+    transform: translateZ(-40vw) rotateY(0);
   }
   27.5%, 45% {
-    transform: translateZ(-35vw) rotateY(-120deg);
+    transform: translateZ(-40vw) rotateY(-120deg);
   }
   55%, 72.5% {
-    transform: translateZ(-35vw) rotateY(-240deg);
+    transform: translateZ(-40vw) rotateY(-240deg);
   }
   82.5%, 100% {
-    transform: translateZ(-35vw) rotateY(-360deg);
+    transform: translateZ(-40vw) rotateY(-360deg);
   }
 }
 
+/* 文字样式（调整到上方） */
 .card1-info {
-  margin-top: 50px;
   text-align: center;
-  top: 90%;
-  color: rgb(255, 255, 9);
-  background: rgba(238, 163, 222, 0.6);
-  padding: 10px 30px;
+  color: rgb(51, 51, 49);
+  text-shadow: 
+    1px 1px 0px rgb(255, 255, 255), 
+    -1px -1px 0px rgb(255, 255, 255),  
+    1px -1px 0px rgb(255, 255, 255),
+    -1px 1px 0px rgb(255, 255, 255);
+  padding: 10px 10px;
   border-radius: 15px;
   max-width: 500px;
+  margin-top: 60px; /* 新增：增加顶部外边距 */
+  margin-bottom: 0px; /* 增加与图片的间距 */
 }
 
 .card1-info h2 {
@@ -103,17 +110,21 @@
 /* 响应式设计 */
 @media (max-width: 768px) {
   .shell1 {
-    width: 80vw;
-    height: 60vw;
+    width: 90vw; /* 从80vw增大到90vw */
+    height: 65vw; /* 从60vw增大到65vw */
+    max-width: 400px; /* 移动端最大宽度 */
+    max-height: 280px; /* 移动端最大高度 */
   }
   
   .item2 {
-    width: 80vw;
-    height: 60vw;
+    width: 90vw; /* 从80vw增大到90vw */
+    height: 65vw; /* 从60vw增大到65vw */
+    max-width: 400px; /* 移动端最大宽度 */
+    max-height: 280px; /* 移动端最大高度 */
   }
   
   .card1-info {
-    margin-top: 30px;
+    margin-bottom: 20px;
     padding: 15px 25px;
     max-width: 80%;
   }

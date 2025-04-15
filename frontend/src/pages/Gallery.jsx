@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import './GalleryPage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -11,18 +12,43 @@ const Gallery = () => {
   const [active3DView, setActive3DView] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
 
+  // 创建三个部分的ref
+  const carouselRef = useRef(null);
+  const cardsRef = useRef(null);
+  const modelRef = useRef(null);
+
+  // 设置滚动动画
+  const { scrollYProgress } = useScroll();
+  
+  // 为每个部分创建不同的动画效果
+  const carouselY = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
+  const cardsY = useTransform(scrollYProgress, [0.3, 0.6], [0, -100]);
+  const modelY = useTransform(scrollYProgress, [0.6, 0.9], [0, -100]);
+
   const handleClick = (modelPath) => {
     navigate(`/model-detail`); 
   };
 
   // 轮播图数据
   const slides = [
-    { image: '/images/作品展示/轮播1.png' },
-    { image: '/images/作品展示/轮播2.png' },
-    { image: '/images/作品展示/轮播3.png' },
-    { image: '/images/作品展示/轮播4.png' },
-    { image: '/images/作品展示/轮播5.png' },
-    { image: '/images/作品展示/轮播6.png' }
+    { image: '/images/作品展示/轮播1.png',
+      des1:'每一根金丝都是匠心的诠释，花丝镶嵌，让传统工艺焕发现代光彩。'
+     },
+    { image: '/images/作品展示/轮播2.png',
+      des1:'精致的花丝镶嵌，犹如艺术的繁花，完美呈现每一个细节，闪耀不凡。'
+     },
+    { image: '/images/作品展示/轮播3.png',
+      des1:'花丝镶嵌工艺，巧夺天工的设计，成就你独一无二的奢华魅力。'
+     },
+    { image: '/images/作品展示/轮播4.png',
+      des1:'跨越千年，花丝镶嵌技艺将古老的文化与现代的优雅相融合，尽显匠心之美。'
+     },
+    { image: '/images/作品展示/轮播5.png',
+      des1:'每一件花丝镶嵌的作品，都在讲述一个独特的故事，装点你的生活，点亮你的心情。'
+     },
+    { image: '/images/作品展示/轮播6.png' ,
+      des1:'花丝镶嵌，将传统与创新完美结合，让每一件作品都闪耀出不同凡响的光芒。'
+    }
   ];
 
   // 卡片数据
@@ -91,29 +117,47 @@ const Gallery = () => {
 
   return (
     <div className="gallery-container">
-      {/* 轮播图部分 */}
-      <div className="carousel-section">
+      {/* 轮播图部分 - 添加动画效果 */}
+      <motion.div 
+        className="carousel-section"
+        ref={carouselRef}
+        style={{ y: carouselY }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.5 }}
+      >
         <div className="slide" ref={slideRef}>
           {slides.map((slide, index) => (
             <div
               key={index}
               className="item1"
               style={{ backgroundImage: `url(${slide.image})` }}
-            ></div>
+            >
+               <div className="content2">
+              <div className="name1">{slide.name1}</div>
+              <div className="des1">{slide.des1}</div>
+            </div>
+            </div>
           ))}
         </div>
         
-        {/* 修改后的按钮容器 - 分开显示 */}
         <div className="carousel-button-prev" onClick={handlePrev}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </div>
         <div className="carousel-button-next" onClick={handleNext}>
           <FontAwesomeIcon icon={faArrowRight} />
         </div>
-      </div>
+      </motion.div>
 
-      {/* 卡片部分 */}
-      <div className="cards-section">
+      {/* 卡片部分 - 添加动画效果 */}
+      <motion.div 
+        className="cards-section"
+        ref={cardsRef}
+        style={{ y: cardsY }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <h2 className="section-title">花丝镶嵌作品分类</h2>
         <p className="section-subtitle">传承千年工艺，演绎现代美学</p>
         
@@ -144,29 +188,36 @@ const Gallery = () => {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      {/* 3D模型展示部分 */}
-      <div className="three-d-model-container">
-      <div className="model-viewer-container">
-  <model-viewer
-    src="/images/3Dmodels/蝴蝶胸针.glb"
-    alt="3D展示"
-    camera-controls
-    camera-orbit="0deg 90deg 500px"
-    style={{ width: '100%', height: '400px' }}
-    max-field-of-view="30deg"  /* 最大视角 */
-    min-field-of-view="10deg"  /* 最小视角 */
-    max-camera-orbit="Infinity auto 1000px"  /* 最大相机轨道距离 */
-    min-camera-orbit="-Infinity auto 200px"  /* 最小相机轨道距离 */
-    bounds="tight"  /* 限制模型在视图范围内 */
-  />
-</div>
+      {/* 3D模型展示部分 - 添加动画效果 */}
+      <motion.div 
+        className="three-d-model-container"
+        ref={modelRef}
+        style={{ y: modelY }}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <div className="model-viewer-container">
+          <model-viewer
+            src="/images/3Dmodels/蝴蝶胸针.glb"
+            alt="3D展示"
+            camera-controls
+            camera-orbit="0deg 90deg 500px"
+            style={{ width: '100%', height: '400px' }}
+            max-field-of-view="30deg"
+            min-field-of-view="10deg"
+            max-camera-orbit="Infinity auto 1000px"
+            min-camera-orbit="-Infinity auto 200px"
+            bounds="tight"
+          />
+        </div>
         <div className="model-text-container" onClick={handleClick}>
           <h2 className="section-title">3D展示</h2>
           <p className="section-subtitle">请使用鼠标拖拽旋转模型</p>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

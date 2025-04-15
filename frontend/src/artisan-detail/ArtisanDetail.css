@@ -15,11 +15,11 @@ html, body {
   max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: rgba(255, 255, 255, 0.95);
   font-family: "Microsoft YaHei", Arial, sans-serif;
   line-height: 1.8;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: none;
+  border: none;
+  border-top: none;
 }
 
 /* 首图容器 */
@@ -29,7 +29,6 @@ html, body {
   margin: 0 auto 2rem;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .main-image {
@@ -45,6 +44,9 @@ html, body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  transform: none;
+  border: none;
+  border-top: none;
 }
 
 .text-content {
@@ -52,12 +54,18 @@ html, body {
   color: #444;
   line-height: 1.8;
   text-align: justify;
+  transform: none;
+  border: none;
+  border-top: none;
 }
 
 /* 故事图片 */
 .story-image-container {
   margin: 2rem auto;
   max-width: 800px;
+  transform: none;
+  border: none;
+  border-top: none;
 }
 
 .story-img {
@@ -65,7 +73,9 @@ html, body {
   max-height: 400px;
   object-fit: contain;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: none;
+  border: none;
+  border-top: none;
 }
 
 /* 标题和元信息 */

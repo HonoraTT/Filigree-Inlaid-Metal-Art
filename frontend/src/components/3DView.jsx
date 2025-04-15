@@ -13,8 +13,13 @@ const ThreeDView = () => {
 
   return (
     <div className="three-d-container">
-     
-      
+      {/* 文字部分（移动到上方） */}
+      <div className="card1-info">
+        <h2>{card?.title}</h2>
+        <p>{card?.description}</p>
+      </div>
+
+      {/* 图片部分（3D轮播） */}
       <div className="shell1">
         <div className="content1">
           {card?.images?.map((image, index) => (
@@ -25,11 +30,6 @@ const ThreeDView = () => {
             ></div>
           ))}
         </div>
-      </div>
-      
-      <div className="card1-info">
-        <h2>{card?.title}</h2>
-        <p>{card?.description}</p>
       </div>
     </div>
   );
