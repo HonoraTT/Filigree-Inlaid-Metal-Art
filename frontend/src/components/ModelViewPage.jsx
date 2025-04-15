@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import './ModelViewPage.css';  // 引入CSS文件
 
 const ModelViewPage = () => {
   const { modelId } = useParams();  // 获取动态路由参数
@@ -21,11 +22,7 @@ const ModelViewPage = () => {
         alt="3D展示"
         camera-controls
         camera-orbit="0deg 90deg 500px"
-        style={{ 
-          width: '100%', 
-          height: '650px',
-          backgroundColor: 'white'  // 设置背景为白色
-        }}
+        className="model-viewer"
       />
     </div>
   );

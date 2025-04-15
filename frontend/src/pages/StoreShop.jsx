@@ -4,22 +4,22 @@ import { useUser } from '../contexts/UserContext';
 import './store.css';
 
 const products = [
-  { id: 1, name: '花丝头饰', price: 25.0, category: '首饰', image:  '/images/文创商店/花丝头饰.png' },
-  { id: 2, name: '花丝扣包', price: 38.0, category: '手工艺品', image:'/images/文创商店/花丝扣包.png' },
-  { id: 3, name: '手工花丝花', price: 30.0, category: '手工艺品', image: '/images/文创商店/手工花丝花.png' },
-  { id: 4, name: '花丝宝石戒指', price: 28.0, category: '首饰', image: '/images/文创商店/花丝宝石戒指.png'},
-  { id: 5, name: '花丝发钗', price: 50.0, category: '首饰', image: '/images/文创商店/花丝发钗.png'},
-  { id: 6, name: '花丝地毯', price: 35.0, category: '家居装饰', image: '/images/文创商店/花丝地毯.png' },
-  { id: 7, name: '龙图腾摆件', price: 45.0, category: '手工艺品', image:'/images/文创商店/龙图腾摆件.png' },
-  { id: 8, name: '花丝蝴蝶', price: 40.0, category: '手工艺品', image: '/images/文创商店/花丝蝴蝶.png' },
-  { id: 9, name: '花丝车载挂件', price: 60.0, category: '家居装饰', image: '/images/文创商店/花丝车载挂件.png' },
+  { id: 1, name: '花丝头饰', price: 2500.0, category: '首饰', image:  '/images/文创商店/花丝头饰.png' },
+  { id: 2, name: '花丝扣包', price: 3800.0, category: '手工艺品', image:'/images/文创商店/花丝扣包.png' },
+  { id: 3, name: '手工花丝花', price: 3000.0, category: '手工艺品', image: '/images/文创商店/手工花丝花.png' },
+  { id: 4, name: '花丝宝石戒指', price: 2800.0, category: '首饰', image: '/images/文创商店/花丝宝石戒指.png'},
+  { id: 5, name: '花丝发钗', price: 5000.0, category: '首饰', image: '/images/文创商店/花丝发钗.png'},
+  { id: 6, name: '花丝地毯', price: 3500.0, category: '家居装饰', image: '/images/文创商店/花丝地毯.png' },
+  { id: 7, name: '龙图腾摆件', price: 4500.0, category: '手工艺品', image:'/images/文创商店/龙图腾摆件.png' },
+  { id: 8, name: '花丝蝴蝶', price: 4000.0, category: '手工艺品', image: '/images/文创商店/花丝蝴蝶.png' },
+  { id: 9, name: '花丝车载挂件', price: 6000.0, category: '家居装饰', image: '/images/文创商店/花丝车载挂件.png' },
 ];
 
 const StoreShop = () => {
   const navigate = useNavigate();
   const { user } = useUser();
   const [selectedCategory, setSelectedCategory] = useState('所有');
-  const [priceRange, setPriceRange] = useState([18, 130]);
+  const [priceRange, setPriceRange] = useState([0, 10000]);
   const [searchQuery, setSearchQuery] = useState("");
   
   // 从 localStorage 获取购物车数据
@@ -114,15 +114,15 @@ const StoreShop = () => {
           <p>价格：¥{priceRange[0]} - ¥{priceRange[1]}</p>
           <input
             type="range"
-            min="18"
-            max="130"
+            min="0"
+            max="10000"
             value={priceRange[0]}
             onChange={(e) => setPriceRange([parseInt(e.target.value), priceRange[1]])}
           />
           <input
             type="range"
-            min="18"
-            max="130"
+            min="0"
+            max="10000"
             value={priceRange[1]}
             onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value)])}
           />

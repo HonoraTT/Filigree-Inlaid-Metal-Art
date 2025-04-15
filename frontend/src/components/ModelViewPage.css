@@ -1,0 +1,29 @@
+/* ModelViewPage.css */
+.model-view-page {
+    width: 100vw;  /* 确保容器占满整个屏幕宽度 */
+    height: 100vh;  /* 确保容器占满整个屏幕高度 */
+    background-color: rgb(0, 0, 0);  /* 设置背景颜色为白色 */
+    margin: 0;  /* 移除默认的外边距 */
+    padding: 0;  /* 移除默认的内边距 */
+    display: flex;  /* 使用flex布局 */
+    flex-direction: column;  /* 设置为垂直方向布局 */
+    justify-content: flex-start;  /* 确保内容从顶部开始 */
+  }
+  
+  .model-view-page h2 {
+    margin: 0;
+    padding: 10px;
+     top:59%;
+     color:antiquewhite;
+  }
+  
+  .model-viewer {
+    width: 100vw;  /* 确保容器占满整个屏幕宽度 */
+    height: 100vh;  /* 确保容器占满整个屏幕高度 */
+    margin: 0;
+    padding: 0;  /* 移除默认的内边距 */
+    display: flex;  /* 使用flex布局 */
+    background-color: rgb(0, 0, 0);  /* 设置模型背景为白色 */
+    top:20%;  
+}
+  

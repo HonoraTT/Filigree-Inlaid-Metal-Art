@@ -3,7 +3,9 @@
   display: flex;
   justify-content: center;
   padding: 2rem;
-  background-color: #f8f9fa;
+  background-color: white; /* 设置背景颜色为白色 */
+  width: 100vw; /* 确保占满整个屏幕宽度 */
+  height: 100vh; /* 确保占满整个屏幕高度 */
 }
 
 .product-detail-container {
@@ -19,6 +21,7 @@
   max-width: 500px;
   width: 100%;
   height: auto;
+  justify-content: flex-start;
 }
 
 .product-info {
@@ -44,6 +47,7 @@
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
+
 
 .quantity {
   display: flex;
@@ -99,6 +103,7 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  background-attachment: fixed;
 }
 
 .store-landing .hero-text {
@@ -107,12 +112,24 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
+  text-shadow: 2px 2px 0px black, 
+  -2px -2px 0px black,  
+  2px -2px 0px black,
+  -2px 2px 0px black; /* 四个方向的阴影形成边框 */
   text-align: center;
+  background-attachment: fixed;
 }
 
 .store-landing h1 {
-  font-size: 3rem;
+  font-size: 4rem;
   font-weight: bold;
+  background-attachment: fixed;
+}
+
+.store-landing p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background-attachment: fixed;
 }
 
 .store-landing button {
@@ -122,12 +139,14 @@
   color: white;
   border: none;
   cursor: pointer;
+  background-attachment: fixed;
 }
 
 /* 商品展示（Collection） */
 .product-gallery {
   padding: 2rem;
   background-color: #f8f9fa;
+  background-attachment: fixed;
 }
 
 .product-gallery h2 {
