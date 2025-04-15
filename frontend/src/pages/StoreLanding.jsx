@@ -20,7 +20,7 @@ const StoreLanding = () => {
 
       {/* 商品展示区 */}
       <div className="product-gallery">
-        <h2>Our Collection</h2>
+        <h2>藏品细节展示</h2>
         <div className="gallery-grid">
           {/* 商品列表 */}
           {[ 

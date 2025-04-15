@@ -103,6 +103,7 @@
   background-size: cover;
   background-position: center;
   position: relative;
+  background-attachment: fixed;
 }
 
 .store-landing .hero-text {
@@ -116,16 +117,19 @@
   2px -2px 0px black,
   -2px 2px 0px black; /* 四个方向的阴影形成边框 */
   text-align: center;
+  background-attachment: fixed;
 }
 
 .store-landing h1 {
   font-size: 4rem;
   font-weight: bold;
+  background-attachment: fixed;
 }
 
 .store-landing p {
   font-size: 1.5rem;
   font-weight: bold;
+  background-attachment: fixed;
 }
 
 .store-landing button {
@@ -135,12 +139,14 @@
   color: white;
   border: none;
   cursor: pointer;
+  background-attachment: fixed;
 }
 
 /* 商品展示（Collection） */
 .product-gallery {
   padding: 2rem;
   background-color: #f8f9fa;
+  background-attachment: fixed;
 }
 
 .product-gallery h2 {
