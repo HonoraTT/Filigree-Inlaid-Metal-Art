@@ -87,6 +87,8 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/favicon.ico', (req, res) => res.status(204).end());
+
 // 业务路由
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
