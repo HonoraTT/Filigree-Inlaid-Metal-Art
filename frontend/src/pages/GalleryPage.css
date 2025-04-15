@@ -61,10 +61,10 @@
   left: 7%;
   width: 30%;
   color: #fbfbfb;
-  text-shadow: 2px 2px 0px black, 
-  -2px -2px 0px black,  
-  2px -2px 0px black,
-  -2px 2px 0px black; /* 四个方向的阴影形成边框 */
+  text-shadow: 1px 1px 0px black, 
+  -1px -1px 0px black,  
+  1px -1px 0px black,
+  -1px 1px 0px black; /* 四个方向的阴影形成边框 */
   padding: 30px;
   transform: translate(0, -50%);
   font-family: system-ui;
@@ -281,12 +281,14 @@
   border-radius: 10px;
 }
 
+/* 3D模型容器 */
 .model-viewer-container {
   flex: 1;
   padding-right: 20px;
   border-radius: 10px;
   height: 400px;
   overflow: hidden;
+  position: relative;
 }
 
 .model-text-container {
@@ -309,11 +311,23 @@
 }
 
 model-viewer {
-  border-radius: 12px;
   width: 100%;
   height: 100%;
-  transform-origin: center center;
-  touch-action: none;
+  border-radius: 12px;
+  /* 禁用所有触摸缩放手势 */
+  touch-action: pan-x pan-y; 
+  /* 禁止用户选择文本（避免意外行为） */
+  user-select: none;
+  /* 固定大小 */
+  min-width: 100%;
+  min-height: 400px;
+  max-width: 100%;
+  max-height: 400px;
+}
+
+/* 禁用鼠标滚轮事件 */
+model-viewer::part(interaction-prompt) {
+  display: none;
 }
 
 /* 响应式设计 */

@@ -200,18 +200,18 @@ const Gallery = () => {
         transition={{ duration: 0.8, delay: 0.4 }}
       >
         <div className="model-viewer-container">
-          <model-viewer
-            src="/images/3Dmodels/蝴蝶胸针.glb"
-            alt="3D展示"
-            camera-controls
-            camera-orbit="0deg 90deg 500px"
-            style={{ width: '100%', height: '400px' }}
-            max-field-of-view="30deg"
-            min-field-of-view="10deg"
-            max-camera-orbit="Infinity auto 1000px"
-            min-camera-orbit="-Infinity auto 200px"
-            bounds="tight"
-          />
+        <model-viewer
+  src="/images/3Dmodels/蝴蝶胸针.glb"
+  alt="3D展示"
+  camera-controls
+  camera-orbit="0deg 75deg 400px"  // 稍微倾斜的视角
+  style={{ width: '100%', height: '400px' }}
+  max-field-of-view="25deg"  // 限制最大放大
+  min-field-of-view="15deg"  // 限制最小缩小
+  max-camera-orbit="Infinity auto 800px"  // 最远距离
+  min-camera-orbit="-Infinity auto 150px"  // 最近距离
+  bounds="tight"
+/>
         </div>
         <div className="model-text-container" onClick={handleClick}>
           <h2 className="section-title">3D展示</h2>
