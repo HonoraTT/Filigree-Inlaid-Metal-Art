@@ -108,7 +108,7 @@ const Navbar = () => {
         style={{ 
           width: '50px',  // 将图标变大
           height: '40px', // 图标高度也调整
-          marginLeft: '-180px'  // 向左移动图标
+          marginLeft: '-165px'  // 向左移动图标
       }} 
     />
     <span style={{ marginLeft: '8px', fontSize: '17px' }} 
