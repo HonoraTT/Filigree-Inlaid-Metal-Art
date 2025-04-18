@@ -86,6 +86,7 @@ exports.register = async (req, res) => {
 // 登录
 exports.login = async (req, res) => {
   try {
+    console.log('收到登录请求:', req.body);
     const { username, email, phone, password, rememberMe } = req.body;
 
     // 查找用户
@@ -97,12 +98,16 @@ exports.login = async (req, res) => {
       ]
     });
 
+    console.log('找到的用户:', user ? '存在' : '不存在');
+
     if (!user) {
       return res.status(404).json({ error: '用户未找到' });
     }
 
     // 验证密码
     const isMatch = await bcrypt.compare(password, user.password);
+    console.log('密码验证结果:', isMatch ? '正确' : '错误');
+    
     if (!isMatch) {
       return res.status(400).json({ error: '密码错误' });
     }
@@ -121,12 +126,13 @@ exports.login = async (req, res) => {
       createdAt: user.createdAt
     };
 
+    console.log('登录成功，返回用户信息');
     res.json({ 
       token,
       user: userResponse
     });
   } catch (error) {
-    console.error('登录错误:', error);
+    console.error('登录错误详情:', error);
     res.status(500).json({ error: '登录失败，请稍后重试' });
   }
 };

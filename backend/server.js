@@ -41,7 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({
   origin: [
     process.env.CLIENT_URL, // 前端生产环境域名
-    'http://localhost:3000' // 本地开发
+    'http://localhost:5173' // 本地开发
   ],
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
@@ -92,8 +92,20 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 // 业务路由
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
+
+// 添加路由调试信息
+console.log('正在加载路由...');
+console.log('Auth Routes:', authRoutes);
+console.log('User Routes:', userRoutes);
+
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+
+// 添加路由调试中间件
+app.use((req, res, next) => {
+  console.log(`收到请求: ${req.method} ${req.path}`);
+  next();
+});
 
 // ======================
 // 错误处理中间件（增强版）
@@ -160,3 +172,4 @@ process.on('unhandledRejection', (err) => {
   console.error('💥 Unhandled Rejection:', err);
   server.close(() => process.exit(1));
 });
+
