@@ -74,7 +74,7 @@ const newsData = [
     title: '花丝镶嵌工艺体验工坊',
     date: '2024/06/10-06/24',
     location: '北京艺术中心',
-    highlight: '体验传统花丝镶嵌工艺，亲手制作独特的花丝镶嵌作品',
+    highlight: '体验传统花丝工艺，亲手制作独特的花丝镶嵌作品',
     image: '/images/有关动态背景图/工艺美术馆2.png',
     style: {
       backgroundImage: 'url(/images/workshop2.jpg)',
