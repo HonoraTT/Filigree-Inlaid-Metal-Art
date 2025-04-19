@@ -11,12 +11,12 @@ const Process = () => {
 
   const videoLinks = [
     {
-      title: "视频一：掐丝（荷花花形）",
-      url: "https://player.bilibili.com/player.html?bvid=BV1S44y1g7mr"
+      title: "视频一：工艺流程",
+      url: "/tech.vedio/vedio1.mp4"
     },
     {
       title: "视频二：传统手艺掐花丝",
-      url: "https://player.bilibili.com/player.html?bvid=BV1wE411C7Jm"
+      url: "/tech.vedio/vedio2.mp4"
     }
   ];
 
