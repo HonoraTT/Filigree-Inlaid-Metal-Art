@@ -89,7 +89,7 @@ export default function Login() {
   };
 
   const handleThirdPartyLogin = (provider) => {
-      window.location.href = `http://localhost:5001/api/auth/${provider}`;
+      window.location.href = `118.178.238.109:8000/api/auth/${provider}`;
   };
     
   return (

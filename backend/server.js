@@ -10,7 +10,7 @@ const connectDB = require('./config/db');
 
 // 初始化 Express 应用
 const app = express();
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 8000;
 
 // ======================
 // 安全中间件
