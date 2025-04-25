@@ -1,0 +1,11 @@
+.hot-recommend-bar {
+  background-image: linear-gradient(
+    to right,
+    rgba(139, 69, 69, 0.95),
+    rgba(139, 69, 69, 0.9)
+  );
+}
+
+.nav-item::before {
+  font-family: "FangSong", serif;
+} 
