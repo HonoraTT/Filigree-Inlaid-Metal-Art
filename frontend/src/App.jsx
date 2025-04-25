@@ -90,7 +90,6 @@ function App() {
             } />
             <Route path="/events" element={
               <>
-                <Header />
                 <Container>
                   <HeaderStyled></HeaderStyled>
                   <Events />
