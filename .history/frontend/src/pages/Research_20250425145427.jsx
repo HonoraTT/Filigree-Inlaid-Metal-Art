@@ -212,13 +212,6 @@ const News = () => {
         金丝银缕·匠心传承
         <span className="subtitle">花丝镶嵌有关动态</span>
       </motion.h1>
-      {/* 时间线分隔符 */}
-      <div className="timeline-divider">
-        <div className="timeline-line" />
-        <div className="deco-bead" />
-        <div className="deco-bead" />
-        <div className="deco-bead" />
-      </div>
 {/* 订阅部分 */}
 <section className="subscribe-section">
         <h2>订阅工艺动态</h2>
@@ -295,7 +288,13 @@ const News = () => {
             </motion.article>
           ))}
       </div>
-       
+       {/* 时间线分隔符 */}
+       <div className="timeline-divider">
+        <div className="timeline-line" />
+        <div className="deco-bead" />
+        <div className="deco-bead" />
+        <div className="deco-bead" />
+      </div>
 
       
     </div>

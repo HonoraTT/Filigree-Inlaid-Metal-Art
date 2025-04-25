@@ -148,7 +148,7 @@
   background: rgba(212, 175, 55, 0.046);
   border-radius: 15px;
   margin-top: 3rem;
-  transform: translateY(-20px); /* 元素向上移动10px */
+  
 }
 
 .subscribe-form {

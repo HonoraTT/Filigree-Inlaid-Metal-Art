@@ -120,7 +120,7 @@
 .timeline-divider {
   position: relative;
   height: 3px;
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
   background: linear-gradient(to right, 
     transparent 20%, 
     #d4af37 50%, 
@@ -148,7 +148,6 @@
   background: rgba(212, 175, 55, 0.046);
   border-radius: 15px;
   margin-top: 3rem;
-  transform: translateY(-20px); /* 元素向上移动10px */
 }
 
 .subscribe-form {

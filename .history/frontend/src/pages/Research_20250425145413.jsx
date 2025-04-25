@@ -212,32 +212,7 @@ const News = () => {
         金丝银缕·匠心传承
         <span className="subtitle">花丝镶嵌有关动态</span>
       </motion.h1>
-      {/* 时间线分隔符 */}
-      <div className="timeline-divider">
-        <div className="timeline-line" />
-        <div className="deco-bead" />
-        <div className="deco-bead" />
-        <div className="deco-bead" />
-      </div>
-{/* 订阅部分 */}
-<section className="subscribe-section">
-        <h2>订阅工艺动态</h2>
-        <p>第一时间获取展览资讯、工坊开放信息</p>
-        <div className="subscribe-form">
-          <input 
-            type="email" 
-            placeholder="输入您的电子邮箱" 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <button 
-            onClick={handleSubscribe}
-            disabled={isSubscribing}
-          >
-            {isSubscribing ? '订阅中...' : '订阅更新'}
-          </button>
-        </div>
-      </section>
+
       {/* 交互式导航 */}
       <nav className="news-nav">
         {['all', 'exhibition', 'workshop', 'research'].map((type) => (
@@ -295,9 +270,33 @@ const News = () => {
             </motion.article>
           ))}
       </div>
-       
+       {/* 时间线分隔符 */}
+       <div className="timeline-divider">
+        <div className="timeline-line" />
+        <div className="deco-bead" />
+        <div className="deco-bead" />
+        <div className="deco-bead" />
+      </div>
 
-      
+      {/* 订阅部分 */}
+      <section className="subscribe-section">
+        <h2>订阅工艺动态</h2>
+        <p>第一时间获取展览资讯、工坊开放信息</p>
+        <div className="subscribe-form">
+          <input 
+            type="email" 
+            placeholder="输入您的电子邮箱" 
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <button 
+            onClick={handleSubscribe}
+            disabled={isSubscribing}
+          >
+            {isSubscribing ? '订阅中...' : '订阅更新'}
+          </button>
+        </div>
+      </section>
     </div>
   );
 };

@@ -60,7 +60,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 15px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
   transition: transform 0.3s ease;
   flex: 1 1 calc(33.33% - 1.5rem);
   height: 400px;
@@ -98,7 +98,7 @@
   height: 100%; /* 设置容器高度为100% */
   filter: opacity(0.88); /* 设置背景图透明度 */
   border-radius: 15px;
-  color: #faf6f6; /* 设置文本为白色，增加可读性 */
+  color: #fff; /* 设置文本为白色，增加可读性 */
   z-index: 1;
  /* 使内容均匀分布，避免按钮重叠 */
 }
@@ -119,8 +119,8 @@
 
 .timeline-divider {
   position: relative;
-  height: 3px;
-  margin-top: 1.2rem;
+  height: 4px;
+  margin: 4rem 0;
   background: linear-gradient(to right, 
     transparent 20%, 
     #d4af37 50%, 
@@ -144,11 +144,10 @@
 
 .subscribe-section {
   text-align: center;
-  padding: 1.2rem;
-  background: rgba(212, 175, 55, 0.046);
+  padding: 1.3rem;
+  background: rgba(212,175,55,0.1);
   border-radius: 15px;
   margin-top: 3rem;
-  transform: translateY(-20px); /* 元素向上移动10px */
 }
 
 .subscribe-form {
