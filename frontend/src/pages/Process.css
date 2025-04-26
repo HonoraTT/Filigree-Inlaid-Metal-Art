@@ -157,6 +157,10 @@ footer {
     font-size: 18px;
     line-height: 1.5;
     color: #555;
+    text-align: justify;  /* 文本两端对齐 */
+    text-align-last: left;  /* 最后一行左对齐 */
+    text-justify: inter-word;  /* 使用单词间距调整来实现两端对齐 */
+    text-indent: 2em;  /* 保持首行缩进 */
   }
   
   /* 视频模态框 */

@@ -54,6 +54,8 @@ html, body {
   color: #444;
   line-height: 1.8;
   text-align: justify;
+  text-indent: 2em;
+  margin-bottom: 1rem;
   transform: none;
   border: none;
   border-top: none;
