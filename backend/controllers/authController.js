@@ -89,14 +89,15 @@ exports.login = async (req, res) => {
     console.log('收到登录请求:', req.body);
     const { username, email, phone, password, rememberMe } = req.body;
 
-    // 查找用户
-    const user = await User.findOne({
-      $or: [
-        { username: username || null },
-        { email: email || null },
-        { phone: phone || null }
-      ]
-    });
+    // 修正：只用传来的字段查找用户，避免串号
+    let user;
+    if (username) {
+      user = await User.findOne({ username });
+    } else if (email) {
+      user = await User.findOne({ email });
+    } else if (phone) {
+      user = await User.findOne({ phone });
+    }
 
     console.log('找到的用户:', user ? '存在' : '不存在');
 
