@@ -137,8 +137,11 @@
   font-size: 18px;
   color: #4b2e1c;
   font-family: 'Noto Serif SC', serif;
-  text-align: justify; /* 两端对齐 */
+  text-align: justify;
   line-height: 1.8;
+  text-indent: 2em;
+  margin: 0;
+  padding: 0;
 }
 
 /* 图片轮播样式 */
