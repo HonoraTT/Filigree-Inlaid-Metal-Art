@@ -3,6 +3,7 @@ import { useScroll, motion, useTransform } from "framer-motion";
 import GoldenParticles from "../components/ParticlesBackground";
 import DunhuangParallaxHeader from "../components/DunhuangParallaxHeader";
 import NavigationSection from "../components/NavigationSection";
+import HotRecommendation from "../components/HotRecommendation";
 
 const Home = () => {
   const containerRef = useRef(null);
@@ -109,8 +110,10 @@ const Home = () => {
       </div>
 
       {/* 导航区域 */}
-      <NavigationSection navItems={navItems}
-       />
+      <NavigationSection navItems={navItems} />
+      
+      {/* 添加热点推荐导航栏 */}
+      <HotRecommendation />
     </div>
   );
 };
