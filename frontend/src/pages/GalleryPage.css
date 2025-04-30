@@ -114,7 +114,7 @@
     opacity: 0;
   }
   50% {
-    transform: translateY(-20%);
+    transform: translateY(-30%); /* 增加弹跳幅度 */
     opacity: 1;
   }
   100% {
