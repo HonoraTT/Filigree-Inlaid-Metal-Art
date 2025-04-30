@@ -16,7 +16,10 @@ const ModelViewPage = () => {
 
   return (
     <div className="model-view-page">
-      <h2>{`展示模型: ${modelId}`}</h2>
+      <h2>
+        {`展示模型: ${modelId}`}
+        <span className="model-instruction">（拖拽3D模型进行旋转）</span>
+      </h2>
       <model-viewer
         src={modelPaths[modelId]}  // 动态加载模型
         alt="3D展示"

@@ -61,6 +61,13 @@
     opacity: 1;
   }
   
+  .click-to-view {
+    color: yellow;
+    text-decoration: underline;
+    display: block;
+    margin-top: 10px;
+  }
+  
   /* 响应式设计 */
   @media (max-width: 1024px) {
     .model-grid1 {

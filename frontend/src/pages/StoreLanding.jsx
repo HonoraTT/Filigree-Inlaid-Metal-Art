@@ -16,6 +16,12 @@ const StoreLanding = () => {
           <p>文创商品</p>
           <button onClick={() => navigate('/shop')}>进入商店</button>
         </div>
+        <div className="scroll-indicator">
+          <div className="arrow arrow-1"></div>
+          <div className="arrow arrow-2"></div>
+          <div className="arrow arrow-3"></div>
+          <p>向下进入藏品展示</p>
+        </div>
       </div>
 
       {/* 商品展示区 */}

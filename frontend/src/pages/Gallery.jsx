@@ -29,6 +29,10 @@ const Gallery = () => {
     navigate(`/model-detail`); 
   };
 
+  const handleModelViewClick = () => {
+    navigate('/model-view/祥龙衔珠花丝胸针'); // 默认展示第一个模型
+  };
+
   // 轮播图数据
   const slides = [
     { image: '/images/作品展示/轮播1.png',
@@ -213,9 +217,15 @@ const Gallery = () => {
   bounds="tight"
 />
         </div>
-        <div className="model-text-container" onClick={handleClick}>
+        <div className="model-text-container">
           <h2 className="section-title">3D展示</h2>
           <p className="section-subtitle">请使用鼠标拖拽旋转模型</p>
+          <button 
+            className="view-3d-button"
+            onClick={handleClick}
+          >
+            查看更多3D模型
+          </button>
         </div>
       </motion.div>
     </div>
