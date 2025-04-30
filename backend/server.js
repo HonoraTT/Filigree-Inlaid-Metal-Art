@@ -10,7 +10,7 @@ const connectDB = require('./config/db');
 
 // 初始化 Express 应用
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 
 // ======================
 // 安全中间件
@@ -39,11 +39,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // CORS配置
 app.use(cors({
-  origin: [
-    process.env.CLIENT_URL, // 前端生产环境域名
-    'http://localhost:3000' // 本地开发
-  ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: 'http://localhost:5173',
   credentials: true
 }));
 
@@ -92,71 +88,48 @@ app.get('/favicon.ico', (req, res) => res.status(204).end());
 // 业务路由
 const userRoutes = require('./routes/user');
 const authRoutes = require('./routes/auth');
+const subscribeRoutes = require('./src/routes/subscribe');
+
+// 添加路由调试信息
+console.log('正在加载路由...');
+console.log('Auth Routes:', authRoutes);
+console.log('User Routes:', userRoutes);
+console.log('Subscribe Routes:', subscribeRoutes);
+
 app.use('/api/users', userRoutes);
 app.use('/api/auth', authRoutes);
+app.use('/api', subscribeRoutes);
+
+// 添加路由调试中间件
+app.use((req, res, next) => {
+  console.log(`收到请求: ${req.method} ${req.path}`);
+  next();
+});
 
 // ======================
-// 错误处理中间件（增强版）
+// 错误处理中间件
 // ======================
 // 404处理
 app.use((req, res, next) => {
   res.status(404).json({
     status: 'error',
     code: 404,
-    message: 'Resource not found',
-    requestId: req.id
+    message: 'Resource not found'
   });
 });
 
 // 全局错误捕获
 app.use((err, req, res, next) => {
-  const statusCode = err.statusCode || 500;
-  const isProduction = process.env.NODE_ENV === 'production';
-  
-  console.error('🔥 Server Error:', {
-    message: err.message,
-    stack: isProduction ? undefined : err.stack,
-    path: req.path,
-    method: req.method,
-    timestamp: new Date().toISOString()
-  });
-
-  res.status(statusCode).json({
+  console.error('服务器错误:', err);
+  res.status(500).json({
     status: 'error',
-    code: statusCode,
-    message: isProduction && statusCode === 500 
-      ? 'Internal Server Error' 
-      : err.message,
-    ...(!isProduction && { stack: err.stack }) // 开发环境显示错误堆栈
+    message: '服务器内部错误'
   });
 });
 
 // ======================
 // 启动服务器
 // ======================
-const server = app.listen(PORT, () => {
-  console.log(`
-  ==================================
-  🚀 Server running in ${process.env.NODE_ENV || 'development'} mode
-  📡 Listening on port: ${PORT}
-  🗄️  Database: ${mongoose.connection.host || 'local'}
-  ==================================
-  `);
-});
-
-// 优雅关闭处理
-process.on('SIGTERM', () => {
-  console.log('🛑 Received SIGTERM. Shutting down gracefully...');
-  server.close(() => {
-    mongoose.connection.close(false, () => {
-      console.log('🔌 MongoDB connection closed');
-      process.exit(0);
-    });
-  });
-});
-
-// 未捕获的Promise异常处理
-process.on('unhandledRejection', (err) => {
-  console.error('💥 Unhandled Rejection:', err);
-  server.close(() => process.exit(1));
+app.listen(PORT, () => {
+  console.log(`服务器运行在端口 ${PORT}`);
 });

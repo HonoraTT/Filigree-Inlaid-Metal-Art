@@ -1,0 +1,305 @@
+/* 删除 footer */
+footer {
+    display: none;
+  }
+  
+  /* 基本页面样式 */
+.process-page {
+    font-family: 'Arial', sans-serif;
+    background-size: cover; /* 让背景图覆盖整个容器 */
+    background-position: center center; /* 背景图居中 */
+    background-attachment: fixed; /* 背景图固定，滚动时不随内容滚动 */
+    padding: 120px;
+    color: #fff; /* 如果背景较深，文字颜色改为白色 */
+    background-image: url('/images/敦煌1.png'); /* 这里是你的背景图路径 */
+    min-height: 100vh;  /* 添加最小高度为视口高度 */
+  }
+  
+  .animated-title {
+    font-size: 48px; /* 字体大小 */
+    font-weight: 600; /* 字体粗细 */
+    color: #8B4513; /* 原颜色 */
+    font-family: 'Noto Serif SC', 'Source Han Serif SC', 'Source Han Serif', 'source-han-serif-sc', 'PT Serif', 'SongTi SC', 'MicroSoft YaHei', serif; /* 字体 */
+    text-align: center; /* 居中 */
+    margin-top: -30px; /* 调整与页面顶部的距离 */
+    margin-bottom: 60px; /* 上下间距 */
+    margin-left: auto; /* 左右居中 */
+    margin-right: auto;
+}
+  
+/* 步骤内容的横向布局 */
+.step-layout-horizontal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 80px;
+    gap: 40px;
+    max-width: 850px;
+    height:550px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    background: rgba(255, 255, 255, 0.65);
+
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.step-layout-horizontal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0.1) 100%);
+    pointer-events: none;
+}
+
+.step-layout-horizontal::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 12px;
+    background: linear-gradient(45deg, 
+        transparent 0%,
+        rgba(212, 175, 55, 0.2) 50%,
+        transparent 100%);
+    pointer-events: none;
+    animation: shimmer 2s infinite;
+    opacity: 0.8;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.step-layout-horizontal:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+  
+  /* 文字内容的宽度设置 */
+  .step-text {
+    width: 50% !important;  /* 设置文字部分宽度 */
+    max-width: 600px !important;  /* 设置最大宽度 */
+    font-size: 17px;
+    line-height: 1.7;
+    color: #444;
+  }
+  
+  
+  /* 图片部分的宽度设置 */
+  .step-image {
+    width: 45%/* 设置图片部分宽度 */
+  }
+  
+  .step-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  .step-text h2 {
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  
+  /* Swiper 样式 */
+  .swiper-container {
+    min-height: 500px;  /* 添加最小高度 */
+    margin-bottom: 50px;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .step {
+    min-height: 400px;  /* 添加最小高度 */
+    width: 80%;
+    max-width: 900px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  
+  .step h2 {
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .step p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #555;
+  }
+  
+  /* 视频模态框 */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    width: 80%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow:rgba(0, 0, 0, 0.1);
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .close-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+/* 视频按钮区域 */
+.video-buttons {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 调整按钮之间的间距 */
+  }
+  
+  .video-button {
+    background-color: rgba(139, 69, 19, 0.8);
+    color: #fff;
+    border: 1px solid rgba(139, 69, 19, 0.5);
+    padding: 12px 20px;
+    width: 50px;
+    text-align: center;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    writing-mode: vertical-rl;
+    text-align: center;
+    transform: rotate(0deg);
+  }
+  
+  .video-button:hover {
+    background-color: rgba(139, 69, 19, 1);
+    border-color: rgba(139, 69, 19, 0.8);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .video-button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(139, 69, 19, 0.3);
+  }
+  
+  /* 页面布局容器 */
+  .content-box {
+    width: 50%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+  }
+  .swiper-button-prev,
+.swiper-button-next {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  z-index: 10 !important;
+  width: 60px !important;
+  height: 60px !important;
+  background: linear-gradient(135deg, rgba(139, 69, 19, 0.9), rgba(139, 69, 19, 0.7)) !important;
+  border-radius: 50% !important;
+  color: #fff !important;
+  font-size: 24px !important;
+  top: 50% !important;
+  transform: translateY(-50%);
+  cursor: pointer;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: linear-gradient(135deg, rgba(139, 69, 19, 1), rgba(139, 69, 19, 0.9)) !important;
+  transform: translateY(-50%) scale(1.1) !important;
+  box-shadow: 0 6px 20px rgba(139, 69, 19, 0.6) !important;
+  border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.swiper-button-prev {
+  left: 30px !important;
+}
+
+.swiper-button-next {
+  right: 30px !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 24px !important;
+  font-weight: bold !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1.2s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

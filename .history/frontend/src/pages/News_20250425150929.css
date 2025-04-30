@@ -1,0 +1,231 @@
+/* News.css */
+.news-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #f8f5f0; /* 古籍纸张底色 */
+}
+
+.main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #704214;
+  font-family: 'FangSong', serif;
+  position: relative;
+}
+
+.subtitle {
+  display: block;
+  font-size: 1.2rem;
+  color: #d4af37;
+  margin-top: 0.5rem;
+}
+
+.news-nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.nav-item {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #704214;
+  border-radius: 30px;
+  background: transparent;
+  color: #704214;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-item.active {
+  background: #704214;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(112,66,20,0.3);
+}
+
+.news-grid {
+  display: grid;                    /* 启用 CSS Grid 布局 */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 让列的宽度最小为 300px，最大为 1fr，且自动填充列 */
+  gap: 8rem ;                         /* 网格项之间的间距为 2rem (约 32px) */
+  padding: 2rem;                     /* 上下内边距为 2rem，左右无内边距 */
+  
+  width: 100%;                       /* 容器宽度为 100% */
+  max-width: 1200px;                 /* 容器最大宽度固定为 1200px */
+  margin: 0 auto;                    /* 水平居中容器 */
+}
+
+.news-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+  flex: 1 1 calc(33.33% - 1.5rem);
+  height: 400px;
+  min-width: 400px;
+  max-width: calc(33.33% - 1.5rem);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+.news-card:hover {
+  transform: translateY(-5px);
+}
+
+
+
+.meta-tag {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(73, 72, 72, 0.9);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.card-content {
+  flex: 1;
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-image: url(${item.image}); /* 设置背景图为图片 */
+  background-size: cover;
+  background-position: center center;
+  height: 100%; /* 设置容器高度为100% */
+  filter: opacity(0.88); /* 设置背景图透明度 */
+  border-radius: 15px;
+  color: #faf6f6; /* 设置文本为白色，增加可读性 */
+  z-index: 1;
+ /* 使内容均匀分布，避免按钮重叠 */
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.8rem 0;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+
+.timeline-divider {
+  position: relative;
+  height: 3px;
+  margin-top: 1.0rem;
+  background: linear-gradient(to right, 
+    transparent 20%, 
+    #d4af37 50%, 
+    transparent 80%
+  );
+}
+
+.deco-bead {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #704214;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.deco-bead:nth-child(1) { left: 30%; }
+.deco-bead:nth-child(2) { left: 50%; }
+.deco-bead:nth-child(3) { left: 70%; }
+
+.subscribe-section {
+  text-align: center;
+  padding: 1.2rem;
+  background: rgba(212, 175, 55, 0.046);
+  border-radius: 15px;
+  margin-top: 3rem;
+}
+
+.subscribe-form {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.0rem;
+}
+
+.subscribe-form input {
+  padding: 0.8rem;
+  border: 2px solid #704214;
+  border-radius: 30px;
+  min-width: 300px;
+}
+
+.subscribe-form button {
+  background: #704214;
+  color: white;
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .news-card {
+      flex: 1 1 calc(50% - 1.5rem); /* 在小屏幕下，每行显示两个卡片 */
+  }
+}
+
+@media (max-width: 576px) {
+  .news-card {
+      flex: 1 1 calc(100% - 1.5rem); /* 在更小的屏幕下，每行显示一个卡片 */
+  }
+}
+/* News.css */
+.collect-btn, .book-btn {
+  padding: 0.8rem 1.5rem;
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* 收藏按钮 */
+.collect-btn {
+  padding: 0.8rem 1.5rem;
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  background-color: rgba(212, 175, 55, 0.7); /* 使用柔和的淡金色 */
+  color: white;
+}
+
+/* 预约按钮 */
+.book-btn {
+  padding: 0.8rem 1.5rem;
+  margin-top: 10px;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  background-color: rgba(112, 66, 20, 0.7); /* 使用柔和的棕色 */
+  color: white;
+}
+
+.card-content .collect-btn, .card-content .book-btn {
+  margin-top: 20px;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}

@@ -21,9 +21,9 @@
     position: absolute;
     left: 50%;
     width: 2px;
+    height: 100%;
     background: linear-gradient(to bottom, #8B4513, #A0522D);
     transform: translateX(-50%);
-    transition: height 1s ease; /* 添加高度过渡动画 */
     box-shadow: 0 0 10px rgba(139, 69, 19, 0.3);
     animation: lineGlow 2s infinite alternate;
   }
@@ -85,7 +85,7 @@
 
   .content h3 {
     color: #2c3e50;
-    margin-bottom: 1rem;
+    margin-bottom: -0.7rem;
     position: relative;
     padding-bottom: 0.5rem;
     font-size: 1.5rem;

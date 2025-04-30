@@ -1,0 +1,63 @@
+/* Visit.css */
+
+.visit-page {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.visit-section {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  transition: flex 0.5s ease, transform 0.5s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.visit-section:hover {
+  flex: 1.5;
+  transform: scale(1.02);
+  z-index: 2;
+}
+
+.section-overlay {
+  
+  height: 100%;
+  width: 100%;
+  color: rgb(255, 255, 255);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.section-overlay h2 {
+  font-size: 2.7rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.section-overlay p {
+  font-size: 1..rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .visit-page {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .visit-section {
+    height: 50vh;
+  }
+
+  .visit-section:hover {
+    flex: unset;
+    transform: scale(1.01);
+  }
+}

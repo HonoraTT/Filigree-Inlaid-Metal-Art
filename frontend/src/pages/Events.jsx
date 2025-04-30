@@ -108,17 +108,7 @@ const Events = () => {
                 {index < artisans.length - 1 && <>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</>}
               </React.Fragment>
             ))}
-          </div>
-
-          {/* 查看更多链接 */}
-          <div className="p-more middle">
-            <a 
-              href="/character.html" 
-              className="link middle-cont"
-              onClick={handleMoreClick}
-            >
-              查看更多
-            </a>
+            
           </div>
         </div>
       </div>
