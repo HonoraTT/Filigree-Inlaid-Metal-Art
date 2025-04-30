@@ -15,7 +15,8 @@ const DunhuangParallaxHeader = ({ scrollProgress = { get: () => 0 } }) => {
     <div style={{
       position: "relative",
       height: "100vh",
-      width: "100vw"
+      width: "100vw",
+      overflow: "hidden" // 防止内容溢出
     }}>
       {/* 背景层 */}
       <motion.div 

@@ -15,6 +15,14 @@ const HotRecommendBar = styled.div`
   padding: 0 30px;
   z-index: 1000;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
   
   &::before {
     content: '';
@@ -29,6 +37,38 @@ const HotRecommendBar = styled.div`
   }
 `;
 
+const CloseButton = styled.button`
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+
+  &:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+
+  &::before {
+    content: '×';
+    line-height: 1;
+  }
+`;
+
 const Title = styled.div`
   color: #fff;
   font-size: 22px;
@@ -38,11 +78,23 @@ const Title = styled.div`
   justify-content: center;
   min-width: 120px;
   font-family: "FangSong", serif;
+  position: relative;
   
   &::before {
     content: '◆';
     margin-right: 10px;
     font-size: 14px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 24px;
+    width: 1px;
+    background: rgba(255, 255, 255, 0.3);
   }
 `;
 
@@ -52,6 +104,7 @@ const NavItems = styled.div`
   justify-content: center;
   gap: 60px;
   flex: 0 auto;
+  margin-left: 40px;
 `;
 
 const NavItem = styled.div`
@@ -74,21 +127,28 @@ const NavItem = styled.div`
   }
 `;
 
-const CloseButton = styled.button`
-  background: none;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 5px;
-  
-  &:hover {
-    color: #ffd700;
-  }
-`;
-
 const HotRecommendation = () => {
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = React.useState(false);
+  const [isClosed, setIsClosed] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (!isClosed) {
+        const windowHeight = window.innerHeight;
+        const scrollY = window.scrollY;
+        setIsVisible(scrollY >= windowHeight);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isClosed]);
+
+  const handleClose = () => {
+    setIsClosed(true);
+    setIsVisible(false);
+  };
 
   const navItems = [
     { title: '作品展示', path: '/gallery' },
@@ -96,8 +156,12 @@ const HotRecommendation = () => {
     { title: '工艺特点', path: '/visit/features' }
   ];
 
+  if (isClosed) {
+    return null;
+  }
+
   return (
-    <HotRecommendBar>
+    <HotRecommendBar className={isVisible ? 'visible' : ''}>
       <Title>热点推荐</Title>
       <NavItems>
         {navItems.map((item, index) => (
@@ -106,6 +170,7 @@ const HotRecommendation = () => {
           </NavItem>
         ))}
       </NavItems>
+      <CloseButton onClick={handleClose} aria-label="关闭热点推荐" />
     </HotRecommendBar>
   );
 };

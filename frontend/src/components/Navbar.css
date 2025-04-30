@@ -52,12 +52,14 @@
 .custom-menu.ant-menu-horizontal > .ant-menu-item:hover {
   color: #ffd700 !important;
   background: transparent !important;
+  transition: color 0.3s ease;
 }
 
 /* 链接样式 */
 .custom-menu.ant-menu-item a {
   color: inherit !important;
   display: block;
+  
 }
 
 /* 响应式调整 */
@@ -79,12 +81,7 @@
   }
 }
 
-.custom-menu.ant-menu-horizontal > .ant-menu-item:hover {
-  color: #ffd700 !important;
-  background: transparent !important;
-}
-
-/* 新增：设置选中/点击状态 */
+/* 确保选中状态也保持金色文字 */
 .custom-menu .ant-menu-item-selected,
 .custom-menu .ant-menu-item-selected:hover {
   background-color: rgba(183, 50, 50, 0.3) !important;
@@ -200,7 +197,7 @@ body {
 }
 
 .custom-menu .ant-menu-item:hover {
-  color: #1890ff !important;
+  color: #ffd700 !important;
 }
 
 .custom-menu .ant-menu-item a {
@@ -208,7 +205,7 @@ body {
 }
 
 .custom-menu .ant-menu-item a:hover {
-  color: #1890ff !important;
+  color: #ffd700 !important;
 }
 
 .menu-actions {
