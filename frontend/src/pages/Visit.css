@@ -22,11 +22,9 @@
 }
 
 .section-overlay {
-  
   height: 100%;
   width: 100%;
   color: rgb(255, 255, 255);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,13 +35,75 @@
 
 .section-overlay h2 {
   font-size: 2.7rem;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.section-overlay p {
-  font-size: 1rem;
-  opacity: 0.8;
+.section-overlay .details-btn {
+  margin-top: 15px;
+  padding: 10px 25px;
+  background: linear-gradient(145deg, rgba(212, 175, 55, 0.9), rgba(243, 189, 55, 0.9));
+  color: #f4f0f0;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  font-family: "FangSong", serif;
+  letter-spacing: 2px;
+}
+
+.section-overlay .details-btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: left 0.7s ease;
+}
+
+.section-overlay .details-btn:hover {
+  background: linear-gradient(145deg, rgba(212, 175, 55, 1), rgba(184, 134, 11, 1));
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 215, 0, 0.8);
+}
+
+.section-overlay .details-btn:hover:before {
+  left: 100%;
+}
+
+.section-overlay .details-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.section-overlay .details-btn::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.section-overlay .details-btn:hover::after {
+  opacity: 1;
+  transform: translate(3px, -50%);
 }
 
 @media (max-width: 768px) {
