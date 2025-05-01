@@ -110,11 +110,11 @@
 /* 添加新的动画类 */
 @keyframes bounceUp {
   0% {
-    transform: translateY(100%);
+    transform: translateY(200%);
     opacity: 0;
   }
   50% {
-    transform: translateY(-20%);
+    transform: translateY(-50%);
     opacity: 1;
   }
   100% {
@@ -131,7 +131,7 @@
   position: relative;
   z-index: 2;
   animation: bounceUp 1.5s ease-out forwards;
-  margin-top: -213px; /* 增加负边距使其更靠上，与轮播图重叠 */
+  margin-top: -50px; /* 减小负边距，减少与轮播图的重叠 */
 }
 
 .section-title {
@@ -140,7 +140,7 @@
   margin-bottom: 15px;
   position: relative;
   display: inline-block;
-  margin-top: 100px; /* 增加顶部边距，确保标题在轮播图范围内 */
+  margin-top: 30px; /* 减小顶部边距，减少与轮播图的重叠 */
 }
 
 .section-title::after {
