@@ -114,44 +114,52 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #ffffff; /* 改为金色 */
+  color: #ffffff;
   text-align: center;
   background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem; /* 固定间距为2rem */
 }
 
 .store-landing h1 {
-  font-size: 7rem;  /* 增大字体大小 */
+  font-size: 9rem;
   font-weight: bold;
   background-attachment: fixed;
   color:#ebcd6c;
-  font-family: "华文行楷", "STXingkai", "SimSun", serif;  /* 添加中国风字体 */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* 添加文字阴影增加立体感 */
-  letter-spacing: 8px;  /* 增加字间距 */
-  line-height: 1.4;  /* 增加行高 */
-  word-spacing: 12px;  /* 增加词间距 */
-  padding: 0 20px;  /* 添加内边距 */
+  font-family: "华文行楷", "STXingkai", "SimSun", serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 8px;
+  line-height: 1.4;
+  word-spacing: 12px;
+  padding: 0 20px;
+  margin: 0;
+  margin-bottom: 1rem; /* 添加固定下边距 */
 }
 
 .store-landing p {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   background-attachment: fixed;
   color:#ebcd6c;
-  font-family: "华文行楷", "STXingkai", "SimSun", serif;  /* 添加中国风字体 */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);  /* 添加文字阴影增加立体感 */
-  letter-spacing: 2px;  /* 增加字间距 */
-  margin-bottom: 0.5rem;  /* 减小与按钮的间距 */
+  font-family: "华文行楷", "STXingkai", "SimSun", serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  margin: 0;
+  margin-bottom: 1rem; /* 添加固定下边距 */
 }
 
 .store-landing button {
-  margin-top: 0.5rem;  /* 减小上边距 */
   padding: 12px 24px;
-  background: #7d6001; /* 改为金色 */
+  background: #7d6001;
   color: #ffffff;
   border: none;
   cursor: pointer;
   background-attachment: fixed;
-  transition: transform 0.3s ease; /* 添加过渡效果 */
+  transition: transform 0.3s ease;
+  margin: 0;
+  margin-bottom: 1rem; /* 添加固定下边距 */
 }
 
 .store-landing button:hover {
@@ -162,21 +170,22 @@
 /* 动态指引箭头样式 */
 .scroll-indicator {
   position: absolute;
-  bottom: 60px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 0.8rem; /* 固定箭头和文字之间的间距 */
   z-index: 10;
 }
 
 .scroll-indicator p {
-  color: #ebcd6c;  /* 改为金色 */
-  font-size: 1rem;
+  color: #ebcd6c;
+  font-size: 1.5rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
-  margin-bottom: 0px;
+  margin: 0;
+  margin-bottom: 0.5rem; /* 添加固定下边距 */
 }
 
 .arrow {
