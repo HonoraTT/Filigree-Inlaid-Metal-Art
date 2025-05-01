@@ -39,7 +39,7 @@ const Visit = () => {
         >
           <div className="section-overlay">
             <h2>{section.title}</h2>
-            <p>点击查看详情</p>
+            <button className="details-btn">查看详情</button>
           </div>
         </div>
       ))}
