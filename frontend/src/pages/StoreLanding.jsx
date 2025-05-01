@@ -12,12 +12,14 @@ const StoreLanding = () => {
         style={{ backgroundImage: `url(/images/文创商店/banner.png)` }}
       >
         <div className="hero-text">
-          <h1>花丝镶嵌</h1>
-          <p>文创商品</p>
+          <div className="title-container">
+            <h1 style={{ fontFamily: 'HuaSiFont' }}>千年丝缕·镶嵌东方」</h1>
+            <h2 style={{ fontFamily: 'HuaSiFont' }}>——花丝镶嵌艺术典藏</h2>
+          </div>
           <button onClick={() => navigate('/shop')}>进入商店</button>
         </div>
         <div className="scroll-indicator">
-          <p>向下进入藏品展示</p>
+          <p style={{ fontFamily: 'HuaSiFont' }}>向下进入藏品展示</p>
           <div className="arrow arrow-1"></div>
           <div className="arrow arrow-2"></div>
           <div className="arrow arrow-3"></div>

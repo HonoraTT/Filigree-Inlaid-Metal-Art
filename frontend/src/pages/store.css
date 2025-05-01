@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'HuaSiFont';
+  src: url('/fonts/HuaSiFont.ttf') format('truetype');
+}
+
 /* 商品详情页样式 */
 .product-detail {
   display: flex;
@@ -139,7 +144,7 @@
 }
 
 .store-landing p {
-  font-size: 2.5rem;
+  font-size: 2.0rem;
   font-weight: bold;
   background-attachment: fixed;
   color:#ebcd6c;
@@ -510,4 +515,38 @@
 .login-required:hover {
   background-color: #e8e8e8 !important;
   color: #333 !important;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-left: 50px; /* 添加左侧内边距，使标题向左移动 */
+}
+
+.title-container h1 {
+  font-size: 9rem;
+  font-weight: bold;
+  color: #ebcd6c;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 8px;
+  line-height: 1.4;
+  word-spacing: 12px;
+  padding: 0 20px;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  white-space: nowrap;
+}
+
+.title-container h2 {
+  font-size: 3.0rem;  /* 从2.0rem增加到3.0rem */
+  font-weight: bold;
+  color: #ebcd6c;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  margin: 0;
+  margin-bottom: 1rem;
+  text-align: right;  /* 添加右对齐 */
+  padding-right: 2rem;  /* 添加右侧内边距 */
 }
