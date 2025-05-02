@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '118.178.238.109:8000', // 后端API地址
+  baseURL: 'http://118.178.238.109:8000', // 后端API地址
   withCredentials: false,
   headers: {
     'Content-Type': 'application/json',
