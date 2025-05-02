@@ -108,15 +108,27 @@
 /* 首页横幅样式 */
 .store-landing .hero-image {
   height: 100vh;
+  position: relative;
+  overflow: hidden; /* 确保模糊效果不溢出 */
+  background-attachment: fixed;
+}
+
+/* 模糊背景图层 */
+.blur-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
-  position: relative;
-  background-attachment: fixed;
+  filter: blur(5px); /* 应用模糊效果 */
+  z-index: 0; /* 确保在内容下层 */
 }
 
 .store-landing .hero-text {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
@@ -126,6 +138,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem; /* 固定间距为2rem */
+  z-index: 1; /* 确保在模糊背景之上 */
 }
 
 .store-landing h1 {
@@ -156,20 +169,30 @@
 }
 
 .store-landing button {
-  padding: 12px 24px;
-  background: #7d6001;
+  padding: 14px 30px;
+  background: linear-gradient(145deg, #9e7802, #f5d76e);
   color: #ffffff;
   border: none;
   cursor: pointer;
-  background-attachment: fixed;
-  transition: transform 0.3s ease;
-  margin: 0;
-  margin-bottom: 1rem; /* 添加固定下边距 */
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 215, 0, 0.4);
+  transition: all 0.3s ease;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-top: 1rem;
 }
 
 .store-landing button:hover {
-  transform: scale(1.1); /* 悬浮时放大1.1倍 */
-  background: #8d7001; /* 悬浮时稍微改变背景色 */
+  transform: scale(1.05) translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.6);
+  background: linear-gradient(145deg, #b48d02, #f9e287);
+}
+
+.store-landing button:active {
+  transform: scale(1) translateY(0);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* 动态指引箭头样式 */
@@ -181,51 +204,49 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem; /* 固定箭头和文字之间的间距 */
-  z-index: 10;
+  z-index: 1; /* 确保在模糊背景之上 */
+  cursor: pointer;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
 }
 
 .scroll-indicator p {
-  color: #ebcd6c;
+  color: rgb(247, 245, 243);
   font-size: 1.5rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   margin: 0;
-  margin-bottom: 0.5rem; /* 添加固定下边距 */
+  margin-bottom: 10px;
+  font-family: "FangSong", serif;
 }
 
-.arrow {
-  width: 30px;
-  height: 30px;
-  border-right: 2px solid #ebcd6c;  /* 改为金色 */
-  border-bottom: 2px solid #ebcd6c;  /* 改为金色 */
-  transform: rotate(45deg);
-  animation: arrowAnimation 2s infinite;
-  opacity: 0;
+.arrow-icon {
+  font-size: 32px;
+  margin-bottom: 20px;
+  animation: bounce 2s infinite;
+  color: #fff;
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(255, 255, 255, 0.6),
+    0 0 40px rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.3);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
 }
 
-.arrow-1 {
-  animation-delay: 0s;
-}
-
-.arrow-2 {
-  animation-delay: 0.2s;
-}
-
-.arrow-3 {
-  animation-delay: 0.4s;
-}
-
-@keyframes arrowAnimation {
-  0% {
-    opacity: 0;
-    transform: rotate(45deg) translate(-10px, -10px);
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
   }
-  50% {
-    opacity: 1;
+  40% {
+    transform: translateY(-10px);
   }
-  100% {
-    opacity: 0;
-    transform: rotate(45deg) translate(10px, 10px);
+  60% {
+    transform: translateY(-5px);
   }
 }
 

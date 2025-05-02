@@ -4,25 +4,31 @@ import './store.css';
 
 const StoreLanding = () => {
   const navigate = useNavigate();
+  
+  // 处理滚动事件
+  const handleScroll = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="store-landing">
-      <div
-        className="hero-image"
-        style={{ backgroundImage: `url(/images/文创商店/banner.png)` }}
-      >
+      <div className="hero-image">
+        {/* 模糊背景图 */}
+        <div className="blur-bg" style={{ backgroundImage: `url(/images/文创商店/banner.png)` }}></div>
+        {/* 原始内容 */}
         <div className="hero-text">
           <div className="title-container">
-            <h1 style={{ fontFamily: 'HuaSiFont' }}>千年丝缕·镶嵌东方」</h1>
+            <h1 style={{ fontFamily: 'HuaSiFont' }}>千年丝缕·镶嵌东方</h1>
             <h2 style={{ fontFamily: 'HuaSiFont' }}>——花丝镶嵌艺术典藏</h2>
           </div>
           <button onClick={() => navigate('/shop')}>进入商店</button>
         </div>
-        <div className="scroll-indicator">
-          <p style={{ fontFamily: 'HuaSiFont' }}>向下进入藏品展示</p>
-          <div className="arrow arrow-1"></div>
-          <div className="arrow arrow-2"></div>
-          <div className="arrow arrow-3"></div>
+        <div className="scroll-indicator" onClick={handleScroll}>
+          <p>向下滑动进入藏品展示</p>
+          <i className="fas fa-chevron-down arrow-icon"></i>
         </div>
       </div>
 
