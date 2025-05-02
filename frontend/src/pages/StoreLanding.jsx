@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import './store.css';
 
 const StoreLanding = () => {
   const navigate = useNavigate();
   
+  // 添加标题设置的 useEffect
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = '文创商店';
+    
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
+
   // 处理滚动事件
   const handleScroll = () => {
     window.scrollTo({

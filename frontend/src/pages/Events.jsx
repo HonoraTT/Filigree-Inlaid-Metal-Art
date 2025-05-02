@@ -47,6 +47,15 @@ const Events = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = '匠人档案';
+    
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
+
   const handleHover = (artisan) => {
     setHoveredArtisan(artisan);
   };

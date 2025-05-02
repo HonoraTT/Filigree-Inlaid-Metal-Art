@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -8,6 +8,16 @@ import './Process.css';
 const Process = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [videoUrl, setVideoUrl] = useState("");
+
+  // 添加标题设置的 useEffect
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = '工艺流程';
+    
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
 
   const videoLinks = [
     {

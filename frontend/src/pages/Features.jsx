@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';  // 核心样式
 import 'swiper/css/navigation';  // 导入导航样式
@@ -16,6 +16,16 @@ const Features = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   const [fade, setFade] = useState(false);
   const swiperRef = useRef(null);  // 创建 swiper 引用
+
+  // 添加标题设置的 useEffect
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = '工艺特点';
+    
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
 
   const featuresData = [
     {

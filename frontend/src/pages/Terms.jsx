@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Terms.css';
 
 const termsData = [
@@ -12,6 +12,15 @@ const termsData = [
 
 const Terms = () => {
   const [hoveredTerm, setHoveredTerm] = useState(null);
+
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = '术语解释';
+    
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
 
   return (
     <div className="terms-container">

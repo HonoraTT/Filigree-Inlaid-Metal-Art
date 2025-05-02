@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import './GalleryPage.css';
@@ -11,6 +11,17 @@ const Gallery = () => {
   const navigate = useNavigate();
   const [active3DView, setActive3DView] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+
+  // 添加 useEffect 来设置页面标题
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = '作品展示';
+    
+    // 组件卸载时恢复原标题
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
 
   // 创建三个部分的ref
   const carouselRef = useRef(null);

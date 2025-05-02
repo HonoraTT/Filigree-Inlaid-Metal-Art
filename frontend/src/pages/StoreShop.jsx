@@ -22,6 +22,16 @@ const StoreShop = () => {
   const [priceRange, setPriceRange] = useState([0, 10000]);
   const [searchQuery, setSearchQuery] = useState("");
   
+  // 添加标题设置的 useEffect
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = '文创商店';
+    
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
+
   // 从 localStorage 获取购物车数据
   const [cart, setCart] = useState(() => {
     if (user) {

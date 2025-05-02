@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Visit.css';
 
@@ -27,6 +27,17 @@ const sections = [
 
 const Visit = () => {
   const navigate = useNavigate();
+
+  // 添加 useEffect 来设置页面标题
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = '工艺百科';
+    
+    // 组件卸载时恢复原标题
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
 
   return (
     <div className="visit-page">

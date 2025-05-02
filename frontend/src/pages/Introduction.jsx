@@ -4,6 +4,16 @@ import './Introduction.css';
 const Introduction = () => {
   const timelineContainerRef = useRef(null);
 
+  // 添加标题设置的 useEffect
+  useEffect(() => {
+    const originalTitle = document.title;
+    document.title = '工艺介绍';
+    
+    return () => {
+      document.title = originalTitle;
+    };
+  }, []);
+
   useEffect(() => {
     // 滚动动画处理
     const handleScroll = () => {
