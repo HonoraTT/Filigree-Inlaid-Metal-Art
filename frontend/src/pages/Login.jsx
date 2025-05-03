@@ -89,7 +89,7 @@ export default function Login() {
   };
 
   const handleThirdPartyLogin = (provider) => {
-      window.location.href = `https://118.178.238.109:8000/api/auth/${provider}`;
+      window.location.href = `https://filigree.wanheit.com/api/auth/${provider}`;
   };
     
   return (

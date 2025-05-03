@@ -174,7 +174,7 @@ const News = () => {
 
     setIsSubscribing(true);
     try {
-        const response = await fetch('http://118.178.238.109:8000/api/subscribe', {
+        const response = await fetch('https://filigree.wanheit.com/api/subscribe', {
 
         method: 'POST',
         headers: {
